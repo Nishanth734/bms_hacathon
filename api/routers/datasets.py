@@ -91,10 +91,25 @@ async def upload_dataset(
             total_volume=0.0,
             currency="ETH" if schema_type == "nft" else "USD",
             file_path=str(dest_path.resolve()),
-            status="ready"
+            status="processing"
         )
         db.add(dataset_rec)
         db.commit()
+
+        # Execute full forensic pipeline immediately to populate transactions, wallets, clusters, cases, and graphs
+        from traceflow.pipeline_runner import run_analysis_pipeline
+        run_analysis_pipeline(
+            file_path=str(dest_path.resolve()),
+            dataset_name=name,
+            dataset_id=ds_id
+        )
+
+        # Set as the active dataset immediately
+        set_active_dataset_id(ds_id)
+
+        # Expire local session cache to read freshly persisted stats
+        db.expire_all()
+        updated_ds = db.query(DatasetModel).filter(DatasetModel.id == ds_id).first()
 
         # Preview rows as list of dicts
         preview_rows = df_preview.to_dicts()
@@ -102,9 +117,13 @@ async def upload_dataset(
         return {
             "status": "uploaded",
             "dataset_id": ds_id,
+            "active_dataset_id": ds_id,
             "name": name,
             "schema_type": schema_type,
-            "row_count": row_count,
+            "row_count": updated_ds.row_count if updated_ds else row_count,
+            "wallet_count": updated_ds.wallet_count if updated_ds else 0,
+            "total_volume": updated_ds.total_volume if updated_ds else 0.0,
+            "currency": updated_ds.currency if updated_ds else ("ETH" if schema_type == "nft" else "USD"),
             "columns": columns,
             "preview": preview_rows
         }

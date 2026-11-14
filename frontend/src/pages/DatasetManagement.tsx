@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import type { DatasetItem } from '../types';
+import type { DatasetItem, PageView } from '../types';
 import { uploadDataset, deleteDataset } from '../services/api';
 
 interface DatasetManagementProps {
   datasets: DatasetItem[];
   activeDatasetId: string;
   onRefresh: () => void;
-  onSelectDataset: (id: string) => void;
+  onSelectDataset: (id: string) => Promise<void> | void;
+  onNavigate?: (view: PageView) => void;
 }
 
 export const DatasetManagement: React.FC<DatasetManagementProps> = ({
@@ -14,6 +15,7 @@ export const DatasetManagement: React.FC<DatasetManagementProps> = ({
   activeDatasetId,
   onRefresh,
   onSelectDataset,
+  onNavigate,
 }) => {
   const [file, setFile] = useState<File | null>(null);
   const [customName, setCustomName] = useState('');
@@ -43,6 +45,8 @@ export const DatasetManagement: React.FC<DatasetManagementProps> = ({
       setUploadResult(res);
       setFile(null);
       setCustomName('');
+      // Dynamically select and activate the newly uploaded dataset
+      await onSelectDataset(res.dataset_id);
       onRefresh();
     } catch (err: any) {
       setError(err.message || 'Upload failed');
@@ -219,18 +223,72 @@ export const DatasetManagement: React.FC<DatasetManagementProps> = ({
             <div
               style={{
                 marginTop: '10px',
-                padding: '12px',
+                padding: '14px 16px',
                 backgroundColor: 'var(--color-bg-mint)',
                 borderRadius: 'var(--radius-card)',
                 border: '1px solid var(--color-teal-mid)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
               }}
             >
-              <div style={{ fontWeight: 600, color: 'var(--color-teal-deep)', fontSize: '12px' }}>
-                ✓ {uploadResult.name} uploaded successfully
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontWeight: 700, color: 'var(--color-teal-deep)', fontSize: '13px' }}>
+                  ✓ {uploadResult.name} Ingested & Analyzed
+                </span>
+                <span
+                  style={{
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    backgroundColor: 'var(--color-teal-deep)',
+                    color: '#ffffff',
+                    padding: '2px 8px',
+                    borderRadius: 'var(--radius-pill)',
+                  }}
+                >
+                  NOW ACTIVE
+                </span>
               </div>
-              <div style={{ fontSize: '11px', color: 'var(--color-ink)', marginTop: '4px' }}>
-                Detected: <strong>{uploadResult.schema_type.toUpperCase()}</strong> schema · {uploadResult.row_count} records validated.
+              <div style={{ fontSize: '12px', color: 'var(--color-ink)' }}>
+                Detected: <strong>{uploadResult.schema_type.toUpperCase()}</strong> schema &bull; {uploadResult.row_count} records validated &bull; {uploadResult.wallet_count || 'All'} wallets mapped.
               </div>
+              <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)' }}>
+                All fraud rings, SCC components, and forensic cases have been dynamically computed.
+              </div>
+              {onNavigate && (
+                <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+                  <button
+                    onClick={() => onNavigate('dashboard')}
+                    style={{
+                      padding: '5px 12px',
+                      borderRadius: 'var(--radius-pill)',
+                      backgroundColor: 'var(--color-teal-deep)',
+                      color: '#ffffff',
+                      border: 'none',
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    View in Dashboard &rarr;
+                  </button>
+                  <button
+                    onClick={() => onNavigate('graph')}
+                    style={{
+                      padding: '5px 12px',
+                      borderRadius: 'var(--radius-pill)',
+                      backgroundColor: '#ffffff',
+                      color: 'var(--color-teal-deep)',
+                      border: '1px solid var(--color-teal-deep)',
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Inspect in Graph &rarr;
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>

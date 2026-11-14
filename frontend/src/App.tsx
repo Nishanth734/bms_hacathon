@@ -198,6 +198,7 @@ export const App: React.FC = () => {
               loadDatasetData(activeDatasetId);
             }}
             onSelectDataset={handleSelectDataset}
+            onNavigate={setCurrentView}
           />
         )}
 
