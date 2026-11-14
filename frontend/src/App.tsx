@@ -257,9 +257,14 @@ export const App: React.FC = () => {
                 borderBottom: '1px solid var(--color-bg-sand)',
               }}
             >
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 600 }}>
-                Four-Way Ablation Benchmark
-              </h2>
+              <div>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 600, margin: 0 }}>
+                  Algorithmic Forensic Benchmark
+                </h2>
+                <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                  4-way comparative performance across baseline thresholding, SCC graph decomposition, and TraceFlow multi-hop pipeline.
+                </div>
+              </div>
               <button
                 onClick={() => setShowAblationModal(false)}
                 style={{

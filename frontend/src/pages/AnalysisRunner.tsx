@@ -109,7 +109,7 @@ export const AnalysisRunner: React.FC<AnalysisRunnerProps> = ({
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontWeight: 500 }}>
-                <span>Sliding Time Window ($\Delta T$)</span>
+                <span>Sliding Time Window</span>
                 <span style={{ color: 'var(--color-teal-deep)', fontWeight: 700 }}>{windowHours} Hours</span>
               </div>
               <input
@@ -128,7 +128,7 @@ export const AnalysisRunner: React.FC<AnalysisRunnerProps> = ({
 
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontWeight: 500 }}>
-                <span>Max Mule Relay Dwell Time ($d(v)$)</span>
+                <span>Max Mule Dwell Time</span>
                 <span style={{ color: 'var(--color-teal-deep)', fontWeight: 700 }}>{maxDwellHours} Hours</span>
               </div>
               <input
@@ -141,13 +141,13 @@ export const AnalysisRunner: React.FC<AnalysisRunnerProps> = ({
                 style={{ width: '100%', marginTop: '6px' }}
               />
               <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)' }}>
-                Mule intermediate addresses typically hold and forward funds within $\le 1$ hour.
+                Intermediary mule addresses typically forward incoming funds in under 1 hour.
               </div>
             </div>
 
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontWeight: 500 }}>
-                <span>Flow Retention Conservation Band</span>
+                <span>Capital Retention Band</span>
                 <span style={{ color: 'var(--color-teal-deep)', fontWeight: 700 }}>
                   [{retentionLow}, {retentionHigh}]
                 </span>

@@ -87,76 +87,118 @@ export const FraudDetection: React.FC<FraudDetectionProps> = ({
           <div style={{ fontSize: '13px', color: 'var(--color-ink-secondary)', marginTop: '8px', lineHeight: 1.6 }}>
             {activeTab === 'wash_trading' && (
               <>
-                Wash trading in digital assets occurs when coordinated sybil accounts execute reciprocal transactions
-                of the same NFT token (`token_id`) without altering the ultimate economic beneficiary. This is executed
-                to manipulate floor prices on secondary marketplaces or exploit token reward emissions (liquidity mining).
+                Wash trading occurs when coordinated sybil accounts execute reciprocal transactions
+                of the same NFT token without altering the ultimate economic beneficiary. This is executed
+                to manipulate floor prices on secondary marketplaces or artificially manufacture trading volume.
               </>
             )}
             {activeTab === 'cycle' && (
               <>
-                A cyclic laundering ring routes funds through intermediate accounts $A \to B \to C \dots \to A$. Unlike
-                static graph algorithms which produce false positive cycles, TraceFlow enforces strict causal temporal order:
-                $t(e_1) &lt; t(e_2) &lt; \dots &lt; t(e_k) \le t(e_1) + \Delta T$.
+                A cyclic laundering ring routes funds through a carousel of intermediate accounts before returning to origin.
+                Unlike static graph tools that flag harmless loops, TraceFlow enforces causal temporal ordering:
+                each transfer must happen strictly after the previous one, completing the loop within a verified time window.
               </>
             )}
             {activeTab === 'pass_through' && (
               <>
-                Mule relay chains consist of linear sequences of transient intermediary wallets used to obfuscate the
-                origin of stolen or mixer-extracted funds. Intermediaries hold funds for minimal durations (dwell time &le; 1 hour)
-                and retain almost 100% of the principal value (retention ratio &isin; [0.85, 1.0]).
+                Mule relay chains consist of linear sequences of transient intermediary accounts used to obscure the
+                origin of illicit funds. Intermediaries hold funds for minimal durations (under 1 hour)
+                and pass along almost the entire principal value (85% to 105% retention ratio).
               </>
             )}
             {activeTab === 'fan_out' && (
               <>
-                Structuring (smurfing) breaks a large pool of capital into many sub-threshold tranches sent to multiple
-                counterparties ($k \ge 5$) within a compressed time window, aiming to evade single-transaction threshold triggers.
+                Structuring (smurfing) breaks a large capital pool into multiple smaller tranches sent to several
+                counterparties (5 or more accounts) within a short window, deliberately evading single-transaction reporting thresholds.
               </>
             )}
           </div>
         </div>
 
-        {/* Mathematical Invariants */}
+        {/* Structured Forensic Detection Rules */}
         <div
           style={{
-            padding: '16px',
+            padding: '18px 20px',
             backgroundColor: 'var(--color-bg-cream)',
             borderRadius: 'var(--radius-card)',
             border: '1px solid var(--color-linen)',
             fontSize: '12px',
           }}
         >
-          <div style={{ fontWeight: 600, color: 'var(--color-ink)', textTransform: 'uppercase', fontSize: '11px' }}>
-            Mathematical Detection Criteria
+          <div style={{ fontWeight: 700, color: 'var(--color-ink)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.04em' }}>
+            Forensic Detection Rules
           </div>
-          <div style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {activeTab === 'wash_trading' && (
               <>
-                <div>• <strong>Token Invariant:</strong> <code>token_id(e_i) == token_id(e_j)</code></div>
-                <div>• <strong>Reciprocity:</strong> <code>seller(e_j) in buyers(e_1..e_j-1)</code></div>
-                <div>• <strong>Window Bound:</strong> <code>t_end - t_start &le; 72 Hours</code></div>
-                <div>• <strong>Economic Impact:</strong> <code>Net Change in Ownership == 0</code></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Token ID:</span>
+                  <span style={{ fontWeight: 600 }}>Identical NFT token across all sales</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Reciprocity:</span>
+                  <span style={{ fontWeight: 600 }}>Seller appears in prior buyer set</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Time Window:</span>
+                  <span style={{ fontWeight: 600 }}>Completed within 72 hours</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Beneficial Change:</span>
+                  <span style={{ fontWeight: 700, color: '#dc2626' }}>Zero net economic transfer</span>
+                </div>
               </>
             )}
             {activeTab === 'cycle' && (
               <>
-                <div>• <strong>Temporal Monotonicity:</strong> <code>t(e_1) &lt; t(e_2) &lt; ... &lt; t(e_k)</code></div>
-                <div>• <strong>Closed Loop:</strong> <code>dst(e_k) == src(e_1)</code></div>
-                <div>• <strong>Length:</strong> <code>3 &le; k &le; 5 Accounts</code></div>
-                <div>• <strong>Window Bound:</strong> <code>&Delta;T &le; 24.0 Hours</code></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Time Order:</span>
+                  <span style={{ fontWeight: 600 }}>Strict forward sequence (Hop 1 &rarr; Hop 2 &rarr; Hop 3)</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Circuit Topology:</span>
+                  <span style={{ fontWeight: 600 }}>Closed loop returns to seed account</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Chain Length:</span>
+                  <span style={{ fontWeight: 600 }}>3 to 5 Counterparties</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Window Bound:</span>
+                  <span style={{ fontWeight: 600 }}>Maximum 24 hours</span>
+                </div>
               </>
             )}
             {activeTab === 'pass_through' && (
               <>
-                <div>• <strong>Dwell Time:</strong> <code>d(v) = min(t_out - t_in) &le; 1.0 Hour</code></div>
-                <div>• <strong>Flow Retention:</strong> <code>&rho;(v) = OutFlow(v) / InFlow(v) &isin; [0.85, 1.0]</code></div>
-                <div>• <strong>Min Hops:</strong> <code>Hops &ge; 3 Directed Edges</code></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Dwell Time:</span>
+                  <span style={{ fontWeight: 600 }}>Average holding time under 1 hour</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Flow Retention:</span>
+                  <span style={{ fontWeight: 600 }}>85% to 105% volume conservation</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Minimum Hops:</span>
+                  <span style={{ fontWeight: 600 }}>At least 3 intermediary wallets</span>
+                </div>
               </>
             )}
             {activeTab === 'fan_out' && (
               <>
-                <div>• <strong>Counterparty Entropy:</strong> <code>Unique Counterparties &ge; 5</code></div>
-                <div>• <strong>Window Bound:</strong> <code>&Delta;T &le; 24.0 Hours</code></div>
-                <div>• <strong>Dispersion Ratio:</strong> <code>OutFlow / InFlow &ge; 0.85</code></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Counterparties:</span>
+                  <span style={{ fontWeight: 600 }}>5 or more distinct destination accounts</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Time Window:</span>
+                  <span style={{ fontWeight: 600 }}>Compressed dispersion within 24 hours</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ color: 'var(--color-ink-muted)' }}>Dispersion Ratio:</span>
+                  <span style={{ fontWeight: 600 }}>At least 85% of capital fanned out</span>
+                </div>
               </>
             )}
           </div>

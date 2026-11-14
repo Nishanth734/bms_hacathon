@@ -308,6 +308,107 @@ export const WalletNetwork: React.FC<WalletNetworkProps> = ({
     setTimeout(() => setCopiedDossier(false), 2000);
   };
 
+  const renderStructuredDossier = (rawText: string) => {
+    // Strip any markdown asterisks, stars or table pipes
+    const clean = rawText.replace(/\*+/g, '').replace(/\|/g, '').trim();
+    const blocks = clean.split(/\n\s*\n/);
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        {blocks.map((block, bIdx) => {
+          const lines = block.split('\n').map((l) => l.trim()).filter(Boolean);
+          if (lines.length === 0) return null;
+
+          const firstLine = lines[0];
+          const isSectionHeader =
+            /^[A-Z\s]{4,}$/.test(firstLine) ||
+            firstLine.startsWith('EXECUTIVE') ||
+            firstLine.startsWith('KEY') ||
+            firstLine.startsWith('ENTITY') ||
+            firstLine.startsWith('ACCIDENTAL') ||
+            firstLine.startsWith('RECOMMENDED');
+
+          const title = isSectionHeader ? firstLine : null;
+          const contentLines = isSectionHeader ? lines.slice(1) : lines;
+
+          const isAlert = title?.includes('ACCIDENTAL');
+          const isAction = title?.includes('RECOMMENDED');
+
+          return (
+            <div
+              key={bIdx}
+              style={{
+                padding: '14px 16px',
+                backgroundColor: isAction ? '#f0fdfa' : isAlert ? '#fffbeb' : '#faf8f3',
+                borderRadius: '8px',
+                border: isAction ? '1px solid #99f6e4' : isAlert ? '1px solid #fef3c7' : '1px solid #e5e0d4',
+              }}
+            >
+              {title && (
+                <div
+                  style={{
+                    fontSize: '11px',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    color: isAction ? '#0f766e' : isAlert ? '#b45309' : '#1e293b',
+                    marginBottom: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  <span>{isAction ? '📋' : isAlert ? '⚠️' : '🔍'}</span>
+                  <span>{title}</span>
+                </div>
+              )}
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', lineHeight: '1.5', color: '#1f2937' }}>
+                {contentLines.map((line, lIdx) => {
+                  if (line.startsWith('-')) {
+                    const withoutDash = line.replace(/^-+\s*/, '');
+                    const colonIdx = withoutDash.indexOf(':');
+                    if (colonIdx > 0 && colonIdx < 35) {
+                      const label = withoutDash.slice(0, colonIdx);
+                      const val = withoutDash.slice(colonIdx + 1);
+                      return (
+                        <div key={lIdx} style={{ display: 'flex', gap: '6px' }}>
+                          <span style={{ color: '#0f766e' }}>&bull;</span>
+                          <span>
+                            <strong>{label}:</strong> {val}
+                          </span>
+                        </div>
+                      );
+                    }
+                    return (
+                      <div key={lIdx} style={{ display: 'flex', gap: '6px' }}>
+                        <span style={{ color: '#0f766e' }}>&bull;</span>
+                        <span>{withoutDash}</span>
+                      </div>
+                    );
+                  }
+
+                  const colonIdx = line.indexOf(':');
+                  if (colonIdx > 0 && colonIdx < 35) {
+                    const label = line.slice(0, colonIdx);
+                    const val = line.slice(colonIdx + 1);
+                    return (
+                      <div key={lIdx}>
+                        <strong>{label}:</strong> {val}
+                      </div>
+                    );
+                  }
+
+                  return <div key={lIdx}>{line}</div>;
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   const activeId = selectedCase?.case_id || selectedCase?.cluster_id;
 
   // Filtered transactions: in-ring vs all history
@@ -1129,17 +1230,7 @@ export const WalletNetwork: React.FC<WalletNetworkProps> = ({
                   <div style={{ fontSize: '11px', marginTop: '4px' }}>Evaluating flow conservation, dwell pacing, and counterparty graph topology.</div>
                 </div>
               ) : walletAiSummary ? (
-                <div
-                  style={{
-                    fontSize: '12px',
-                    color: 'var(--color-ink)',
-                    lineHeight: '1.6',
-                    whiteSpace: 'pre-wrap',
-                    fontFamily: 'Inter, sans-serif',
-                  }}
-                >
-                  {walletAiSummary}
-                </div>
+                renderStructuredDossier(walletAiSummary)
               ) : (
                 <div style={{ padding: '32px', textAlign: 'center', color: 'var(--color-ink-muted)' }}>
                   No assessment generated yet.

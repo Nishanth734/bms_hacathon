@@ -126,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
           </select>
 
-          {/* Ablation Benchmark */}
+          {/* Model Benchmark */}
           <button
             onClick={onOpenAblation}
             style={{
@@ -140,19 +140,35 @@ export const Navbar: React.FC<NavbarProps> = ({
               fontWeight: 500,
             }}
           >
-            Ablation
+            Model Benchmark
           </button>
 
-          {/* Backend Status indicator */}
+          {/* Professional System Health Indicator */}
           <div
-            title={backendOnline ? 'Backend connected' : 'Connecting...'}
             style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: backendOnline ? '#10b981' : '#f97316',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '4px 10px',
+              borderRadius: 'var(--radius-pill)',
+              backgroundColor: backendOnline ? '#ecfdf5' : '#fff7ed',
+              border: `1px solid ${backendOnline ? '#a7f3d0' : '#fed7aa'}`,
+              fontSize: '11px',
+              fontWeight: 600,
+              color: backendOnline ? '#065f46' : '#9a3412',
             }}
-          />
+            title={backendOnline ? 'Forensic engine connected & operational' : 'Connecting to backend service...'}
+          >
+            <span
+              style={{
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                backgroundColor: backendOnline ? '#10b981' : '#f97316',
+              }}
+            />
+            <span>{backendOnline ? 'Engine Online' : 'Connecting'}</span>
+          </div>
         </div>
       </div>
     </header>
