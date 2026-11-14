@@ -6,27 +6,41 @@ interface BadgeProps {
 }
 
 export const Badge: React.FC<BadgeProps> = ({ typology, className = '' }) => {
-  const norm = typology.toLowerCase().replace('-', '_');
+  const norm = typology.toLowerCase().replace(/-/g, '_');
 
   let bg = 'var(--color-bg-sand)';
   let text = 'var(--color-ink)';
   let border = '1px solid var(--border-pill-dark)';
+  let label = 'Suspicious';
 
-  if (norm.includes('cycle')) {
-    bg = 'var(--color-teal-deep)';
-    text = '#ffffff';
-    border = 'none';
-  } else if (norm.includes('fan_out') || norm.includes('fan_in') || norm.includes('fan')) {
-    bg = 'var(--color-olive)';
-    text = '#ffffff';
-    border = 'none';
-  } else if (norm.includes('pass_through') || norm.includes('chain')) {
+  if (norm.includes('pass_through') || norm.includes('chain')) {
     bg = 'var(--color-accent-sage)';
     text = 'var(--color-ink)';
     border = 'none';
+    label = 'Rapid Pass-Through';
+  } else if (norm.includes('cycle')) {
+    bg = 'var(--color-teal-deep)';
+    text = '#ffffff';
+    border = 'none';
+    label = 'Circular Cycle';
+  } else if (norm.includes('fan_out')) {
+    bg = 'var(--color-olive)';
+    text = '#ffffff';
+    border = 'none';
+    label = 'Fan-Out Dispersion';
+  } else if (norm.includes('fan_in') || norm.includes('fan')) {
+    bg = 'var(--color-olive)';
+    text = '#ffffff';
+    border = 'none';
+    label = 'Fan-In Aggregation';
+  } else if (norm.includes('wash')) {
+    bg = '#fee2e2';
+    text = '#991b1b';
+    border = '1px solid #fca5a5';
+    label = 'Wash Trading';
+  } else {
+    label = norm.split('_').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   }
-
-  const label = norm.replace('_', ' ').toUpperCase();
 
   return (
     <span

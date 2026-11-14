@@ -403,7 +403,7 @@ export const EvidenceReports: React.FC<EvidenceReportsProps> = ({
                   </div>
                 </div>
                 <div style={{ padding: '8px 10px', backgroundColor: 'var(--color-bg-cream)', borderRadius: '4px' }}>
-                  <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)', fontWeight: 600 }}>CLUSTER TRANSFERS</div>
+                  <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)', fontWeight: 600 }}>CASE TRANSFERS</div>
                   <div style={{ fontWeight: 700, color: 'var(--color-teal-deep)', marginTop: '2px' }}>
                     {edges.length} Hops
                   </div>

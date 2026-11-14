@@ -60,7 +60,7 @@ export const CaseList: React.FC<CaseListProps> = ({
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <input
             type="text"
-            placeholder="Search cluster ID..."
+            placeholder="Search cases..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{
@@ -89,10 +89,10 @@ export const CaseList: React.FC<CaseListProps> = ({
               }}
             >
               <option value="all">All Typologies</option>
-              <option value="cycle">Cycle</option>
-              <option value="fan_out">Fan-Out</option>
-              <option value="fan_in">Fan-In</option>
-              <option value="pass_through">Pass-Through</option>
+              <option value="cycle">Circular Cycle</option>
+              <option value="fan_out">Fan-Out Dispersion</option>
+              <option value="fan_in">Fan-In Aggregation</option>
+              <option value="pass_through">Rapid Pass-Through</option>
             </select>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', color: 'var(--color-ink-muted)' }}>
@@ -156,8 +156,13 @@ export const CaseList: React.FC<CaseListProps> = ({
                     </span>
                   </div>
 
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--color-ink-secondary)', marginBottom: '8px' }}>
-                    {item.cluster_id}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-ink)' }}>
+                      {item.title || `Case #${(item.case_id || item.cluster_id).slice(0, 8)}`}
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--color-ink-muted)' }}>
+                      {(item.case_id || item.cluster_id).slice(0, 8)}
+                    </span>
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--color-ink-muted)' }}>

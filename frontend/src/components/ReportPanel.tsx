@@ -78,7 +78,7 @@ export const ReportPanel: React.FC<ReportPanelProps> = ({
         </div>
 
         <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>
-          Case ID: {caseDetail.cluster_id} • Score: {risk_score.toFixed(3)}
+          Case: {(caseDetail.case_id || caseDetail.cluster_id).slice(0, 10)} • Risk score: {(risk_score * 100).toFixed(0)}%
         </div>
       </div>
 
@@ -168,14 +168,14 @@ export const ReportPanel: React.FC<ReportPanelProps> = ({
         <div
           style={{
             marginTop: 'auto',
-            paddingTop: '16px',
-            fontSize: '11px',
-            color: 'var(--color-taupe)',
-            borderTop: 'var(--border-card)',
+            paddingTop: '12px',
+            fontSize: '10px',
+            color: 'var(--color-ink-muted)',
+            borderTop: '1px solid rgba(43, 43, 41, 0.08)',
             lineHeight: 1.4,
           }}
         >
-          All findings are <strong>SUSPICIOUS</strong>. Labels are synthetic experimental ground truth. Verified by the Anti-Hallucination Evidence Verifier against the temporal graph contract.
+          All findings are flagged as suspicious. Note: Dataset labels reflect synthetic experimental ground truth. Verified against temporal graph invariants.
         </div>
       </div>
     </div>

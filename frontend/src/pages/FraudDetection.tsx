@@ -344,7 +344,7 @@ export const FraudDetection: React.FC<FraudDetectionProps> = ({
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12px', textAlign: 'left' }}>
             <thead>
               <tr style={{ borderBottom: '2px solid var(--color-linen)', color: 'var(--color-ink-secondary)' }}>
-                <th style={{ padding: '10px' }}>Cluster / Title</th>
+                <th style={{ padding: '10px' }}>Case / Title</th>
                 <th style={{ padding: '10px', textAlign: 'right' }}>Wallets</th>
                 <th style={{ padding: '10px', textAlign: 'right' }}>Transactions</th>
                 <th style={{ padding: '10px', textAlign: 'right' }}>Duration</th>

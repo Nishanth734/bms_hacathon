@@ -150,7 +150,7 @@ export const Overview: React.FC<OverviewProps> = ({ summary, cases, onSelectCase
           }}
         >
           <div style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--color-ink-muted)', fontWeight: 600 }}>
-            Flagged Clusters
+            Suspicious Cases
           </div>
           <div style={{ fontSize: '22px', fontWeight: 700, color: '#dc2626', marginTop: '4px' }}>
             {loading ? (
