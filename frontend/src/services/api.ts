@@ -189,3 +189,131 @@ export async function getWalletAiSummary(walletId: string, datasetId?: string): 
   if (!res.ok) throw new Error('Failed to generate wallet AI forensic summary');
   return res.json();
 }
+
+// Learning Loop APIs
+export async function submitFeedback(params: {
+  cluster_id: string;
+  decision: 'confirm' | 'reject' | 'unsure';
+  notes?: string;
+  analyst?: string;
+}): Promise<any> {
+  const res = await fetch(`${BASE_URL}/feedback`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(params),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: 'Failed to submit feedback' }));
+    throw new Error(err.detail || 'Failed to submit feedback');
+  }
+  return res.json();
+}
+
+export async function getLearningStatus(): Promise<{
+  pending_cases: number;
+  approved_cases: number;
+  rejected_cases: number;
+  total_cases: number;
+  cases_waiting_retrain: number;
+  min_cases_to_retrain: number;
+  active_version: number;
+  last_retrain: string | null;
+  gate_status: string;
+}> {
+  const res = await fetch(`${BASE_URL}/learning/status`);
+  if (!res.ok) throw new Error('Failed to fetch learning status');
+  return res.json();
+}
+
+export async function getLearningQueue(limit = 50): Promise<any[]> {
+  const res = await fetch(`${BASE_URL}/learning/queue?limit=${limit}`);
+  if (!res.ok) throw new Error('Failed to fetch learning queue');
+  return res.json();
+}
+
+export async function getCaseStoreCases(status?: string): Promise<any[]> {
+  const url = status && status !== 'ALL' ? `${BASE_URL}/learning/cases?status=${status.toLowerCase()}` : `${BASE_URL}/learning/cases`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Failed to fetch case store');
+  return res.json();
+}
+
+export async function createIncident(incident: {
+  title: string;
+  source_ref: string;
+  typology: string;
+  transactions: any[];
+}): Promise<any> {
+  const res = await fetch(`${BASE_URL}/incidents`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(incident),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: 'Failed to create incident' }));
+    throw new Error(err.detail || 'Failed to create incident');
+  }
+  return res.json();
+}
+
+export async function extractIncidentFromText(report_text: string): Promise<any> {
+  const res = await fetch(`${BASE_URL}/incidents/extract`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ report_text }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: 'Failed to extract incident' }));
+    throw new Error(err.detail || 'Failed to extract incident');
+  }
+  return res.json();
+}
+
+export async function approveIncident(caseId: string, by = 'Supervising Analyst'): Promise<any> {
+  const res = await fetch(`${BASE_URL}/incidents/${caseId}/approve`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ by }),
+  });
+  if (!res.ok) throw new Error('Failed to approve incident');
+  return res.json();
+}
+
+export async function rejectIncident(caseId: string, by = 'Supervising Analyst'): Promise<any> {
+  const res = await fetch(`${BASE_URL}/incidents/${caseId}/reject`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ by }),
+  });
+  if (!res.ok) throw new Error('Failed to reject incident');
+  return res.json();
+}
+
+export async function triggerRetrain(force = false): Promise<any> {
+  const res = await fetch(`${BASE_URL}/learning/retrain`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ force }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: 'Failed to retrain model' }));
+    throw new Error(err.detail || 'Failed to retrain model');
+  }
+  return res.json();
+}
+
+export async function getModels(): Promise<{ active_version: number; models: any[] }> {
+  const res = await fetch(`${BASE_URL}/models`);
+  if (!res.ok) throw new Error('Failed to fetch models');
+  return res.json();
+}
+
+export async function rollbackModel(version: number): Promise<any> {
+  const res = await fetch(`${BASE_URL}/models/rollback`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ version }),
+  });
+  if (!res.ok) throw new Error('Failed to rollback model');
+  return res.json();
+}

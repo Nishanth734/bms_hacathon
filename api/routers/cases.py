@@ -53,8 +53,8 @@ def list_cases(
     total = q.count()
     cases = q.order_by(FraudClusterModel.risk_score.desc()).offset(offset).limit(limit).all()
 
-    if total == 0 and _store:
-        # Fallback to legacy store with normalized case_id
+    if total == 0 and _store and target_id == "nft-sample-001":
+        # Fallback to legacy store only for unseeded default demo dataset
         store_res = _store.get_cases(
             limit=limit,
             offset=offset,

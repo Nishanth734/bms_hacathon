@@ -25,6 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'graph', label: 'Graph' },
     { id: 'typologies', label: 'Typologies' },
     { id: 'wallets', label: 'Wallets' },
+    { id: 'learning', label: 'Learning' },
     { id: 'datasets', label: 'Datasets' },
     { id: 'analysis', label: 'Analysis' },
     { id: 'evidence', label: 'Evidence' },

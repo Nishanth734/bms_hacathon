@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { CaseListItem, CaseDetail, PageView } from '../types';
-import { getCaseDetail, updateCase } from '../services/api';
+import { getCaseDetail, updateCase, submitFeedback } from '../services/api';
 
 interface InvestigationCasesProps {
   cases: CaseListItem[];
@@ -29,6 +29,32 @@ export const InvestigationCases: React.FC<InvestigationCasesProps> = ({
   const [analyst, setAnalyst] = useState('');
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [feedbackToast, setFeedbackToast] = useState<{ message: string; type: 'confirm' | 'reject' | 'unsure' } | null>(null);
+  const [submittingFeedback, setSubmittingFeedback] = useState(false);
+  const [currentDecision, setCurrentDecision] = useState<'confirm' | 'reject' | 'unsure' | null>(null);
+
+  const handleFeedback = async (decision: 'confirm' | 'reject' | 'unsure') => {
+    const cid = activeCase?.cluster_id || activeCase?.case_id || selectedCaseId;
+    if (!cid) return;
+    setSubmittingFeedback(true);
+    try {
+      await submitFeedback({
+        cluster_id: cid,
+        decision,
+        analyst: analyst || 'AML Analyst',
+        notes,
+      });
+      setCurrentDecision(decision);
+      const label = decision === 'confirm' ? 'Suspicious Laundering Confirmed (Label 1)' : decision === 'reject' ? 'Case Rejected as Benign (Label 0)' : 'Flagged Unsure (Priority Review Queue)';
+      setFeedbackToast({ message: label, type: decision });
+      setTimeout(() => setFeedbackToast(null), 3500);
+      onCaseUpdated();
+    } catch (err: any) {
+      alert(err.message || 'Failed to submit analyst feedback');
+    } finally {
+      setSubmittingFeedback(false);
+    }
+  };
 
   // Auto-select first case if none selected
   useEffect(() => {
@@ -318,6 +344,120 @@ export const InvestigationCases: React.FC<InvestigationCasesProps> = ({
                     Risk: {((activeCase.risk_score || activeCase.evidence?.risk_score || 0.85) * 100).toFixed(0)}%
                   </span>
                 </div>
+              </div>
+
+              {/* Learning Loop Analyst Feedback Actions */}
+              <div
+                style={{
+                  padding: '12px',
+                  backgroundColor: 'var(--color-bg-sand)',
+                  borderRadius: 'var(--radius-card)',
+                  border: '1px solid var(--color-linen)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-ink-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    Model Feedback
+                  </span>
+                  {currentDecision && (
+                    <span
+                      style={{
+                        fontSize: '10px',
+                        fontWeight: 700,
+                        padding: '2px 8px',
+                        borderRadius: 'var(--radius-pill)',
+                        backgroundColor: currentDecision === 'confirm' ? '#d1fae5' : currentDecision === 'reject' ? '#f1f5f9' : '#fef3c7',
+                        color: currentDecision === 'confirm' ? '#065f46' : currentDecision === 'reject' ? '#475569' : '#92400e',
+                      }}
+                    >
+                      {currentDecision === 'confirm' ? 'Suspicious' : currentDecision === 'reject' ? 'Benign' : 'Unsure'}
+                    </span>
+                  )}
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
+                  <button
+                    onClick={() => handleFeedback('confirm')}
+                    disabled={submittingFeedback}
+                    title="Mark laundering (Label 1)"
+                    style={{
+                      padding: '7px 8px',
+                      backgroundColor: '#059669',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      cursor: submittingFeedback ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    ✓ Confirm
+                  </button>
+                  <button
+                    onClick={() => handleFeedback('reject')}
+                    disabled={submittingFeedback}
+                    title="Mark benign (Label 0)"
+                    style={{
+                      padding: '7px 8px',
+                      backgroundColor: '#475569',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      cursor: submittingFeedback ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    ✕ Reject
+                  </button>
+                  <button
+                    onClick={() => handleFeedback('unsure')}
+                    disabled={submittingFeedback}
+                    title="Move to front of uncertainty queue"
+                    style={{
+                      padding: '7px 8px',
+                      backgroundColor: '#d97706',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      cursor: submittingFeedback ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    ? Unsure
+                  </button>
+                </div>
+
+                {feedbackToast && (
+                  <div
+                    style={{
+                      fontSize: '11px',
+                      padding: '6px 10px',
+                      borderRadius: '4px',
+                      backgroundColor: feedbackToast.type === 'confirm' ? '#ecfdf5' : feedbackToast.type === 'reject' ? '#f8fafc' : '#fffbeb',
+                      color: feedbackToast.type === 'confirm' ? '#047857' : feedbackToast.type === 'reject' ? '#334155' : '#b45309',
+                      border: `1px solid ${feedbackToast.type === 'confirm' ? '#a7f3d0' : feedbackToast.type === 'reject' ? '#cbd5e1' : '#fde68a'}`,
+                    }}
+                  >
+                    {feedbackToast.message}
+                  </div>
+                )}
               </div>
 
               {/* Status & Priority */}

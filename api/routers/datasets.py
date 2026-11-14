@@ -7,7 +7,14 @@ from typing import List, Optional
 import polars as pl
 
 from api.database import get_db
-from api.db_models import DatasetModel
+from api.db_models import (
+    DatasetModel,
+    TransactionModel,
+    WalletModel,
+    FraudClusterModel,
+    InvestigationCaseModel,
+    InvestigationReportModel,
+)
 from traceflow.schema_parser import detect_schema_type, parse_transaction_file
 
 router = APIRouter(prefix="/api/datasets", tags=["datasets"])
@@ -74,29 +81,27 @@ async def upload_dataset(
         shutil.copyfileobj(file.file, buffer)
 
     try:
-        # Read preview
-        df_preview = pl.read_csv(dest_path, n_rows=10)
-        columns = df_preview.columns
-        schema_type = detect_schema_type(columns)
-        
-        # Count total rows quickly
-        row_count = pl.read_csv(dest_path).height
+        # Step 1: Pre-validate CSV columns, rows, and datatypes with intelligent normalizer
+        df_std, meta = parse_transaction_file(dest_path)
+        schema_type = meta["schema_type"]
+        row_count = meta["row_count"]
 
+        # Step 2: Register dataset in database
         dataset_rec = DatasetModel(
             id=ds_id,
             name=name,
             schema_type=schema_type,
             row_count=row_count,
-            wallet_count=0,
-            total_volume=0.0,
-            currency="ETH" if schema_type == "nft" else "USD",
+            wallet_count=meta["wallet_count"],
+            total_volume=meta["total_volume"],
+            currency=meta["currency"],
             file_path=str(dest_path.resolve()),
             status="processing"
         )
         db.add(dataset_rec)
         db.commit()
 
-        # Execute full forensic pipeline immediately to populate transactions, wallets, clusters, cases, and graphs
+        # Step 3: Execute full forensic pipeline immediately
         from traceflow.pipeline_runner import run_analysis_pipeline
         run_analysis_pipeline(
             file_path=str(dest_path.resolve()),
@@ -104,15 +109,14 @@ async def upload_dataset(
             dataset_id=ds_id
         )
 
-        # Set as the active dataset immediately
+        # Step 4: Set as active dataset immediately
         set_active_dataset_id(ds_id)
 
         # Expire local session cache to read freshly persisted stats
         db.expire_all()
         updated_ds = db.query(DatasetModel).filter(DatasetModel.id == ds_id).first()
 
-        # Preview rows as list of dicts
-        preview_rows = df_preview.to_dicts()
+        preview_rows = df_std.head(10).to_dicts()
 
         return {
             "status": "uploaded",
@@ -121,17 +125,24 @@ async def upload_dataset(
             "name": name,
             "schema_type": schema_type,
             "row_count": updated_ds.row_count if updated_ds else row_count,
-            "wallet_count": updated_ds.wallet_count if updated_ds else 0,
-            "total_volume": updated_ds.total_volume if updated_ds else 0.0,
-            "currency": updated_ds.currency if updated_ds else ("ETH" if schema_type == "nft" else "USD"),
-            "columns": columns,
+            "wallet_count": updated_ds.wallet_count if updated_ds else meta["wallet_count"],
+            "total_volume": updated_ds.total_volume if updated_ds else meta["total_volume"],
+            "currency": updated_ds.currency if updated_ds else meta["currency"],
+            "columns": df_std.columns,
             "preview": preview_rows
         }
 
     except Exception as e:
+        db.rollback()
+        # Clean up database record if created
+        try:
+            db.query(DatasetModel).filter(DatasetModel.id == ds_id).delete()
+            db.commit()
+        except Exception:
+            pass
         if dest_path.exists():
             dest_path.unlink()
-        raise HTTPException(status_code=400, detail=f"Failed to process CSV: {str(e)}")
+        raise HTTPException(status_code=400, detail=f"CSV Validation Error: {str(e)}")
 
 @router.delete("/{dataset_id}")
 def delete_dataset(dataset_id: str, db: Session = Depends(get_db)):
@@ -146,6 +157,18 @@ def delete_dataset(dataset_id: str, db: Session = Depends(get_db)):
         except Exception:
             pass
 
+    # Cascade delete records associated with this dataset
+    db.query(TransactionModel).filter(TransactionModel.dataset_id == dataset_id).delete()
+    db.query(WalletModel).filter(WalletModel.dataset_id == dataset_id).delete()
+    db.query(FraudClusterModel).filter(FraudClusterModel.dataset_id == dataset_id).delete()
+    db.query(InvestigationCaseModel).filter(InvestigationCaseModel.dataset_id == dataset_id).delete()
     db.delete(ds)
     db.commit()
-    return {"status": "deleted", "dataset_id": dataset_id}
+
+    # If the active dataset was deleted, switch to the next available dataset
+    if get_active_dataset_id() == dataset_id:
+        remaining = db.query(DatasetModel).first()
+        if remaining:
+            set_active_dataset_id(remaining.id)
+
+    return {"status": "deleted", "dataset_id": dataset_id, "active_dataset_id": get_active_dataset_id()}

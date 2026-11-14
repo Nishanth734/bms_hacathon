@@ -25,6 +25,7 @@ import { FraudDetection } from './pages/FraudDetection';
 import { RiskAssessment } from './pages/RiskAssessment';
 import { InvestigationCases } from './pages/InvestigationCases';
 import { EvidenceReports } from './pages/EvidenceReports';
+import { LearningDashboard } from './pages/LearningDashboard';
 import { MetricsTable } from './components/MetricsTable';
 
 export const App: React.FC = () => {
@@ -124,13 +125,29 @@ export const App: React.FC = () => {
   }, [selectedCaseId]);
 
   const handleSelectDataset = async (newId: string) => {
+    setLoadingDataset(true);
     try {
       await selectDataset(newId);
       setActiveDatasetId(newId);
-      const d = await getDatasets();
+      const [d, sum, c] = await Promise.all([
+        getDatasets(),
+        getAnalysisSummary(newId),
+        getCases({ dataset_id: newId, limit: 100 }),
+      ]);
       setDatasets(d.datasets);
+      setSummary(sum);
+      setCases(c.cases);
+      if (c.cases.length > 0) {
+        const firstId = c.cases[0].case_id || c.cases[0].cluster_id;
+        setSelectedCaseId(firstId);
+      } else {
+        setSelectedCaseId(null);
+        setSelectedCaseDetail(null);
+      }
     } catch (e) {
       console.error('Failed to select dataset:', e);
+    } finally {
+      setLoadingDataset(false);
     }
   };
 
@@ -176,6 +193,7 @@ export const App: React.FC = () => {
             selectedCase={selectedCaseDetail}
             cases={cases}
             onSelectCaseId={setSelectedCaseId}
+            activeDatasetId={activeDatasetId}
           />
         )}
 
@@ -188,7 +206,7 @@ export const App: React.FC = () => {
         )}
 
         {currentView === 'wallets' && (
-          <RiskAssessment onNavigate={setCurrentView} />
+          <RiskAssessment onNavigate={setCurrentView} activeDatasetId={activeDatasetId} />
         )}
 
         {currentView === 'datasets' && (
@@ -197,7 +215,6 @@ export const App: React.FC = () => {
             activeDatasetId={activeDatasetId}
             onRefresh={() => {
               loadInitialData();
-              loadDatasetData(activeDatasetId);
             }}
             onSelectDataset={handleSelectDataset}
             onNavigate={setCurrentView}
@@ -220,6 +237,10 @@ export const App: React.FC = () => {
             cases={cases}
             onSelectCaseId={setSelectedCaseId}
           />
+        )}
+
+        {currentView === 'learning' && (
+          <LearningDashboard onNavigate={setCurrentView} />
         )}
       </main>
 

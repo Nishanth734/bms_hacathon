@@ -7,12 +7,14 @@ interface WalletNetworkProps {
   selectedCase: CaseDetail | null;
   cases: any[];
   onSelectCaseId: (id: string) => void;
+  activeDatasetId?: string;
 }
 
 export const WalletNetwork: React.FC<WalletNetworkProps> = ({
   selectedCase,
   cases,
   onSelectCaseId,
+  activeDatasetId,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
@@ -266,7 +268,7 @@ export const WalletNetwork: React.FC<WalletNetworkProps> = ({
     async function fetchDetail() {
       setLoadingWallet(true);
       try {
-        const data = await getWalletDetail(selectedWalletId!);
+        const data = await getWalletDetail(selectedWalletId!, activeDatasetId);
         setWalletDetail(data);
       } catch (err) {
         console.error(err);
@@ -276,7 +278,7 @@ export const WalletNetwork: React.FC<WalletNetworkProps> = ({
     }
 
     fetchDetail();
-  }, [selectedWalletId]);
+  }, [selectedWalletId, activeDatasetId]);
 
   // Handler to fetch Forensic AI summary and pop open the subwindow modal
   const handleOpenAiDossier = async () => {
@@ -285,7 +287,7 @@ export const WalletNetwork: React.FC<WalletNetworkProps> = ({
     if (!walletAiSummary) {
       setLoadingAiSummary(true);
       try {
-        const res = await getWalletAiSummary(selectedWalletId);
+        const res = await getWalletAiSummary(selectedWalletId, activeDatasetId);
         setWalletAiSummary(res.ai_summary);
       } catch (err) {
         console.error(err);

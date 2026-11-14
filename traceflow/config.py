@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
 from dataclasses import dataclass, field
 
 from dotenv import load_dotenv
@@ -56,7 +57,37 @@ class Config:
     GROQ_API_KEY: str = field(default_factory=lambda: os.getenv("GROQ_API_KEY", ""))
     GROQ_MODEL: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"))
 
+    # Learning loop settings
+    LEARNING_MIN_NEW_CASES: int = 5
+    LEARNING_CASE_WEIGHT: float = 5.0
+    LEARNING_MAX_CASE_WEIGHT_SHARE: float = 0.2
+    LEARNING_GATE_MAX_METRIC_DROP: float = 0.01
+    LEARNING_INCIDENT_TX_ID_OFFSET: int = 10_000_000_000
+    USE_LLM: bool = False
+
     def __post_init__(self) -> None:
+        # Load from config.yaml if present
+        yaml_path = Path("config.yaml")
+        if yaml_path.exists():
+            try:
+                import yaml
+                with open(yaml_path, "r", encoding="utf-8") as f:
+                    cfg_dict = yaml.safe_load(f) or {}
+                learning_cfg = cfg_dict.get("learning", {})
+                if "min_new_cases_to_retrain" in learning_cfg:
+                    self.LEARNING_MIN_NEW_CASES = int(learning_cfg["min_new_cases_to_retrain"])
+                if "case_weight" in learning_cfg:
+                    self.LEARNING_CASE_WEIGHT = float(learning_cfg["case_weight"])
+                if "max_case_weight_share" in learning_cfg:
+                    self.LEARNING_MAX_CASE_WEIGHT_SHARE = float(learning_cfg["max_case_weight_share"])
+                if "gate_max_metric_drop" in learning_cfg:
+                    self.LEARNING_GATE_MAX_METRIC_DROP = float(learning_cfg["gate_max_metric_drop"])
+                if "incident_tx_id_offset" in learning_cfg:
+                    self.LEARNING_INCIDENT_TX_ID_OFFSET = int(learning_cfg["incident_tx_id_offset"])
+                if "use_llm" in cfg_dict:
+                    self.USE_LLM = bool(cfg_dict["use_llm"])
+            except Exception:
+                pass
         assert abs(self.TRAIN_SPLIT + self.VAL_SPLIT + self.TEST_SPLIT - 1.0) < 1e-6, (
             "TRAIN_SPLIT + VAL_SPLIT + TEST_SPLIT must equal 1.0"
         )

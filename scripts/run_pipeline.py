@@ -26,6 +26,7 @@ def main():
     parser.add_argument("--csv", type=str, default=None, help="Path to input CSV")
     parser.add_argument("--out", type=str, default="results", help="Output directory")
     parser.add_argument("--top-cases", type=int, default=20, help="Number of top cases to generate evidence/reports for")
+    parser.add_argument("--with-learning", action="store_true", help="Execute the learning loop demonstration and safety gate evaluation")
     args = parser.parse_args()
 
     config = get_config()
@@ -109,6 +110,11 @@ def main():
             json.dump(evidence, f, indent=2)
 
     logger.info("Pipeline completed successfully!")
+
+    if args.with_learning:
+        logger.info("Triggering Learning Loop evaluation (--with-learning)...")
+        from scripts.demo_learning import run_demo
+        run_demo()
 
 
 if __name__ == "__main__":

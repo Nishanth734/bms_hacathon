@@ -7,6 +7,137 @@ interface FraudDetectionProps {
   onNavigate: (view: PageView) => void;
 }
 
+interface TypologyMetadata {
+  title: string;
+  badge: string;
+  summary: string;
+  riskProfile: string;
+  rules: {
+    name: string;
+    threshold: string;
+    desc: string;
+  }[];
+}
+
+const TYPOLOGY_DETAILS: Record<string, TypologyMetadata> = {
+  wash_trading: {
+    title: 'NFT Wash Trading & Volume Inflation',
+    badge: 'Market Manipulation',
+    summary:
+      'Coordinated confederate wallets execute reciprocal buy/sell cycles of the same NFT without genuine transfer of beneficial ownership, artificially manufacturing trade volume or manipulating secondary floor prices.',
+    riskProfile: 'High regulatory scrutiny (Market manipulation, false liquidity generation)',
+    rules: [
+      {
+        name: 'Asset Uniformity',
+        threshold: 'Same Token ID',
+        desc: 'Identical cryptographic asset transferred repeatedly across related accounts.',
+      },
+      {
+        name: 'Reciprocal Ownership',
+        threshold: 'Re-Acquisition Loop',
+        desc: 'Original seller re-acquires custody via intermediate trading counterparties.',
+      },
+      {
+        name: 'Temporal Bounds',
+        threshold: '≤ 72.0 Hours',
+        desc: 'All reciprocal trades conclude within a 72-hour sliding forensic window.',
+      },
+      {
+        name: 'Economic Transfer',
+        threshold: 'Net Delta = 0',
+        desc: 'Zero net change in ultimate beneficial owner; trades represent self-dealing.',
+      },
+    ],
+  },
+  cycle: {
+    title: 'Forward Time-Ordered Cyclic Carousel',
+    badge: 'Layering Loop',
+    summary:
+      'Laundering syndicate routes funds through a closed carousel of intermediary wallets before returning capital to the original seed account. TraceFlow enforces causal timestamp ordering to prevent false positives.',
+    riskProfile: 'High AML priority (Circular layering to disguise source of funds)',
+    rules: [
+      {
+        name: 'Causal Sequence',
+        threshold: 't₁ < t₂ < … < tₖ',
+        desc: 'Each hop occurs strictly after the previous transaction in chronological time.',
+      },
+      {
+        name: 'Closed Circuit',
+        threshold: 'A → B … → A',
+        desc: 'Direct multi-hop cycle returns capital directly back to initial funding wallet.',
+      },
+      {
+        name: 'Carousel Length',
+        threshold: '3 to 5 Accounts',
+        desc: 'Multi-hop traversal bounded between 3 and 5 distinct counterparties.',
+      },
+      {
+        name: 'Global Window',
+        threshold: '≤ 24.0 Hours',
+        desc: 'Full circular transaction loop completes within a 24-hour window.',
+      },
+    ],
+  },
+  pass_through: {
+    title: 'Rapid Mule Relay Pass-Through Chains',
+    badge: 'Mule Layering',
+    summary:
+      'Linear chains of disposable intermediary accounts designed to obscure the forensic trail. Intermediaries maintain low balances, hold capital for minimal durations, and pass along nearly the entire principal value.',
+    riskProfile: 'Critical AML indicator (Smurfing conduit & layering hops)',
+    rules: [
+      {
+        name: 'Pacing & Dwell',
+        threshold: '≤ 1.0 Hour Dwell',
+        desc: 'Intermediate addresses forward funds rapidly without accumulating balances.',
+      },
+      {
+        name: 'Flow Conservation',
+        threshold: '85% – 105% Retention',
+        desc: 'Nearly complete capital preservation across hops, indicating a pure transit conduit.',
+      },
+      {
+        name: 'Layering Depth',
+        threshold: '≥ 3 Directed Hops',
+        desc: 'Sequence contains 3 or more consecutive transfers between distinct wallets.',
+      },
+      {
+        name: 'Account Profile',
+        threshold: 'Transient Mule',
+        desc: 'Intermediary exhibits high throughput and near-zero long-term balance holding.',
+      },
+    ],
+  },
+  fan_out: {
+    title: 'Smurfing, Structuring & Dispersion Rings',
+    badge: 'Structuring',
+    summary:
+      'Consolidated capital pools are split into multiple smaller tranches and dispersed across numerous counterparties in a short burst, specifically engineered to evade mandatory currency transaction reporting thresholds.',
+    riskProfile: 'High SAR threshold (Deliberate circumvention of reporting limits)',
+    rules: [
+      {
+        name: 'Counterparty Fan-Out',
+        threshold: '≥ 5 Recipients',
+        desc: 'Capital structured simultaneously into 5 or more distinct sub-accounts.',
+      },
+      {
+        name: 'Outflow Volume',
+        threshold: '≥ 85% Dispersed',
+        desc: 'At least 85% of consolidated incoming capital is structured outward.',
+      },
+      {
+        name: 'Temporal Burst',
+        threshold: '≤ 24.0 Hours',
+        desc: 'Dispersal occurs in a tight temporal window to avoid transaction flags.',
+      },
+      {
+        name: 'Structuring Pattern',
+        threshold: 'Sub-Threshold Tranches',
+        desc: 'Individual payment amounts kept below standard $10,000 regulatory triggers.',
+      },
+    ],
+  },
+};
+
 export const FraudDetection: React.FC<FraudDetectionProps> = ({
   cases,
   onSelectCase,
@@ -24,300 +155,187 @@ export const FraudDetection: React.FC<FraudDetectionProps> = ({
       : c.typology.includes('fan_out') || c.typology.includes('fan_in')
   );
 
+  const activeMeta = TYPOLOGY_DETAILS[activeTab];
+
   return (
-    <div style={{ padding: '28px', maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '28px' }}>
-      {/* Header */}
-      <div>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 700, color: 'var(--color-ink)' }}>
-          Forensic Typology Models & Behavioral Signatures
-        </h1>
-        <p style={{ fontSize: '13px', color: 'var(--color-ink-muted)', marginTop: '4px' }}>
-          Explore the exact algorithmic heuristics, mathematical conditions, and discovered candidate clusters for each fraud typology.
-        </p>
-      </div>
-
-      {/* Typology Selector Tabs */}
-      <div style={{ display: 'flex', gap: '8px', borderBottom: '1px solid var(--color-linen)', paddingBottom: '12px' }}>
-        {[
-          { id: 'wash_trading', label: 'NFT Wash Trading & Floor Pumping' },
-          { id: 'cycle', label: 'Temporal Cycles (t₁ < t₂ < ... < tₖ)' },
-          { id: 'pass_through', label: 'Mule Pass-Through Relays' },
-          { id: 'fan_out', label: 'Smurfing & Structuring (Fan-Out)' },
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as any)}
-            style={{
-              padding: '8px 16px',
-              borderRadius: 'var(--radius-pill)',
-              border: activeTab === tab.id ? '1px solid var(--color-teal-deep)' : '1px solid var(--color-linen)',
-              backgroundColor: activeTab === tab.id ? 'var(--color-bg-mint)' : 'var(--color-bg-white)',
-              color: activeTab === tab.id ? 'var(--color-teal-deep)' : 'var(--color-ink-secondary)',
-              fontSize: '12px',
-              fontWeight: activeTab === tab.id ? 700 : 500,
-              cursor: 'pointer',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Typology Model Explanation Card */}
+    <div style={{ padding: '20px 24px', maxWidth: '1440px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      
+      {/* Top Header & Typology Tabs */}
       <div
         style={{
-          padding: '24px',
+          backgroundColor: 'var(--color-bg-white)',
+          borderRadius: 'var(--radius-card)',
+          border: 'var(--border-card)',
+          padding: '16px 20px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 700, margin: 0, color: 'var(--color-ink)' }}>
+              Forensic Typology Signatures
+            </h1>
+            <p style={{ fontSize: '12px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+              Select a money-laundering typology to view its behavioral invariants and discovered clusters.
+            </p>
+          </div>
+          <span
+            style={{
+              fontSize: '11px',
+              fontWeight: 600,
+              color: 'var(--color-teal-deep)',
+              backgroundColor: 'var(--color-bg-mint)',
+              padding: '4px 10px',
+              borderRadius: 'var(--radius-pill)',
+            }}
+          >
+            {filteredCases.length} Detected Cases
+          </span>
+        </div>
+
+        {/* Tab Buttons */}
+        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+          {[
+            { id: 'wash_trading', label: 'NFT Wash Trading' },
+            { id: 'cycle', label: 'Temporal Cycles' },
+            { id: 'pass_through', label: 'Mule Pass-Through' },
+            { id: 'fan_out', label: 'Smurfing & Structuring' },
+          ].map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: 'var(--radius-pill)',
+                  border: isActive ? '1px solid var(--color-teal-deep)' : '1px solid var(--color-linen)',
+                  backgroundColor: isActive ? 'var(--color-bg-mint)' : 'transparent',
+                  color: isActive ? 'var(--color-teal-deep)' : 'var(--color-ink-secondary)',
+                  fontSize: '12px',
+                  fontWeight: isActive ? 700 : 500,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                }}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Typology Overview & Detection Criteria Card */}
+      <div
+        style={{
+          padding: '18px 20px',
           backgroundColor: 'var(--color-bg-white)',
           borderRadius: 'var(--radius-card)',
           border: 'var(--border-card)',
           display: 'grid',
-          gridTemplateColumns: '1.2fr 0.8fr',
-          gap: '24px',
+          gridTemplateColumns: '1fr 1.3fr',
+          gap: '20px',
+          alignItems: 'start',
         }}
       >
-        <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 600, color: 'var(--color-teal-deep)' }}>
-            {activeTab === 'wash_trading' && 'NFT Wash Trading & Artificial Volume Churning'}
-            {activeTab === 'cycle' && 'Forward Time-Ordered Cyclic Round-Tripping'}
-            {activeTab === 'pass_through' && 'Rapid Mule Relay Pass-Through Chains'}
-            {activeTab === 'fan_out' && 'Smurfing, Structuring & Counterparty Dispersion'}
-          </h2>
+        {/* Left: Summary & AML Profile */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 700, margin: 0, color: 'var(--color-teal-deep)' }}>
+              {activeMeta.title}
+            </h2>
+            <span
+              style={{
+                fontSize: '10px',
+                fontWeight: 700,
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-pill)',
+                backgroundColor: '#f1f5f9',
+                color: '#334155',
+              }}
+            >
+              {activeMeta.badge}
+            </span>
+          </div>
 
-          <div style={{ fontSize: '13px', color: 'var(--color-ink-secondary)', marginTop: '8px', lineHeight: 1.6 }}>
-            {activeTab === 'wash_trading' && (
-              <>
-                Wash trading occurs when coordinated sybil accounts execute reciprocal transactions
-                of the same NFT token without altering the ultimate economic beneficiary. This is executed
-                to manipulate floor prices on secondary marketplaces or artificially manufacture trading volume.
-              </>
-            )}
-            {activeTab === 'cycle' && (
-              <>
-                A cyclic laundering ring routes funds through a carousel of intermediate accounts before returning to origin.
-                Unlike static graph tools that flag harmless loops, TraceFlow enforces causal temporal ordering:
-                each transfer must happen strictly after the previous one, completing the loop within a verified time window.
-              </>
-            )}
-            {activeTab === 'pass_through' && (
-              <>
-                Mule relay chains consist of linear sequences of transient intermediary accounts used to obscure the
-                origin of illicit funds. Intermediaries hold funds for minimal durations (under 1 hour)
-                and pass along almost the entire principal value (85% to 105% retention ratio).
-              </>
-            )}
-            {activeTab === 'fan_out' && (
-              <>
-                Structuring (smurfing) breaks a large capital pool into multiple smaller tranches sent to several
-                counterparties (5 or more accounts) within a short window, deliberately evading single-transaction reporting thresholds.
-              </>
-            )}
+          <p style={{ fontSize: '12px', color: 'var(--color-ink-secondary)', lineHeight: 1.55, margin: 0 }}>
+            {activeMeta.summary}
+          </p>
+
+          <div
+            style={{
+              padding: '10px 12px',
+              backgroundColor: 'var(--color-bg-sand)',
+              borderRadius: '6px',
+              border: '1px solid var(--color-linen)',
+              fontSize: '11px',
+              color: 'var(--color-ink-muted)',
+            }}
+          >
+            <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Risk Assessment: </span>
+            {activeMeta.riskProfile}
           </div>
         </div>
 
-        {/* Structured Forensic Detection Rules & Mathematical Invariants */}
+        {/* Right: Clean Detection Criteria Grid (No oversized formulas) */}
         <div
           style={{
-            padding: '20px 22px',
+            padding: '14px 16px',
             backgroundColor: 'var(--color-bg-cream)',
             borderRadius: 'var(--radius-card)',
             border: '1px solid var(--color-linen)',
-            fontSize: '12px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '10px',
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-            <span style={{ fontWeight: 800, color: 'var(--color-ink)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em' }}>
-              Mathematical Detection Invariants & Formulas
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontWeight: 700, color: 'var(--color-ink)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.04em' }}>
+              Forensic Detection Criteria
             </span>
-            <span style={{ fontSize: '10px', color: '#0f766e', fontWeight: 700, backgroundColor: 'var(--color-bg-mint)', padding: '2px 8px', borderRadius: 'var(--radius-pill)' }}>
-              Deterministic Algorithmic Rules
+            <span style={{ fontSize: '10px', color: '#0f766e', fontWeight: 600 }}>
+              Deterministic Rule Set
             </span>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {activeTab === 'wash_trading' && (
-              <>
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Asset Identity Invariant</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      token_id(e_i) == token_id(e_j) &forall; e &isin; Ring
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Identical cryptographic token ID is repeatedly transferred across confederate accounts.
-                  </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+            {activeMeta.rules.map((r, idx) => (
+              <div
+                key={idx}
+                style={{
+                  padding: '8px 10px',
+                  backgroundColor: 'var(--color-bg-white)',
+                  borderRadius: '5px',
+                  border: '1px solid var(--color-linen)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '3px',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-ink)' }}>
+                    {r.name}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '10px',
+                      fontWeight: 600,
+                      color: '#0f766e',
+                      backgroundColor: 'var(--color-bg-mint)',
+                      padding: '1px 6px',
+                      borderRadius: '3px',
+                    }}
+                  >
+                    {r.threshold}
+                  </span>
                 </div>
-
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Reciprocal Re-Acquisition</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      seller(e_j) &isin; &#123;buyer(e_1), ..., buyer(e_j-1)&#125;
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Prior seller re-acquires beneficial custody of the same NFT asset through intermediaries.
-                  </div>
+                <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', lineHeight: 1.35 }}>
+                  {r.desc}
                 </div>
-
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Temporal Window Bound</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      t_end - t_start &le; &Delta;T_wash (72.0 Hours)
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    The entire reciprocal volume churning loop occurs within maximum sliding threshold.
-                  </div>
-                </div>
-
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Zero Economic Transfer</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 800, color: '#dc2626', backgroundColor: '#fee2e2', padding: '2px 8px', borderRadius: '4px', border: '1px solid #fecaca' }}>
-                      &Delta;BeneficialOwner(NFT) == 0
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    No genuine change in beneficial economic ownership; transactions are artificial self-dealing.
-                  </div>
-                </div>
-              </>
-            )}
-
-            {activeTab === 'cycle' && (
-              <>
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Temporal Monotonicity</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      t(e_1) &lt; t(e_2) &lt; ... &lt; t(e_k) &le; t(e_1) + &Delta;T
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Each directed transfer strictly succeeds the prior transfer in causal forward time.
-                  </div>
-                </div>
-
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Closed Circuit Boundary</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      dst(e_k) == src(e_1) &and; &forall; i &ne; j: src(e_i) &ne; src(e_j)
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Forms a simple directed cycle returning funds back to the initial origin seed account.
-                  </div>
-                </div>
-
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Bounded Cycle Length</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      3 &le; k &le; 5 Accounts
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Multi-hop traversal bounded between 3 and 5 counterparties to eliminate bilateral false positives.
-                  </div>
-                </div>
-
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Global Window Bound</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      &Delta;T &le; 24.0 Hours
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Full circular carousel completes within 24 hours to distinguish from long-term organic commerce.
-                  </div>
-                </div>
-              </>
-            )}
-
-            {activeTab === 'pass_through' && (
-              <>
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Per-Hop Dwell Pacing</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      d(v) = min(t_out - t_in) &le; 1.0 Hour
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Mule intermediate addresses forward funds immediately rather than accumulating savings.
-                  </div>
-                </div>
-
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Flow Conservation Ratio</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      &rho;(v) = OutFlow(v) / InFlow(v) &isin; [0.85, 1.05]
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Near-exact conservation of capital (95% to 105%), indicating passive pass-through conduit.
-                  </div>
-                </div>
-
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Minimum Layering Hops</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      |Hops| &ge; 3 Directed Edges
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Linear chains require at least 3 sequential hops to meet money-laundering layering criteria.
-                  </div>
-                </div>
-              </>
-            )}
-
-            {activeTab === 'fan_out' && (
-              <>
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Counterparty Entropy</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      |Unique Counterparties(v)| &ge; 5
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Capital dispersed simultaneously into 5 or more distinct sub-accounts.
-                  </div>
-                </div>
-
-                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Dispersion Conservation</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      OutFlow(v) / InFlow(v) &ge; 0.85
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    At least 85% of consolidated incoming capital is structured outward.
-                  </div>
-                </div>
-
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Temporal Compression</span>
-                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
-                      t_max - t_min &le; 24.0 Hours
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                    Rapid batch dispersion intended to evade single-transaction reporting thresholds.
-                  </div>
-                </div>
-              </>
-            )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -325,54 +343,59 @@ export const FraudDetection: React.FC<FraudDetectionProps> = ({
       {/* Flagged Clusters Table */}
       <div
         style={{
-          padding: '24px',
+          padding: '16px 20px',
           backgroundColor: 'var(--color-bg-white)',
           borderRadius: 'var(--radius-card)',
           border: 'var(--border-card)',
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px',
+          gap: '12px',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 600 }}>
-            Discovered {activeTab.replace('_', ' ').toUpperCase()} Clusters ({filteredCases.length})
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '15px', fontWeight: 700, margin: 0 }}>
+            Identified Cases ({filteredCases.length})
           </h3>
+          <span style={{ fontSize: '11px', color: 'var(--color-ink-muted)' }}>
+            Showing candidate clusters matching {activeMeta.title}
+          </span>
         </div>
 
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12px', textAlign: 'left' }}>
             <thead>
               <tr style={{ borderBottom: '2px solid var(--color-linen)', color: 'var(--color-ink-secondary)' }}>
-                <th style={{ padding: '10px' }}>Case / Title</th>
-                <th style={{ padding: '10px', textAlign: 'right' }}>Wallets</th>
-                <th style={{ padding: '10px', textAlign: 'right' }}>Transactions</th>
-                <th style={{ padding: '10px', textAlign: 'right' }}>Duration</th>
-                <th style={{ padding: '10px', textAlign: 'right' }}>Risk Score</th>
-                <th style={{ padding: '10px', textAlign: 'center' }}>Action</th>
+                <th style={{ padding: '8px 10px' }}>Case Reference</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Wallets</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Transactions</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Duration</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Risk Score</th>
+                <th style={{ padding: '8px 10px', textAlign: 'center' }}>Action</th>
               </tr>
             </thead>
             <tbody>
               {filteredCases.map((c) => (
                 <tr key={c.case_id} style={{ borderBottom: '1px solid var(--color-bg-sand)' }}>
-                  <td style={{ padding: '10px', fontWeight: 600 }}>
-                    <div>{c.title || `Ring #${c.case_id.slice(0, 8)}`}</div>
-                    <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)' }}>ID: {c.case_id}</div>
+                  <td style={{ padding: '8px 10px', fontWeight: 600 }}>
+                    <div style={{ color: 'var(--color-ink)' }}>{c.title || `Ring #${c.case_id.slice(0, 8)}`}</div>
+                    <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>
+                      ID: {c.case_id.slice(0, 12)}
+                    </div>
                   </td>
-                  <td style={{ padding: '10px', textAlign: 'right' }}>{c.account_count}</td>
-                  <td style={{ padding: '10px', textAlign: 'right' }}>{c.edge_count}</td>
-                  <td style={{ padding: '10px', textAlign: 'right' }}>{c.duration_hours.toFixed(1)}h</td>
-                  <td style={{ padding: '10px', textAlign: 'right', fontWeight: 700, color: 'var(--color-teal-deep)' }}>
+                  <td style={{ padding: '8px 10px', textAlign: 'right' }}>{c.account_count}</td>
+                  <td style={{ padding: '8px 10px', textAlign: 'right' }}>{c.edge_count}</td>
+                  <td style={{ padding: '8px 10px', textAlign: 'right' }}>{c.duration_hours.toFixed(1)}h</td>
+                  <td style={{ padding: '8px 10px', textAlign: 'right', fontWeight: 700, color: 'var(--color-teal-deep)' }}>
                     {(c.risk_score * 100).toFixed(0)}%
                   </td>
-                  <td style={{ padding: '10px', textAlign: 'center' }}>
+                  <td style={{ padding: '8px 10px', textAlign: 'center' }}>
                     <button
                       onClick={() => {
                         onSelectCase(c.case_id);
                         onNavigate('cases');
                       }}
                       style={{
-                        padding: '4px 10px',
+                        padding: '4px 12px',
                         backgroundColor: 'var(--color-teal-deep)',
                         color: 'var(--color-bg-white)',
                         border: 'none',

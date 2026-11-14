@@ -1,5 +1,6 @@
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 from pydantic import BaseModel
 import threading
 import uuid
@@ -114,15 +115,19 @@ def get_analysis_summary(dataset_id: Optional[str] = None, db: Session = Depends
         for eid in c.evidence_json.get("edge_ids", []):
             flagged_edges.add(eid)
 
+    # Dynamically compute total volume from persisted transactions
+    vol_sum = db.query(func.sum(TransactionModel.amount)).filter(TransactionModel.dataset_id == target_id).scalar()
+    computed_volume = float(vol_sum) if vol_sum is not None else float(ds.total_volume or 0.0)
+
     return {
         "dataset_id": target_id,
         "dataset_name": ds.name,
         "schema_type": ds.schema_type,
-        "total_volume": ds.total_volume,
+        "total_volume": computed_volume,
         "currency": ds.currency,
-        "total_wallets": total_wallets,
+        "total_wallets": total_wallets or ds.wallet_count or 0,
         "high_risk_wallets": high_risk_wallets,
-        "total_transactions": total_txs,
+        "total_transactions": total_txs or ds.row_count or 0,
         "flagged_transactions": flagged_txs,
         "total_fraud_clusters": total_clusters,
         "typology_distribution": typology_counts

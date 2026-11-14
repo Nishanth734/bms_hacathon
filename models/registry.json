@@ -1,0 +1,75 @@
+{
+  "active_version": 7,
+  "history": [
+    {
+      "version": 1,
+      "timestamp": "2026-11-14T20:27:16.924748+00:00",
+      "pr_auc": 0.75,
+      "f1": 0.7,
+      "approved_cases_count": 0,
+      "gate_passed": true,
+      "promoted": true,
+      "promoted_at": "2026-11-14T20:27:16.924748+00:00"
+    },
+    {
+      "version": 2,
+      "timestamp": "2026-11-14T20:27:17.083117+00:00",
+      "pr_auc": 1.0,
+      "f1": 0.0,
+      "approved_cases_count": 0,
+      "gate_passed": true,
+      "promoted": true,
+      "promoted_at": "2026-11-14T20:27:17.083117+00:00"
+    },
+    {
+      "version": 3,
+      "timestamp": "2026-11-14T20:27:17.169665+00:00",
+      "pr_auc": 1.0,
+      "f1": 0.0,
+      "approved_cases_count": 1,
+      "gate_passed": true,
+      "promoted": true,
+      "promoted_at": "2026-11-14T20:27:17.169665+00:00"
+    },
+    {
+      "version": 4,
+      "timestamp": "2026-11-14T20:27:52.024821+00:00",
+      "pr_auc": 1.0,
+      "f1": 0.0,
+      "approved_cases_count": 2,
+      "gate_passed": true,
+      "promoted": true,
+      "promoted_at": "2026-11-14T20:27:52.024821+00:00"
+    },
+    {
+      "version": 5,
+      "timestamp": "2026-11-14T20:45:49.330647+00:00",
+      "pr_auc": 1.0,
+      "f1": 0.0,
+      "approved_cases_count": 4,
+      "gate_passed": true,
+      "promoted": true,
+      "promoted_at": "2026-11-14T20:45:49.330647+00:00"
+    },
+    {
+      "version": 6,
+      "timestamp": "2026-11-14T20:46:18.042769+00:00",
+      "pr_auc": 1.0,
+      "f1": 0.0,
+      "approved_cases_count": 5,
+      "gate_passed": true,
+      "promoted": true,
+      "promoted_at": "2026-11-14T20:46:18.042769+00:00"
+    },
+    {
+      "version": 7,
+      "timestamp": "2026-11-14T20:46:19.681392+00:00",
+      "pr_auc": 1.0,
+      "f1": 0.0,
+      "approved_cases_count": 5,
+      "gate_passed": true,
+      "promoted": true,
+      "promoted_at": "2026-11-14T20:46:19.681392+00:00"
+    }
+  ]
+}

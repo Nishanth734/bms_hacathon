@@ -214,4 +214,5 @@ export type PageView =
   | "wallets"
   | "datasets"
   | "analysis"
-  | "evidence";
+  | "evidence"
+  | "learning";

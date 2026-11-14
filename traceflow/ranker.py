@@ -95,6 +95,7 @@ def train_lightgbm(
     y_val: np.ndarray | None = None,
     feature_names: list[str] | None = None,
     scale_pos_weight: float | None = None,
+    sample_weight: np.ndarray | None = None,
 ) -> lgb.Booster:
     """Train a LightGBM classifier with class imbalance weighting."""
     if len(np.unique(y_train)) < 2:
@@ -102,6 +103,8 @@ def train_lightgbm(
         dummy_y = np.array([0 if y_train[0] == 1 else 1])
         X_train = np.vstack([X_train, dummy_x])
         y_train = np.concatenate([y_train, dummy_y])
+        if sample_weight is not None:
+            sample_weight = np.concatenate([sample_weight, [1.0]])
 
     if scale_pos_weight is None:
         n_pos = np.sum(y_train == 1)
@@ -119,7 +122,7 @@ def train_lightgbm(
         "seed": 42,
     }
 
-    train_data = lgb.Dataset(X_train, label=y_train, feature_name=feature_names)
+    train_data = lgb.Dataset(X_train, label=y_train, weight=sample_weight, feature_name=feature_names)
     valid_sets = [train_data]
     if X_val is not None and y_val is not None and len(y_val) > 0:
         val_data = lgb.Dataset(X_val, label=y_val, feature_name=feature_names, reference=train_data)
