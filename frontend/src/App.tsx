@@ -38,6 +38,7 @@ export const App: React.FC = () => {
   const [ablation, setAblation] = useState<AblationRow[]>([]);
   const [showAblationModal, setShowAblationModal] = useState(false);
   const [backendOnline, setBackendOnline] = useState(false);
+  const [loadingDataset, setLoadingDataset] = useState(false);
 
   // 1. Initial Load: health, datasets, metrics
   const loadInitialData = async () => {
@@ -75,15 +76,13 @@ export const App: React.FC = () => {
 
   // 2. Load dataset-specific summary and cases whenever activeDatasetId changes
   const loadDatasetData = async (dsId: string) => {
+    setLoadingDataset(true);
     try {
-      const sum = await getAnalysisSummary(dsId);
+      const [sum, c] = await Promise.all([
+        getAnalysisSummary(dsId),
+        getCases({ dataset_id: dsId, limit: 100 })
+      ]);
       setSummary(sum);
-    } catch (e) {
-      console.error('Failed to load analysis summary:', e);
-    }
-
-    try {
-      const c = await getCases({ dataset_id: dsId, limit: 100 });
       setCases(c.cases);
       if (c.cases.length > 0) {
         const firstId = c.cases[0].case_id || c.cases[0].cluster_id;
@@ -93,7 +92,9 @@ export const App: React.FC = () => {
         setSelectedCaseDetail(null);
       }
     } catch (e) {
-      console.error('Failed to load cases:', e);
+      console.error('Failed to load dataset data:', e);
+    } finally {
+      setLoadingDataset(false);
     }
   };
 
@@ -156,6 +157,7 @@ export const App: React.FC = () => {
             cases={cases}
             onSelectCase={(id) => setSelectedCaseId(id)}
             onNavigate={setCurrentView}
+            loading={loadingDataset}
           />
         )}
 

@@ -55,47 +55,6 @@ export const DatasetManagement: React.FC<DatasetManagementProps> = ({
     }
   };
 
-  const downloadSampleNft = () => {
-    const csvContent = `tx_hash,timestamp,seller_address,buyer_address,token_id,collection_address,price_eth,currency,is_wash_trade
-0xwash_a1,1700100000,0xsyndicate_alpha,0xmule_beta,9901,0xbored_apes_vault,12.50,ETH,1
-0xwash_a2,1700101800,0xmule_beta,0xmule_gamma,9901,0xbored_apes_vault,14.80,ETH,1
-0xwash_a3,1700103600,0xmule_gamma,0xsyndicate_alpha,9901,0xbored_apes_vault,16.20,ETH,1
-0xnorm_b1,1700105000,0xcollector_dan,0xcollector_erin,4502,0xartblocks_curated,3.40,ETH,0
-0xnorm_b2,1700107200,0xcollector_erin,0xgallery_frank,4502,0xartblocks_curated,4.10,ETH,0
-0xmule_c1,1700110000,0xfunder_seed,0xrelay_one,8810,0xmutant_clones,8.00,ETH,1
-0xmule_c2,1700111200,0xrelay_one,0xrelay_two,8810,0xmutant_clones,7.90,ETH,1
-0xmule_c3,1700112400,0xrelay_two,0xfunder_seed,8810,0xmutant_clones,7.85,ETH,1
-0xnorm_d1,1700115000,0xartist_gina,0xbuyer_harry,1201,0xsuperrare_vault,5.00,ETH,0
-0xnorm_d2,1700118000,0xbuyer_harry,0xcollector_ian,1201,0xsuperrare_vault,5.50,ETH,0`;
-
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', 'sample_nft_wash_trading.csv');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const downloadSampleBanking = () => {
-    const csvContent = `Timestamp,From Bank,Account,To Bank,Account.1,Amount Received,Receiving Currency,Amount Paid,Payment Currency,Payment Format,Is Laundering
-2026/11/14 09:00,Chase,1001,Citi,2001,50000.0,USD,50000.0,USD,Wire,1
-2026/11/14 10:15,Citi,2001,Wells,3001,49500.0,USD,49500.0,USD,Wire,1
-2026/11/14 11:30,Wells,3001,Chase,1001,49000.0,USD,49000.0,USD,Wire,1
-2026/11/14 12:00,Chase,1001,Barclays,4001,15000.0,USD,15000.0,USD,Wire,0
-2026/11/14 14:00,Barclays,4001,HSBC,5001,14800.0,USD,14800.0,USD,Wire,0`;
-
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', 'sample_banking_aml.csv');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this dataset?')) {
       try {
@@ -118,139 +77,6 @@ export const DatasetManagement: React.FC<DatasetManagementProps> = ({
           Upload new blockchain or banking transaction datasets. The parser automatically detects NFT or AML banking schemas,
           validates timestamps and amounts, and provisions the forensic graph database.
         </p>
-      </div>
-
-      {/* Top Section: Supported Schema Formats & Quick Download Samples */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-          gap: '16px',
-        }}
-      >
-        {/* NFT Format Card */}
-        <div
-          style={{
-            padding: '18px 20px',
-            backgroundColor: 'var(--color-bg-white)',
-            borderRadius: 'var(--radius-card)',
-            border: '1.5px solid #dcd7cc',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-            boxShadow: '0 2px 8px rgba(43,43,41,0.03)',
-          }}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '16px' }}>💎</span>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#0f766e' }}>
-                Format 1: NFT Marketplace & Wash Trading
-              </span>
-            </div>
-            <button
-              onClick={downloadSampleNft}
-              style={{
-                padding: '4px 10px',
-                borderRadius: 'var(--radius-pill)',
-                backgroundColor: 'var(--color-bg-mint)',
-                color: '#0f766e',
-                border: '1px solid #99f6e4',
-                fontSize: '11px',
-                fontWeight: 700,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              <span>📥</span>
-              <span>Download Sample NFT CSV</span>
-            </button>
-          </div>
-
-          <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)' }}>
-            Supported Columns (auto-detected):
-          </div>
-
-          <div
-            style={{
-              padding: '8px 12px',
-              backgroundColor: 'var(--color-bg-cream)',
-              borderRadius: '6px',
-              fontSize: '11px',
-              fontFamily: 'monospace',
-              color: 'var(--color-ink)',
-              lineHeight: 1.5,
-              wordBreak: 'break-all',
-              border: '1px solid rgba(43,43,41,0.06)',
-            }}
-          >
-            tx_hash, timestamp, seller_address, buyer_address, token_id, collection_address, price_eth, currency, is_wash_trade
-          </div>
-        </div>
-
-        {/* Banking Format Card */}
-        <div
-          style={{
-            padding: '18px 20px',
-            backgroundColor: 'var(--color-bg-white)',
-            borderRadius: 'var(--radius-card)',
-            border: '1.5px solid #dcd7cc',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-            boxShadow: '0 2px 8px rgba(43,43,41,0.03)',
-          }}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '16px' }}>🏦</span>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#9a3412' }}>
-                Format 2: Banking & AML Ledger (IBM AML Format)
-              </span>
-            </div>
-            <button
-              onClick={downloadSampleBanking}
-              style={{
-                padding: '4px 10px',
-                borderRadius: 'var(--radius-pill)',
-                backgroundColor: '#ffedd5',
-                color: '#9a3412',
-                border: '1px solid #fed7aa',
-                fontSize: '11px',
-                fontWeight: 700,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
-            >
-              <span>📥</span>
-              <span>Download Sample Banking CSV</span>
-            </button>
-          </div>
-
-          <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)' }}>
-            Supported Columns (auto-detected):
-          </div>
-
-          <div
-            style={{
-              padding: '8px 12px',
-              backgroundColor: 'var(--color-bg-cream)',
-              borderRadius: '6px',
-              fontSize: '11px',
-              fontFamily: 'monospace',
-              color: 'var(--color-ink)',
-              lineHeight: 1.5,
-              wordBreak: 'break-all',
-              border: '1px solid rgba(43,43,41,0.06)',
-            }}
-          >
-            Timestamp, From Bank, Account, To Bank, Account.1, Amount Received, Receiving Currency, Amount Paid, Payment Currency, Payment Format, Is Laundering
-          </div>
-        </div>
       </div>
 
       {/* Upload Zone */}
@@ -357,8 +183,36 @@ export const DatasetManagement: React.FC<DatasetManagementProps> = ({
                   cursor: uploading ? 'not-allowed' : 'pointer',
                 }}
               >
-                {uploading ? 'Processing...' : 'Upload & Validate'}
+                {uploading ? 'Analyzing...' : 'Upload & Validate'}
               </button>
+            </div>
+          )}
+
+          {uploading && (
+            <div
+              style={{
+                marginTop: '12px',
+                padding: '10px 14px',
+                backgroundColor: '#f0fdfa',
+                borderRadius: 'var(--radius-card)',
+                border: '1px solid #99f6e4',
+                fontSize: '11px',
+                color: '#0f766e',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                width: '100%',
+                maxWidth: '400px',
+                textAlign: 'left',
+              }}
+            >
+              <span style={{ fontSize: '14px' }}>⚡</span>
+              <div>
+                <strong>Running Multi-Hop Forensic Graph Analysis...</strong>
+                <div style={{ color: '#115e59', fontSize: '10px', marginTop: '2px' }}>
+                  Standardizing transactions, detecting SCCs & wash loops, and calculating risk profiles.
+                </div>
+              </div>
             </div>
           )}
 

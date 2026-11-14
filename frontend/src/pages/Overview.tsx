@@ -6,13 +6,55 @@ interface OverviewProps {
   cases: CaseListItem[];
   onSelectCase: (caseId: string) => void;
   onNavigate: (view: PageView) => void;
+  loading?: boolean;
 }
 
-export const Overview: React.FC<OverviewProps> = ({ summary, cases, onSelectCase, onNavigate }) => {
+export const Overview: React.FC<OverviewProps> = ({ summary, cases, onSelectCase, onNavigate, loading = false }) => {
   const topCases = cases.slice(0, 5);
 
   return (
-    <div style={{ padding: '24px', maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div style={{ padding: '24px', maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      
+      {/* Dynamic Loading Notification Banner */}
+      {loading && (
+        <div
+          style={{
+            padding: '12px 18px',
+            backgroundColor: '#f0fdfa',
+            borderRadius: 'var(--radius-card)',
+            border: '1px solid #99f6e4',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            boxShadow: '0 2px 8px rgba(15, 118, 110, 0.08)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{ fontSize: '15px' }}>⚡</span>
+            <div>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0f766e' }}>
+                Forensic Graph Engine Processing Dataset...
+              </div>
+              <div style={{ fontSize: '11px', color: '#115e59', marginTop: '1px' }}>
+                Decomposing Strongly Connected Components, evaluating bounded temporal cycles, and calculating flow retention.
+              </div>
+            </div>
+          </div>
+          <span
+            style={{
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#0f766e',
+              backgroundColor: '#ccfbf1',
+              padding: '3px 10px',
+              borderRadius: 'var(--radius-pill)',
+            }}
+          >
+            SYNCHRONIZING
+          </span>
+        </div>
+      )}
+
       {/* Top Banner */}
       <div
         style={{
@@ -89,7 +131,13 @@ export const Overview: React.FC<OverviewProps> = ({ summary, cases, onSelectCase
             Analyzed Volume
           </div>
           <div style={{ fontSize: '22px', fontWeight: 700, color: 'var(--color-ink)', marginTop: '4px' }}>
-            {summary ? `${summary.total_volume.toLocaleString(undefined, { maximumFractionDigits: 1 })} ${summary.currency}` : '—'}
+            {loading ? (
+              <span style={{ fontSize: '16px', color: 'var(--color-ink-muted)', fontWeight: 500 }}>Calculating...</span>
+            ) : summary ? (
+              `${summary.total_volume.toLocaleString(undefined, { maximumFractionDigits: 1 })} ${summary.currency}`
+            ) : (
+              '—'
+            )}
           </div>
         </div>
 
@@ -105,7 +153,11 @@ export const Overview: React.FC<OverviewProps> = ({ summary, cases, onSelectCase
             Flagged Clusters
           </div>
           <div style={{ fontSize: '22px', fontWeight: 700, color: '#dc2626', marginTop: '4px' }}>
-            {summary?.total_fraud_clusters || 0}
+            {loading ? (
+              <span style={{ fontSize: '16px', color: 'var(--color-ink-muted)', fontWeight: 500 }}>Scanning...</span>
+            ) : (
+              summary?.total_fraud_clusters ?? 0
+            )}
           </div>
         </div>
 
@@ -121,7 +173,11 @@ export const Overview: React.FC<OverviewProps> = ({ summary, cases, onSelectCase
             High-Risk Wallets
           </div>
           <div style={{ fontSize: '22px', fontWeight: 700, color: '#d97706', marginTop: '4px' }}>
-            {summary?.high_risk_wallets || 0}
+            {loading ? (
+              <span style={{ fontSize: '16px', color: 'var(--color-ink-muted)', fontWeight: 500 }}>Ranking...</span>
+            ) : (
+              summary?.high_risk_wallets ?? 0
+            )}
           </div>
         </div>
 
@@ -147,7 +203,7 @@ export const Overview: React.FC<OverviewProps> = ({ summary, cases, onSelectCase
               textOverflow: 'ellipsis',
             }}
           >
-            {summary?.dataset_name || 'Loading...'}
+            {loading ? 'Activating...' : summary?.dataset_name || 'None'}
           </div>
         </div>
       </div>
