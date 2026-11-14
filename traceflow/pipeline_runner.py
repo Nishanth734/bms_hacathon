@@ -147,14 +147,18 @@ def run_analysis_pipeline(
 
         # Insert transactions in batches
         flagged_edges = set()
+        wash_edge_ids = set()
         for c in enriched_clusters:
             for eid in c.edge_ids:
                 flagged_edges.add(eid)
+                if "wash_trading" in (c.typology or []) or c.primary_typology == "wash_trading":
+                    wash_edge_ids.add(eid)
 
         tx_records = []
         for row in df.iter_rows(named=True):
             tx_id_str = str(row["tx_id"])
             is_fl = tx_id_str in flagged_edges or bool(row["label"] == 1)
+            is_wash = (tx_id_str in wash_edge_ids) or (row.get("token_id") is not None and bool(row.get("label") == 1))
             tx_records.append(TransactionModel(
                 tx_hash=tx_id_str,
                 dataset_id=dataset_id,
@@ -165,7 +169,7 @@ def run_analysis_pipeline(
                 currency=str(row["currency"] or "ETH"),
                 token_id=str(row["token_id"]) if row["token_id"] is not None else None,
                 collection_address=str(row["collection"]) if row["collection"] is not None else None,
-                is_wash_trade=bool("wash_trading" in [c.primary_typology for c in enriched_clusters if tx_id_str in c.edge_ids]),
+                is_wash_trade=is_wash,
                 is_flagged=is_fl
             ))
         db.bulk_save_objects(tx_records)

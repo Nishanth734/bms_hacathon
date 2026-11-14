@@ -213,3 +213,19 @@ def update_case(case_id: str, req: UpdateCaseRequest, db: Session = Depends(get_
     db.commit()
     db.refresh(c)
     return {"status": "updated", "case_id": c.case_id, "case_status": c.status, "notes": c.notes}
+
+@router.post("/{case_id}/ai-summary")
+def get_case_ai_summary_endpoint(case_id: str, db: Session = Depends(get_db)):
+    from traceflow.groq_service import generate_case_ai_summary
+    case_detail = get_case(case_id, db=db)
+    cluster = case_detail.get("cluster", {})
+    return generate_case_ai_summary({
+        "case_id": case_id,
+        "primary_typology": cluster.get("primary_typology"),
+        "risk_score": cluster.get("risk_score", 0.9),
+        "accounts": case_detail.get("accounts", []),
+        "duration_hours": cluster.get("duration_hours", 1.0),
+        "end_to_end_retention": cluster.get("end_to_end_retention", 0.98),
+        "graph": case_detail.get("graph", {}),
+        "schema_type": "nft" if "wash_trading" in cluster.get("typology", []) else "banking"
+    })

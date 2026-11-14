@@ -175,3 +175,17 @@ export async function getMetrics(): Promise<MetricsResponse> {
   if (!res.ok) throw new Error('Failed to fetch metrics');
   return res.json();
 }
+
+// AI Intelligence APIs (Groq Powered)
+export async function getCaseAiSummary(caseId: string): Promise<{ status: string; case_id: string; ai_summary: string; model_used: string }> {
+  const res = await fetch(`${BASE_URL}/cases/${caseId}/ai-summary`, { method: 'POST' });
+  if (!res.ok) throw new Error('Failed to generate case AI forensic summary');
+  return res.json();
+}
+
+export async function getWalletAiSummary(walletId: string, datasetId?: string): Promise<{ status: string; wallet_id: string; ai_summary: string; model_used: string }> {
+  const url = datasetId ? `${BASE_URL}/wallets/${walletId}/ai-summary?dataset_id=${datasetId}` : `${BASE_URL}/wallets/${walletId}/ai-summary`;
+  const res = await fetch(url, { method: 'POST' });
+  if (!res.ok) throw new Error('Failed to generate wallet AI forensic summary');
+  return res.json();
+}

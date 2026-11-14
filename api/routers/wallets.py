@@ -123,3 +123,12 @@ def get_wallet_detail(wallet_id: str, dataset_id: Optional[str] = None, db: Sess
             for t in txs
         ]
     }
+
+@router.post("/{wallet_id}/ai-summary")
+def get_wallet_ai_summary_endpoint(wallet_id: str, dataset_id: Optional[str] = None, db: Session = Depends(get_db)):
+    from traceflow.groq_service import generate_wallet_ai_summary
+    wallet_data = get_wallet_detail(wallet_id, dataset_id=dataset_id, db=db)
+    return generate_wallet_ai_summary({
+        **wallet_data.get("wallet", {}),
+        "transactions": wallet_data.get("transactions", [])
+    })

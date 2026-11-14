@@ -53,6 +53,8 @@ class Config:
     LLM_ENABLED: bool = field(default_factory=lambda: os.getenv("LLM_ENABLED", "false").lower() == "true")
     LLM_HOST: str = field(default_factory=lambda: os.getenv("LLM_HOST", "http://localhost:11434"))
     LLM_MODEL: str = field(default_factory=lambda: os.getenv("LLM_MODEL", "llama3.1:8b"))
+    GROQ_API_KEY: str = field(default_factory=lambda: os.getenv("GROQ_API_KEY", ""))
+    GROQ_MODEL: str = field(default_factory=lambda: os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"))
 
     def __post_init__(self) -> None:
         assert abs(self.TRAIN_SPLIT + self.VAL_SPLIT + self.TEST_SPLIT - 1.0) < 1e-6, (

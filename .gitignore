@@ -11,4 +11,5 @@ frontend/dist/
 .env
 data/*.db
 data/uploads/
+results/
 
