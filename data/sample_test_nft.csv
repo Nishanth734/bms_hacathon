@@ -1,0 +1,11 @@
+tx_hash,timestamp,seller_address,buyer_address,token_id,collection_address,price_eth,currency,is_wash_trade
+0xwash_a1,1700100000,0xsyndicate_alpha,0xmule_beta,9901,0xbored_apes_vault,12.50,ETH,1
+0xwash_a2,1700101800,0xmule_beta,0xmule_gamma,9901,0xbored_apes_vault,14.80,ETH,1
+0xwash_a3,1700103600,0xmule_gamma,0xsyndicate_alpha,9901,0xbored_apes_vault,16.20,ETH,1
+0xnorm_b1,1700105000,0xcollector_dan,0xcollector_erin,4502,0xartblocks_curated,3.40,ETH,0
+0xnorm_b2,1700107200,0xcollector_erin,0xgallery_frank,4502,0xartblocks_curated,4.10,ETH,0
+0xmule_c1,1700110000,0xfunder_seed,0xrelay_one,8810,0xmutant_clones,8.00,ETH,1
+0xmule_c2,1700111200,0xrelay_one,0xrelay_two,8810,0xmutant_clones,7.90,ETH,1
+0xmule_c3,1700112400,0xrelay_two,0xfunder_seed,8810,0xmutant_clones,7.85,ETH,1
+0xnorm_d1,1700115000,0xartist_gina,0xbuyer_harry,1201,0xsuperrare_vault,5.00,ETH,0
+0xnorm_d2,1700118000,0xbuyer_harry,0xcollector_ian,1201,0xsuperrare_vault,5.50,ETH,0
