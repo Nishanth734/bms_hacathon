@@ -115,89 +115,206 @@ export const FraudDetection: React.FC<FraudDetectionProps> = ({
           </div>
         </div>
 
-        {/* Structured Forensic Detection Rules */}
+        {/* Structured Forensic Detection Rules & Mathematical Invariants */}
         <div
           style={{
-            padding: '18px 20px',
+            padding: '20px 22px',
             backgroundColor: 'var(--color-bg-cream)',
             borderRadius: 'var(--radius-card)',
             border: '1px solid var(--color-linen)',
             fontSize: '12px',
           }}
         >
-          <div style={{ fontWeight: 700, color: 'var(--color-ink)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.04em' }}>
-            Forensic Detection Rules
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <span style={{ fontWeight: 800, color: 'var(--color-ink)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em' }}>
+              Mathematical Detection Invariants & Formulas
+            </span>
+            <span style={{ fontSize: '10px', color: '#0f766e', fontWeight: 700, backgroundColor: 'var(--color-bg-mint)', padding: '2px 8px', borderRadius: 'var(--radius-pill)' }}>
+              Deterministic Algorithmic Rules
+            </span>
           </div>
-          <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {activeTab === 'wash_trading' && (
               <>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Token ID:</span>
-                  <span style={{ fontWeight: 600 }}>Identical NFT token across all sales</span>
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Asset Identity Invariant</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      token_id(e_i) == token_id(e_j) &forall; e &isin; Ring
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Identical cryptographic token ID is repeatedly transferred across confederate accounts.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Reciprocity:</span>
-                  <span style={{ fontWeight: 600 }}>Seller appears in prior buyer set</span>
+
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Reciprocal Re-Acquisition</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      seller(e_j) &isin; &#123;buyer(e_1), ..., buyer(e_j-1)&#125;
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Prior seller re-acquires beneficial custody of the same NFT asset through intermediaries.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Time Window:</span>
-                  <span style={{ fontWeight: 600 }}>Completed within 72 hours</span>
+
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Temporal Window Bound</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      t_end - t_start &le; &Delta;T_wash (72.0 Hours)
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    The entire reciprocal volume churning loop occurs within maximum sliding threshold.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Beneficial Change:</span>
-                  <span style={{ fontWeight: 700, color: '#dc2626' }}>Zero net economic transfer</span>
+
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Zero Economic Transfer</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 800, color: '#dc2626', backgroundColor: '#fee2e2', padding: '2px 8px', borderRadius: '4px', border: '1px solid #fecaca' }}>
+                      &Delta;BeneficialOwner(NFT) == 0
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    No genuine change in beneficial economic ownership; transactions are artificial self-dealing.
+                  </div>
                 </div>
               </>
             )}
+
             {activeTab === 'cycle' && (
               <>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Time Order:</span>
-                  <span style={{ fontWeight: 600 }}>Strict forward sequence (Hop 1 &rarr; Hop 2 &rarr; Hop 3)</span>
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Temporal Monotonicity</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      t(e_1) &lt; t(e_2) &lt; ... &lt; t(e_k) &le; t(e_1) + &Delta;T
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Each directed transfer strictly succeeds the prior transfer in causal forward time.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Circuit Topology:</span>
-                  <span style={{ fontWeight: 600 }}>Closed loop returns to seed account</span>
+
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Closed Circuit Boundary</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      dst(e_k) == src(e_1) &and; &forall; i &ne; j: src(e_i) &ne; src(e_j)
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Forms a simple directed cycle returning funds back to the initial origin seed account.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Chain Length:</span>
-                  <span style={{ fontWeight: 600 }}>3 to 5 Counterparties</span>
+
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Bounded Cycle Length</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      3 &le; k &le; 5 Accounts
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Multi-hop traversal bounded between 3 and 5 counterparties to eliminate bilateral false positives.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Window Bound:</span>
-                  <span style={{ fontWeight: 600 }}>Maximum 24 hours</span>
+
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Global Window Bound</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      &Delta;T &le; 24.0 Hours
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Full circular carousel completes within 24 hours to distinguish from long-term organic commerce.
+                  </div>
                 </div>
               </>
             )}
+
             {activeTab === 'pass_through' && (
               <>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Dwell Time:</span>
-                  <span style={{ fontWeight: 600 }}>Average holding time under 1 hour</span>
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Per-Hop Dwell Pacing</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      d(v) = min(t_out - t_in) &le; 1.0 Hour
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Mule intermediate addresses forward funds immediately rather than accumulating savings.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Flow Retention:</span>
-                  <span style={{ fontWeight: 600 }}>85% to 105% volume conservation</span>
+
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Flow Conservation Ratio</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      &rho;(v) = OutFlow(v) / InFlow(v) &isin; [0.85, 1.05]
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Near-exact conservation of capital (95% to 105%), indicating passive pass-through conduit.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Minimum Hops:</span>
-                  <span style={{ fontWeight: 600 }}>At least 3 intermediary wallets</span>
+
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Minimum Layering Hops</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      |Hops| &ge; 3 Directed Edges
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Linear chains require at least 3 sequential hops to meet money-laundering layering criteria.
+                  </div>
                 </div>
               </>
             )}
+
             {activeTab === 'fan_out' && (
               <>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Counterparties:</span>
-                  <span style={{ fontWeight: 600 }}>5 or more distinct destination accounts</span>
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Counterparty Entropy</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      |Unique Counterparties(v)| &ge; 5
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Capital dispersed simultaneously into 5 or more distinct sub-accounts.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '4px' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Time Window:</span>
-                  <span style={{ fontWeight: 600 }}>Compressed dispersion within 24 hours</span>
+
+                <div style={{ borderBottom: '1px solid rgba(43,43,41,0.06)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Dispersion Conservation</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      OutFlow(v) / InFlow(v) &ge; 0.85
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    At least 85% of consolidated incoming capital is structured outward.
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--color-ink-muted)' }}>Dispersion Ratio:</span>
-                  <span style={{ fontWeight: 600 }}>At least 85% of capital fanned out</span>
+
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--color-ink)' }}>Temporal Compression</span>
+                    <span style={{ fontFamily: 'monospace', fontWeight: 700, color: '#0f766e', backgroundColor: 'rgba(41,106,108,0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(41,106,108,0.2)' }}>
+                      t_max - t_min &le; 24.0 Hours
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
+                    Rapid batch dispersion intended to evade single-transaction reporting thresholds.
+                  </div>
                 </div>
               </>
             )}
