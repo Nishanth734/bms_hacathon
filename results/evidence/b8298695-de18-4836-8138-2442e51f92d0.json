@@ -1,0 +1,55 @@
+{
+  "cluster_id": "b8298695-de18-4836-8138-2442e51f92d0",
+  "typology": [
+    "pass_through"
+  ],
+  "primary_typology": "pass_through",
+  "risk_score": 0.95,
+  "window_start": "2022-01-09T21:25:00+00:00",
+  "window_end": "2022-01-09T22:15:00+00:00",
+  "accounts": [
+    "BankMule_5_MuleNode_5_3",
+    "BankMule_5_MuleNode_5_4",
+    "BankMule_5_MuleNode_5_1",
+    "BankMule_5_MuleNode_5_2"
+  ],
+  "dwell": {
+    "BankMule_5_MuleNode_5_2": 1500.0,
+    "BankMule_5_MuleNode_5_3": 1500.0
+  },
+  "retention": {
+    "BankMule_5_MuleNode_5_2": 0.97,
+    "BankMule_5_MuleNode_5_3": 0.9700000625183649
+  },
+  "end_to_end_retention": 0.940900060642814,
+  "edges": [
+    {
+      "edge_id": "3130",
+      "src": "BankMule_5_MuleNode_5_1",
+      "dst": "BankMule_5_MuleNode_5_2",
+      "amount": 82450.0,
+      "currency": "USD",
+      "ts": "2022-01-09T21:25:00+00:00",
+      "timestamp_unix": 1641763500.0
+    },
+    {
+      "edge_id": "3134",
+      "src": "BankMule_5_MuleNode_5_2",
+      "dst": "BankMule_5_MuleNode_5_3",
+      "amount": 79976.5,
+      "currency": "USD",
+      "ts": "2022-01-09T21:50:00+00:00",
+      "timestamp_unix": 1641765000.0
+    },
+    {
+      "edge_id": "3147",
+      "src": "BankMule_5_MuleNode_5_3",
+      "dst": "BankMule_5_MuleNode_5_4",
+      "amount": 77577.21,
+      "currency": "USD",
+      "ts": "2022-01-09T22:15:00+00:00",
+      "timestamp_unix": 1641766500.0
+    }
+  ],
+  "chain_hops": 3
+}

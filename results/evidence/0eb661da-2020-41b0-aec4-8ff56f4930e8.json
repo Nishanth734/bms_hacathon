@@ -1,0 +1,103 @@
+{
+  "cluster_id": "0eb661da-2020-41b0-aec4-8ff56f4930e8",
+  "typology": [
+    "cycle"
+  ],
+  "primary_typology": "cycle",
+  "risk_score": 0.997,
+  "window_start": "2022-01-11T13:00:00+00:00",
+  "window_end": "2022-01-11T15:45:00+00:00",
+  "accounts": [
+    "BankRing_09_CycleC_9",
+    "BankRing_09_CycleA_9",
+    "BankRing_09_CycleB_9"
+  ],
+  "dwell": {},
+  "retention": {},
+  "end_to_end_retention": null,
+  "edges": [
+    {
+      "edge_id": "3759",
+      "src": "BankRing_09_CycleA_9",
+      "dst": "BankRing_09_CycleB_9",
+      "amount": 138065.2,
+      "currency": "USD",
+      "ts": "2022-01-11T13:00:00+00:00",
+      "timestamp_unix": 1641906000.0
+    },
+    {
+      "edge_id": "3776",
+      "src": "BankRing_09_CycleB_9",
+      "dst": "BankRing_09_CycleC_9",
+      "amount": 135303.9,
+      "currency": "USD",
+      "ts": "2022-01-11T14:15:00+00:00",
+      "timestamp_unix": 1641910500.0
+    },
+    {
+      "edge_id": "3797",
+      "src": "BankRing_09_CycleC_9",
+      "dst": "BankRing_09_CycleA_9",
+      "amount": 132542.59,
+      "currency": "USD",
+      "ts": "2022-01-11T15:45:00+00:00",
+      "timestamp_unix": 1641915900.0
+    }
+  ],
+  "chain_hops": 2,
+  "report": {
+    "case_id": "0eb661da-2020-41b0-aec4-8ff56f4930e8",
+    "generated_at": "2026-11-14T09:28:53.567376+00:00",
+    "template_used": true,
+    "verifier_pass": true,
+    "verifier_details": [],
+    "sentences": [
+      {
+        "text": "Suspicious activity alert generated for case 0eb661da-2020-41b0-aec4-8ff56f4930e8 with primary typology cycle.",
+        "edge_ids": [
+          "3759"
+        ],
+        "sentence_index": 0
+      },
+      {
+        "text": "The cluster comprises 3 linked accounts and 3 transactions over the window from 2022-01-11T13:00:00+00:00 to 2022-01-11T15:45:00+00:00.",
+        "edge_ids": [
+          "3759",
+          "3776",
+          "3797"
+        ],
+        "sentence_index": 1
+      },
+      {
+        "text": "Account BankRing_09_CycleA_9 transferred $138,065.20 USD to BankRing_09_CycleB_9 at timestamp 2022-01-11T13:00:00+00:00.",
+        "edge_ids": [
+          "3759"
+        ],
+        "sentence_index": 2
+      },
+      {
+        "text": "Account BankRing_09_CycleB_9 transferred $135,303.90 USD to BankRing_09_CycleC_9 at timestamp 2022-01-11T14:15:00+00:00.",
+        "edge_ids": [
+          "3776"
+        ],
+        "sentence_index": 3
+      },
+      {
+        "text": "Account BankRing_09_CycleC_9 transferred $132,542.59 USD to BankRing_09_CycleA_9 at timestamp 2022-01-11T15:45:00+00:00.",
+        "edge_ids": [
+          "3797"
+        ],
+        "sentence_index": 4
+      },
+      {
+        "text": "Assessed pattern risk score is 0.997. All identified behaviors are flagged as SUSPICIOUS and do not constitute confirmed legal proof of money laundering.",
+        "edge_ids": [
+          "3759",
+          "3776",
+          "3797"
+        ],
+        "sentence_index": 5
+      }
+    ]
+  }
+}

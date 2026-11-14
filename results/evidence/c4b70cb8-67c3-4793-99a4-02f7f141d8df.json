@@ -1,0 +1,69 @@
+{
+  "cluster_id": "c4b70cb8-67c3-4793-99a4-02f7f141d8df",
+  "typology": [
+    "fan_out"
+  ],
+  "primary_typology": "fan_out",
+  "risk_score": 0.75,
+  "window_start": "2022-01-11T17:00:00+00:00",
+  "window_end": "2022-01-11T19:20:00+00:00",
+  "accounts": [
+    "BankRecv_8_Mule_0",
+    "BankRecv_8_Mule_2",
+    "BankFanOut_8_SmurfBoss_8",
+    "BankRecv_8_Mule_1",
+    "BankRecv_8_Mule_4",
+    "BankRecv_8_Mule_3"
+  ],
+  "dwell": {},
+  "retention": {},
+  "end_to_end_retention": null,
+  "edges": [
+    {
+      "edge_id": "3815",
+      "src": "BankFanOut_8_SmurfBoss_8",
+      "dst": "BankRecv_8_Mule_0",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-11T17:00:00+00:00",
+      "timestamp_unix": 1641920400.0
+    },
+    {
+      "edge_id": "3825",
+      "src": "BankFanOut_8_SmurfBoss_8",
+      "dst": "BankRecv_8_Mule_1",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-11T17:35:00+00:00",
+      "timestamp_unix": 1641922500.0
+    },
+    {
+      "edge_id": "3832",
+      "src": "BankFanOut_8_SmurfBoss_8",
+      "dst": "BankRecv_8_Mule_2",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-11T18:10:00+00:00",
+      "timestamp_unix": 1641924600.0
+    },
+    {
+      "edge_id": "3839",
+      "src": "BankFanOut_8_SmurfBoss_8",
+      "dst": "BankRecv_8_Mule_3",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-11T18:45:00+00:00",
+      "timestamp_unix": 1641926700.0
+    },
+    {
+      "edge_id": "3853",
+      "src": "BankFanOut_8_SmurfBoss_8",
+      "dst": "BankRecv_8_Mule_4",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-11T19:20:00+00:00",
+      "timestamp_unix": 1641928800.0
+    }
+  ],
+  "chain_hops": 5
+}

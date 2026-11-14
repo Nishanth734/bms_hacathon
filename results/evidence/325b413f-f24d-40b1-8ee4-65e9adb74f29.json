@@ -1,0 +1,43 @@
+{
+  "cluster_id": "325b413f-f24d-40b1-8ee4-65e9adb74f29",
+  "typology": [
+    "pass_through"
+  ],
+  "primary_typology": "pass_through",
+  "risk_score": 0.95,
+  "window_start": "2023-11-17T10:50:08.630949+00:00",
+  "window_end": "2023-11-17T11:31:08.733507+00:00",
+  "accounts": [
+    "0x38388e94423a",
+    "0x1a2a562b0f7a",
+    "0xe281ae849218"
+  ],
+  "dwell": {
+    "0x1a2a562b0f7a": 2460.1025574207306
+  },
+  "retention": {
+    "0x1a2a562b0f7a": 0.9302483507954987
+  },
+  "end_to_end_retention": 0.9302483507954987,
+  "edges": [
+    {
+      "edge_id": "0x2c33350c73b911d900ef",
+      "src": "0x38388e94423a",
+      "dst": "0x1a2a562b0f7a",
+      "amount": 10.308,
+      "currency": "ETH",
+      "ts": "2023-11-17T10:50:08.630949+00:00",
+      "timestamp_unix": 1700218208.6309495
+    },
+    {
+      "edge_id": "0x5c63b6f306ba8cd400f2",
+      "src": "0x1a2a562b0f7a",
+      "dst": "0xe281ae849218",
+      "amount": 9.589,
+      "currency": "ETH",
+      "ts": "2023-11-17T11:31:08.733507+00:00",
+      "timestamp_unix": 1700220668.733507
+    }
+  ],
+  "chain_hops": 2
+}

@@ -1,0 +1,5 @@
+method,label,precision,recall,f1,pr_auc,precision_at_k,false_alerts_per_day
+A_threshold,Threshold Baseline,0.0795,0.7,0.1429,0.6385,0.7,57.56
+B_graph_gbm,Graph Features + GBM,1.0,1.0,1.0,1.0,1.0,0.0
+C_dwell_retention,Graph + Dwell/Retention,1.0,1.0,1.0,1.0,1.0,0.0
+D_traceflow,TraceFlow (Full System),1.0,1.0,1.0,1.0,1.0,0.0

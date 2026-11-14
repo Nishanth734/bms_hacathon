@@ -1,0 +1,60 @@
+{
+  "cluster_id": "da3c8bf0-afa9-4d2e-9f33-4412b5d483c1",
+  "typology": [
+    "pass_through",
+    "cycle",
+    "wash_trading"
+  ],
+  "primary_typology": "cycle",
+  "risk_score": 0.999,
+  "window_start": "2023-11-15T22:21:43.645754+00:00",
+  "window_end": "2023-11-15T23:11:16.201146+00:00",
+  "accounts": [
+    "0x3333gamma_wash_trader_03",
+    "0x1111a1pha_wash_trader_01",
+    "0x4444delta_wash_trader_04",
+    "0x2222beta_wash_trader_02"
+  ],
+  "dwell": {},
+  "retention": {},
+  "end_to_end_retention": null,
+  "edges": [
+    {
+      "edge_id": "0xwash1_0_1700086903",
+      "src": "0x1111a1pha_wash_trader_01",
+      "dst": "0x2222beta_wash_trader_02",
+      "amount": 8.5,
+      "currency": "ETH",
+      "ts": "2023-11-15T22:21:43.645754+00:00",
+      "timestamp_unix": 1700086903.645754
+    },
+    {
+      "edge_id": "0xwash1_1_1700087571",
+      "src": "0x2222beta_wash_trader_02",
+      "dst": "0x3333gamma_wash_trader_03",
+      "amount": 12.0,
+      "currency": "ETH",
+      "ts": "2023-11-15T22:32:51.375998+00:00",
+      "timestamp_unix": 1700087571.3759983
+    },
+    {
+      "edge_id": "0xwash1_2_1700088743",
+      "src": "0x3333gamma_wash_trader_03",
+      "dst": "0x4444delta_wash_trader_04",
+      "amount": 16.5,
+      "currency": "ETH",
+      "ts": "2023-11-15T22:52:23.309571+00:00",
+      "timestamp_unix": 1700088743.309571
+    },
+    {
+      "edge_id": "0xwash1_3_1700089876",
+      "src": "0x4444delta_wash_trader_04",
+      "dst": "0x1111a1pha_wash_trader_01",
+      "amount": 22.0,
+      "currency": "ETH",
+      "ts": "2023-11-15T23:11:16.201146+00:00",
+      "timestamp_unix": 1700089876.201146
+    }
+  ],
+  "chain_hops": 3
+}

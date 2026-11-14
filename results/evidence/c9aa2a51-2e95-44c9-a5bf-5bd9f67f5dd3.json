@@ -1,0 +1,142 @@
+{
+  "cluster_id": "c9aa2a51-2e95-44c9-a5bf-5bd9f67f5dd3",
+  "typology": [
+    "fan_out"
+  ],
+  "primary_typology": "fan_out",
+  "risk_score": 0.997,
+  "window_start": "2022-01-08T20:00:00+00:00",
+  "window_end": "2022-01-08T22:20:00+00:00",
+  "accounts": [
+    "BankRecv_5_Mule_4",
+    "BankRecv_5_Mule_2",
+    "BankFanOut_5_SmurfBoss_5",
+    "BankRecv_5_Mule_1",
+    "BankRecv_5_Mule_3",
+    "BankRecv_5_Mule_0"
+  ],
+  "dwell": {},
+  "retention": {},
+  "end_to_end_retention": null,
+  "edges": [
+    {
+      "edge_id": "2736",
+      "src": "BankFanOut_5_SmurfBoss_5",
+      "dst": "BankRecv_5_Mule_0",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-08T20:00:00+00:00",
+      "timestamp_unix": 1641672000.0
+    },
+    {
+      "edge_id": "2743",
+      "src": "BankFanOut_5_SmurfBoss_5",
+      "dst": "BankRecv_5_Mule_1",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-08T20:35:00+00:00",
+      "timestamp_unix": 1641674100.0
+    },
+    {
+      "edge_id": "2758",
+      "src": "BankFanOut_5_SmurfBoss_5",
+      "dst": "BankRecv_5_Mule_2",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-08T21:10:00+00:00",
+      "timestamp_unix": 1641676200.0
+    },
+    {
+      "edge_id": "2766",
+      "src": "BankFanOut_5_SmurfBoss_5",
+      "dst": "BankRecv_5_Mule_3",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-08T21:45:00+00:00",
+      "timestamp_unix": 1641678300.0
+    },
+    {
+      "edge_id": "2779",
+      "src": "BankFanOut_5_SmurfBoss_5",
+      "dst": "BankRecv_5_Mule_4",
+      "amount": 9500.0,
+      "currency": "USD",
+      "ts": "2022-01-08T22:20:00+00:00",
+      "timestamp_unix": 1641680400.0
+    }
+  ],
+  "chain_hops": 5,
+  "report": {
+    "case_id": "c9aa2a51-2e95-44c9-a5bf-5bd9f67f5dd3",
+    "generated_at": "2026-11-14T09:28:53.536091+00:00",
+    "template_used": true,
+    "verifier_pass": true,
+    "verifier_details": [],
+    "sentences": [
+      {
+        "text": "Suspicious activity alert generated for case c9aa2a51-2e95-44c9-a5bf-5bd9f67f5dd3 with primary typology fan out.",
+        "edge_ids": [
+          "2736"
+        ],
+        "sentence_index": 0
+      },
+      {
+        "text": "The cluster comprises 6 linked accounts and 5 transactions over the window from 2022-01-08T20:00:00+00:00 to 2022-01-08T22:20:00+00:00.",
+        "edge_ids": [
+          "2736",
+          "2743",
+          "2758",
+          "2766",
+          "2779"
+        ],
+        "sentence_index": 1
+      },
+      {
+        "text": "Account BankFanOut_5_SmurfBoss_5 transferred $9,500.00 USD to BankRecv_5_Mule_0 at timestamp 2022-01-08T20:00:00+00:00.",
+        "edge_ids": [
+          "2736"
+        ],
+        "sentence_index": 2
+      },
+      {
+        "text": "Account BankFanOut_5_SmurfBoss_5 transferred $9,500.00 USD to BankRecv_5_Mule_1 at timestamp 2022-01-08T20:35:00+00:00.",
+        "edge_ids": [
+          "2743"
+        ],
+        "sentence_index": 3
+      },
+      {
+        "text": "Account BankFanOut_5_SmurfBoss_5 transferred $9,500.00 USD to BankRecv_5_Mule_2 at timestamp 2022-01-08T21:10:00+00:00.",
+        "edge_ids": [
+          "2758"
+        ],
+        "sentence_index": 4
+      },
+      {
+        "text": "Account BankFanOut_5_SmurfBoss_5 transferred $9,500.00 USD to BankRecv_5_Mule_3 at timestamp 2022-01-08T21:45:00+00:00.",
+        "edge_ids": [
+          "2766"
+        ],
+        "sentence_index": 5
+      },
+      {
+        "text": "Account BankFanOut_5_SmurfBoss_5 transferred $9,500.00 USD to BankRecv_5_Mule_4 at timestamp 2022-01-08T22:20:00+00:00.",
+        "edge_ids": [
+          "2779"
+        ],
+        "sentence_index": 6
+      },
+      {
+        "text": "Assessed pattern risk score is 0.997. All identified behaviors are flagged as SUSPICIOUS and do not constitute confirmed legal proof of money laundering.",
+        "edge_ids": [
+          "2736",
+          "2743",
+          "2758",
+          "2766",
+          "2779"
+        ],
+        "sentence_index": 7
+      }
+    ]
+  }
+}

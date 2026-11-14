@@ -1,0 +1,48 @@
+{
+  "cluster_id": "eb21d7b3-04f4-47a2-a249-d273ab5f46a1",
+  "typology": [
+    "cycle"
+  ],
+  "primary_typology": "cycle",
+  "risk_score": 0.85,
+  "window_start": "2022-01-08T12:00:00+00:00",
+  "window_end": "2022-01-08T14:45:00+00:00",
+  "accounts": [
+    "BankRing_06_CycleB_6",
+    "BankRing_06_CycleA_6",
+    "BankRing_06_CycleC_6"
+  ],
+  "dwell": {},
+  "retention": {},
+  "end_to_end_retention": null,
+  "edges": [
+    {
+      "edge_id": "2614",
+      "src": "BankRing_06_CycleA_6",
+      "dst": "BankRing_06_CycleB_6",
+      "amount": 126151.77,
+      "currency": "USD",
+      "ts": "2022-01-08T12:00:00+00:00",
+      "timestamp_unix": 1641643200.0
+    },
+    {
+      "edge_id": "2632",
+      "src": "BankRing_06_CycleB_6",
+      "dst": "BankRing_06_CycleC_6",
+      "amount": 123628.73,
+      "currency": "USD",
+      "ts": "2022-01-08T13:15:00+00:00",
+      "timestamp_unix": 1641647700.0
+    },
+    {
+      "edge_id": "2651",
+      "src": "BankRing_06_CycleC_6",
+      "dst": "BankRing_06_CycleA_6",
+      "amount": 121105.7,
+      "currency": "USD",
+      "ts": "2022-01-08T14:45:00+00:00",
+      "timestamp_unix": 1641653100.0
+    }
+  ],
+  "chain_hops": 2
+}

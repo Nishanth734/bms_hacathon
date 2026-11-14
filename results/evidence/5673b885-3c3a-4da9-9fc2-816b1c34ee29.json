@@ -1,0 +1,43 @@
+{
+  "cluster_id": "5673b885-3c3a-4da9-9fc2-816b1c34ee29",
+  "typology": [
+    "pass_through"
+  ],
+  "primary_typology": "pass_through",
+  "risk_score": 0.95,
+  "window_start": "2022-01-09T14:26:00+00:00",
+  "window_end": "2022-01-09T14:44:00+00:00",
+  "accounts": [
+    "Bank_07_ACC_0087",
+    "Bank_13_ACC_0174",
+    "Bank_10_ACC_0089"
+  ],
+  "dwell": {
+    "Bank_07_ACC_0087": 1080.0
+  },
+  "retention": {
+    "Bank_07_ACC_0087": 0.9474611968316469
+  },
+  "end_to_end_retention": 0.9474611968316469,
+  "edges": [
+    {
+      "edge_id": "3024",
+      "src": "Bank_10_ACC_0089",
+      "dst": "Bank_07_ACC_0087",
+      "amount": 2184.1,
+      "currency": "USD",
+      "ts": "2022-01-09T14:26:00+00:00",
+      "timestamp_unix": 1641738360.0
+    },
+    {
+      "edge_id": "3030",
+      "src": "Bank_07_ACC_0087",
+      "dst": "Bank_13_ACC_0174",
+      "amount": 2069.35,
+      "currency": "USD",
+      "ts": "2022-01-09T14:44:00+00:00",
+      "timestamp_unix": 1641739440.0
+    }
+  ],
+  "chain_hops": 2
+}

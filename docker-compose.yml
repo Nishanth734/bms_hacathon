@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      - IBM_CSV_PATH=data/HI-Small_Trans.csv
+      - RESULTS_DIR=results
+      - MODELS_DIR=models
+    volumes:
+      - ./data:/app/data
+      - ./results:/app/results
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
