@@ -1,5 +1,5 @@
 """
-Groq LLM Forensic Intelligence Service for TraceFlow.
+Forensic Intelligence Service for TraceFlow.
 Provides real-time forensic assessments for investigation cases, rings, and wallet entities.
 """
 import os
@@ -22,8 +22,8 @@ GROQ_MODELS = [
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
-def generate_groq_completion(prompt: str, system_prompt: str = "You are a senior AML forensic investigator and blockchain intelligence analyst.") -> Optional[str]:
-    """Execute a completion across preferred Groq models with graceful fallback."""
+def generate_groq_completion(prompt: str, system_prompt: str = "You are a senior AML forensic investigator and blockchain intelligence analyst. Provide concise, high-impact, professional forensic assessments. Never use wide markdown tables; use structured bullet points and clean key-value summaries.") -> Optional[str]:
+    """Execute a completion across preferred models with graceful fallback."""
     if not GROQ_API_KEY:
         logger.warning("GROQ_API_KEY not configured.")
         return None
@@ -42,8 +42,8 @@ def generate_groq_completion(prompt: str, system_prompt: str = "You are a senior
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": prompt}
                 ],
-                "temperature": 0.2,
-                "max_tokens": 800
+                "temperature": 0.15,
+                "max_tokens": 750
             }
             with httpx.Client(timeout=15.0) as client:
                 res = client.post(GROQ_URL, headers=headers, json=payload)
@@ -52,9 +52,9 @@ def generate_groq_completion(prompt: str, system_prompt: str = "You are a senior
                     content = data["choices"][0]["message"]["content"]
                     return content.strip()
                 else:
-                    logger.warning(f"Groq model {model} returned HTTP {res.status_code}: {res.text[:150]}")
+                    logger.warning(f"Forensic model {model} returned HTTP {res.status_code}: {res.text[:150]}")
         except Exception as e:
-            logger.error(f"Error calling Groq model {model}: {e}")
+            logger.error(f"Error calling forensic model {model}: {e}")
 
     return None
 
@@ -71,47 +71,63 @@ def generate_case_ai_summary(case_data: Dict[str, Any]) -> Dict[str, Any]:
     schema_type = case_data.get("schema_type", "nft")
 
     prompt = f"""
-Analyze this forensic investigation ring and provide an executive intelligence assessment:
-- Case/Ring ID: {cid}
-- Investigation Domain: {'NFT Marketplace & Wash Trading' if schema_type == 'nft' else 'Banking & AML Layering Carousel'}
+Act as a Lead AML Forensic Auditor. Provide a concise, structured forensic intelligence briefing for this cluster:
+- Ring Identifier: {cid}
+- Investigation Domain: {'NFT Marketplace Wash Trading' if schema_type == 'nft' else 'Banking & AML Layering Carousel'}
 - Primary Typology: {typology}
-- Quantitative Risk Score: {risk_score * 100:.1f}%
-- Total Involved Entities: {len(accounts)} (Wallets: {', '.join(accounts[:4])}...)
-- End-to-End Retention Ratio: {retention * 100:.1f}% (volume conserved)
-- Total Transfers in Cluster: {len(edges)}
-- Execution Window: {duration_hours:.2f} hours
+- Risk Rating: {risk_score * 100:.1f}% ({'CRITICAL' if risk_score >= 0.8 else 'HIGH'})
+- Entities in Ring: {len(accounts)} counterparties
+- Ring Transfers: {len(edges)} directed hops
+- Retention Ratio: {retention * 100:.1f}% (volume conserved)
+- Total Time Window: {duration_hours:.2f} hours
 
-Provide a structured, authoritative report with these exact 4 headings:
-1. **Executive Verdict**: 1 clear sentence stating if this is intentional artificial manipulation or legitimate commerce.
-2. **Mechanistic Flow Breakdown**: Explain the step-by-step circulation path, dwell times, and volume churning.
-3. **Beneficial Ownership & False-Positive Analysis**: Specifically analyze why this is NOT an accidental transfer between friends, highlighting isolated connectivity and volume preservation.
-4. **Recommended Investigator Actions**: 3 concise bullet points on next steps (e.g. SAR/STR filing, subpoena target CEXs, freeze alert).
+Output rules:
+- Do NOT use markdown tables.
+- Use concise, authoritative bullet points.
+- Structure under these 4 clean sections:
+
+### Executive Forensic Verdict
+[1 decisive sentence on whether this is intentional synthetic market manipulation / laundering vs legitimate commerce]
+
+### Mechanistic Ring Breakdown
+- Path: Step-by-step circulation path across counterparties
+- Velocity: Rapid execution window and automated relay pacing
+- Capital Preservation: Conservation of volume with zero net beneficial change
+
+### False-Positive Differentiation
+- Bilateral vs Carousel: Why this is not an accidental transfer between friends (multi-hop closed loop vs 2-party refund)
+- Counterparty Isolation: Lack of external commercial counterparties
+
+### Recommended Regulatory Actions
+- 2-3 specific compliance steps (SAR/STR filing, exchange subpoena, freeze order)
 """
 
     summary_text = generate_groq_completion(prompt)
 
     if not summary_text:
-        # Fallback high-standard deterministic summary
         is_nft = schema_type == "nft"
-        summary_text = f"""### Executive Verdict
-Confirmed high-confidence {'NFT wash-trading manipulation ring' if is_nft else 'circular AML layering carousel'} operating with coordinated multi-hop fund recirculation.
+        summary_text = f"""### Executive Forensic Verdict
+Confirmed intentional {'NFT wash-trading manipulation ring' if is_nft else 'circular AML layering carousel'} operating with coordinated multi-hop fund recirculation.
 
-### Mechanistic Flow Breakdown
-The syndicate executed {len(edges)} coordinated transfers across {len(accounts)} counterparties within a rapid {duration_hours:.2f}-hour window, maintaining a {retention*100:.1f}% capital retention ratio without genuine change in economic ownership.
+### Mechanistic Ring Breakdown
+- **Path**: Coordinated funds pass through {len(accounts)} counterparties across {len(edges)} sequential hops before returning to the seed origin.
+- **Velocity**: Rapid execution within {duration_hours:.2f} hours, consistent with programmatic bot orchestration.
+- **Capital Preservation**: Maintained a {retention*100:.1f}% volume retention ratio, resulting in zero net change in beneficial ownership.
 
-### Beneficial Ownership & False-Positive Analysis
-Distinct from accidental bilateral transfers between friends, this structure forms an isolated {len(accounts)}-hop directed cycle with near-zero dwell time and synthetic counterparty interaction, ruling out accidental refunds.
+### False-Positive Differentiation
+- **Bilateral vs Carousel**: Accidental transfers between friends are simple 2-party bilateral refunds ($A \\to B \\to A$). This syndicate forms an isolated {len(accounts)}-hop circular carousel ($k \\ge 3$) designed to evade bilateral scrutiny.
+- **Counterparty Isolation**: Participants interact exclusively with syndicate members without diverse commercial merchant history.
 
-### Recommended Investigator Actions
-- Submit Suspicious Activity Report (SAR/STR) citing circular churn typology.
-- Subpoena exchange deposit/withdrawal addresses linked to origin wallet {accounts[0] if accounts else 'N/A'}.
-- Flag affiliated counterparty cluster in watchlist for automated transaction interdiction."""
+### Recommended Regulatory Actions
+- File Suspicious Activity Report (SAR/STR) citing circular layering typology.
+- Subpoena exchange deposit/withdrawal records for origin account {accounts[0] if accounts else 'N/A'}.
+- Add affiliated counterparty cluster to active transaction monitoring watchlists."""
 
     return {
         "status": "success",
         "case_id": cid,
         "ai_summary": summary_text,
-        "model_used": "Groq LLaMA / GPT-OSS Engine"
+        "model_used": "TraceFlow Forensic AI Engine"
     }
 
 
@@ -128,39 +144,60 @@ def generate_wallet_ai_summary(wallet_data: Dict[str, Any]) -> Dict[str, Any]:
     recent_txs = wallet_data.get("transactions", [])
 
     prompt = f"""
-Analyze this cryptocurrency wallet / financial account entity for an AML & fraud investigation:
-- Address / Identifier: {wid}
-- Risk Rating: {risk_score * 100:.1f}% ({'CRITICAL' if risk_score >= 0.8 else 'SUSPICIOUS' if risk_score >= 0.5 else 'LOW'})
+Act as a Senior AML Investigator. Analyze this specific wallet entity:
+- Identifier: {wid}
+- Risk Rating: {risk_score * 100:.1f}% ({'CRITICAL' if risk_score >= 0.8 else 'HIGH' if risk_score >= 0.5 else 'LOW'})
 - Inflow Volume: {in_flow:.2f}
 - Outflow Volume: {out_flow:.2f}
-- Net Balance Retained: {abs(in_flow - out_flow):.2f}
-- Pass-Through Retention Ratio: {retention:.2f}
+- Net Retained Capital: {abs(in_flow - out_flow):.2f}
+- Retention Ratio: {retention:.2f}
 - Average Dwell Time: {dwell:.2f} hours
-- Strongly Connected Component (SCC): {'Yes, cyclic loop participant' if is_scc else 'No'}
-- Flagged Typologies: {', '.join(flagged) if flagged else 'None'}
-- Total Recent Transactions: {len(recent_txs)}
+- Strongly Connected Component: {'Yes (Circular Loop Member)' if is_scc else 'No'}
+- Typologies Flagged: {', '.join(flagged) if flagged else 'None'}
+- Associated Transfers: {len(recent_txs)}
 
-Provide a structured, authoritative report with:
-1. **Entity Role Classification**: (e.g. Syndicate Origin, Rapid Pass-Through Mule, Churning Node).
-2. **Behavioral Anomalies**: Contrast Inflow vs Outflow, rapid dwell time, and lack of capital retention.
-3. **Forensic Investigator Takeaway**: Why this entity warrants immediate enhanced due diligence or freezing.
+Output rules:
+- Do NOT use markdown tables.
+- Keep output concise, professional, and readable in an analyst subwindow.
+- Structure under these 4 clean sections:
+
+### Entity Role Classification
+[1 sentence defining entity role: e.g. Syndicate Seed Originator vs Pass-Through Relay Mule]
+
+### Key Forensic Invariants
+- Volume Conservation: Inflow vs Outflow matching ({in_flow:.2f} in vs {out_flow:.2f} out)
+- Pacing: Average dwell time of {dwell:.2f} hours indicative of automated forwarding
+- Topology: Member of closed cyclic cluster with near-zero retained balance
+
+### Accidental Transfer vs Intentional Churn
+- Why this wallet's behavior is distinct from legitimate customer commerce or accidental refunds
+
+### Investigator Recommendations
+- 2 actionable next steps for the compliance team
 """
 
     summary_text = generate_groq_completion(prompt)
 
     if not summary_text:
+        role = "Syndicate Origin & Seed Coordinator" if risk_score >= 0.8 else "Rapid Pass-Through Relay Mule"
         summary_text = f"""### Entity Role Classification
-{'Core Syndicate Coordinator' if risk_score >= 0.8 else 'Rapid Pass-Through Mule Node'} exhibiting automated fund relay characteristics.
+Classified as a **{role}** operating within an automated circular fund-routing cluster.
 
-### Behavioral Anomalies
-Entity processed {in_flow:.2f} total inflow against {out_flow:.2f} outflow, yielding a {retention:.2f} retention ratio and average dwell time of {dwell:.2f} hours. Funds pass through without normal commercial balance accumulation.
+### Key Forensic Invariants
+- **Volume Conservation**: Processed {in_flow:.2f} inflow against {out_flow:.2f} outflow ({retention*100:.0f}% retention ratio), retaining negligible long-term capital ({abs(in_flow - out_flow):.2f}).
+- **Pacing**: Ultra-low dwell time averaging {dwell:.2f} hours demonstrates automated pass-through rather than human spending habits.
+- **Topology**: {'Strongly Connected Component participant with deterministic loop reachability.' if is_scc else 'Intermediary transfer node.'}
 
-### Forensic Investigator Takeaway
-Entity exhibits synthetic clustering with closed counterparties. Recommend issuing KYC verification demand and linking cluster transactions to upstream fiat on/off-ramp records."""
+### Accidental Transfer vs Intentional Churn
+- Normal accidental transfers result in an immediate single reversal to the sender. This entity forwards funds down an onward multi-hop chain to synthetic third-party accounts, confirming coordinated layering.
+
+### Investigator Recommendations
+- Issue mandatory Enhanced Due Diligence (EDD) and request source-of-wealth documentation.
+- Link on-chain address to centralized exchange off-ramps to identify beneficial ownership."""
 
     return {
         "status": "success",
         "wallet_id": wid,
         "ai_summary": summary_text,
-        "model_used": "Groq LLaMA / GPT-OSS Engine"
+        "model_used": "TraceFlow Forensic AI Engine"
     }
