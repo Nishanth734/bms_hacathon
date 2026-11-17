@@ -1,6 +1,6 @@
 import { StudySummary, StudyDetail, QueueHealthData } from '../types';
 
-const API_BASE = '/api';
+const API_BASE = (import.meta as any).env?.VITE_API_URL || '/api';
 
 export function getAuthToken(): string | null {
   return localStorage.getItem('cxr_token');
