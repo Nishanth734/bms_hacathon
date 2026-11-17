@@ -1,6 +1,0 @@
-Timestamp,From Bank,Account,To Bank,Account.1,Amount Received,Receiving Currency,Amount Paid,Payment Currency,Payment Format,Is Laundering
-2026/11/14 09:00,Chase,1001,Citi,2001,50000.0,USD,50000.0,USD,Wire,1
-2026/11/14 10:15,Citi,2001,Wells,3001,49500.0,USD,49500.0,USD,Wire,1
-2026/11/14 11:30,Wells,3001,Chase,1001,49000.0,USD,49000.0,USD,Wire,1
-2026/11/14 12:00,Chase,1001,Barclays,4001,15000.0,USD,15000.0,USD,Wire,0
-2026/11/14 14:00,Barclays,4001,HSBC,5001,14800.0,USD,14800.0,USD,Wire,0

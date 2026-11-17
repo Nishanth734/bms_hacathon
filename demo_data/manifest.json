@@ -1,0 +1,6649 @@
+[
+  {
+    "index": 1,
+    "patient_id": "PATIENT_01000",
+    "study_id": "STD-ca80e4086d9e2105",
+    "filename": "nih_study_001.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 34,
+    "sex": "M",
+    "spo2": 88,
+    "temp": 37.4,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.942,
+      "Pleural Effusion": 0.445,
+      "Consolidation": 0.129,
+      "Cardiomegaly": 0.066,
+      "Edema": 0.048,
+      "Atelectasis": 0.158,
+      "Lung Opacity": 0.221,
+      "No Finding": 0.033
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2802,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.191,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.559,
+      "findings": {
+        "Pneumothorax": 0.19,
+        "Pleural Effusion": 0.301,
+        "Consolidation": 0.357,
+        "Cardiomegaly": 0.446,
+        "Edema": 0.327,
+        "Atelectasis": 0.331,
+        "Lung Opacity": 0.389,
+        "No Finding": 0.577
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.14,
+          0.251
+        ],
+        "Pleural Effusion": [
+          0.249,
+          0.342
+        ],
+        "Consolidation": [
+          0.306,
+          0.447
+        ],
+        "Cardiomegaly": [
+          0.395,
+          0.498
+        ],
+        "Edema": [
+          0.284,
+          0.356
+        ],
+        "Atelectasis": [
+          0.283,
+          0.396
+        ],
+        "Lung Opacity": [
+          0.361,
+          0.432
+        ],
+        "No Finding": [
+          0.498,
+          0.642
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0011,
+        "Pleural Effusion": 0.001,
+        "Consolidation": 0.002,
+        "Cardiomegaly": 0.0013,
+        "Edema": 0.0005,
+        "Atelectasis": 0.0016,
+        "Lung Opacity": 0.0005,
+        "No Finding": 0.0021
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 25.0,
+      "explanations": [
+        "Clinical context: SpO2 88% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-ca80e4086d9e2105_pneumothorax.png",
+        "Pleural Effusion": "STD-ca80e4086d9e2105_pleural_effusion.png",
+        "Consolidation": "STD-ca80e4086d9e2105_consolidation.png",
+        "Cardiomegaly": "STD-ca80e4086d9e2105_cardiomegaly.png",
+        "Edema": "STD-ca80e4086d9e2105_edema.png",
+        "Atelectasis": "STD-ca80e4086d9e2105_atelectasis.png",
+        "Lung Opacity": "STD-ca80e4086d9e2105_lung_opacity.png",
+        "No Finding": "STD-ca80e4086d9e2105_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 2,
+    "patient_id": "PATIENT_01000",
+    "study_id": "STD-c7cedf1ccdad614b",
+    "filename": "nih_study_002.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 42,
+    "sex": "F",
+    "spo2": 91,
+    "temp": 38.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.87,
+      "Pleural Effusion": 0.184,
+      "Consolidation": 0.092,
+      "Cardiomegaly": 0.146,
+      "Edema": 0.035,
+      "Atelectasis": 0.198,
+      "Lung Opacity": 0.154,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2725,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.203,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.534,
+      "findings": {
+        "Pneumothorax": 0.185,
+        "Pleural Effusion": 0.312,
+        "Consolidation": 0.375,
+        "Cardiomegaly": 0.522,
+        "Edema": 0.333,
+        "Atelectasis": 0.319,
+        "Lung Opacity": 0.357,
+        "No Finding": 0.446
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.161,
+          0.236
+        ],
+        "Pleural Effusion": [
+          0.283,
+          0.358
+        ],
+        "Consolidation": [
+          0.34,
+          0.414
+        ],
+        "Cardiomegaly": [
+          0.47,
+          0.596
+        ],
+        "Edema": [
+          0.269,
+          0.377
+        ],
+        "Atelectasis": [
+          0.282,
+          0.367
+        ],
+        "Lung Opacity": [
+          0.325,
+          0.388
+        ],
+        "No Finding": [
+          0.381,
+          0.505
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0006,
+        "Pleural Effusion": 0.0007,
+        "Consolidation": 0.0005,
+        "Cardiomegaly": 0.0017,
+        "Edema": 0.0011,
+        "Atelectasis": 0.0008,
+        "Lung Opacity": 0.0005,
+        "No Finding": 0.0017
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 63.3,
+      "explanations": [
+        "Cardiomegaly likelihood 0.52 noted (routine)",
+        "Clinical context: SpO2 91% < 92% promotes tier to Urgent",
+        "Clinical context: Fever (38.2\u00b0C) with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-c7cedf1ccdad614b_pneumothorax.png",
+        "Pleural Effusion": "STD-c7cedf1ccdad614b_pleural_effusion.png",
+        "Consolidation": "STD-c7cedf1ccdad614b_consolidation.png",
+        "Cardiomegaly": "STD-c7cedf1ccdad614b_cardiomegaly.png",
+        "Edema": "STD-c7cedf1ccdad614b_edema.png",
+        "Atelectasis": "STD-c7cedf1ccdad614b_atelectasis.png",
+        "Lung Opacity": "STD-c7cedf1ccdad614b_lung_opacity.png",
+        "No Finding": "STD-c7cedf1ccdad614b_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 3,
+    "patient_id": "PATIENT_01001",
+    "study_id": "STD-3abbf710dd150e2c",
+    "filename": "nih_study_003.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 72,
+    "sex": "M",
+    "spo2": 90,
+    "temp": 36.8,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.111,
+      "Pleural Effusion": 0.961,
+      "Consolidation": 0.388,
+      "Cardiomegaly": 0.688,
+      "Edema": 0.531,
+      "Atelectasis": 0.372,
+      "Lung Opacity": 0.576,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2835,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.168,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.562,
+      "findings": {
+        "Pneumothorax": 0.174,
+        "Pleural Effusion": 0.332,
+        "Consolidation": 0.374,
+        "Cardiomegaly": 0.544,
+        "Edema": 0.347,
+        "Atelectasis": 0.385,
+        "Lung Opacity": 0.372,
+        "No Finding": 0.469
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.149,
+          0.216
+        ],
+        "Pleural Effusion": [
+          0.267,
+          0.398
+        ],
+        "Consolidation": [
+          0.333,
+          0.405
+        ],
+        "Cardiomegaly": [
+          0.429,
+          0.656
+        ],
+        "Edema": [
+          0.278,
+          0.394
+        ],
+        "Atelectasis": [
+          0.309,
+          0.434
+        ],
+        "Lung Opacity": [
+          0.333,
+          0.419
+        ],
+        "No Finding": [
+          0.429,
+          0.507
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0018,
+        "Consolidation": 0.0007,
+        "Cardiomegaly": 0.0045,
+        "Edema": 0.0016,
+        "Atelectasis": 0.0019,
+        "Lung Opacity": 0.0009,
+        "No Finding": 0.0007
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 64.0,
+      "explanations": [
+        "Cardiomegaly likelihood 0.54 noted (routine)",
+        "Clinical context: SpO2 90% < 92% promotes tier to Urgent",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-3abbf710dd150e2c_pneumothorax.png",
+        "Pleural Effusion": "STD-3abbf710dd150e2c_pleural_effusion.png",
+        "Consolidation": "STD-3abbf710dd150e2c_consolidation.png",
+        "Cardiomegaly": "STD-3abbf710dd150e2c_cardiomegaly.png",
+        "Edema": "STD-3abbf710dd150e2c_edema.png",
+        "Atelectasis": "STD-3abbf710dd150e2c_atelectasis.png",
+        "Lung Opacity": "STD-3abbf710dd150e2c_lung_opacity.png",
+        "No Finding": "STD-3abbf710dd150e2c_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 4,
+    "patient_id": "PATIENT_01001",
+    "study_id": "STD-4b346b144f29951a",
+    "filename": "nih_study_004.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 65,
+    "sex": "M",
+    "spo2": 93,
+    "temp": 37.5,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.065,
+      "Pleural Effusion": 0.37,
+      "Consolidation": 0.857,
+      "Cardiomegaly": 0.186,
+      "Edema": 0.14,
+      "Atelectasis": 0.398,
+      "Lung Opacity": 0.755,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2813,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.2,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.513,
+      "findings": {
+        "Pneumothorax": 0.171,
+        "Pleural Effusion": 0.295,
+        "Consolidation": 0.327,
+        "Cardiomegaly": 0.549,
+        "Edema": 0.371,
+        "Atelectasis": 0.335,
+        "Lung Opacity": 0.351,
+        "No Finding": 0.459
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.138,
+          0.226
+        ],
+        "Pleural Effusion": [
+          0.257,
+          0.332
+        ],
+        "Consolidation": [
+          0.282,
+          0.35
+        ],
+        "Cardiomegaly": [
+          0.507,
+          0.588
+        ],
+        "Edema": [
+          0.343,
+          0.408
+        ],
+        "Atelectasis": [
+          0.287,
+          0.358
+        ],
+        "Lung Opacity": [
+          0.276,
+          0.422
+        ],
+        "No Finding": [
+          0.394,
+          0.514
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0008,
+        "Pleural Effusion": 0.0007,
+        "Consolidation": 0.0005,
+        "Cardiomegaly": 0.0009,
+        "Edema": 0.0005,
+        "Atelectasis": 0.0006,
+        "Lung Opacity": 0.002,
+        "No Finding": 0.0018
+      },
+      "priority_tier": "Routine",
+      "priority_score": 39.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.55 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-4b346b144f29951a_pneumothorax.png",
+        "Pleural Effusion": "STD-4b346b144f29951a_pleural_effusion.png",
+        "Consolidation": "STD-4b346b144f29951a_consolidation.png",
+        "Cardiomegaly": "STD-4b346b144f29951a_cardiomegaly.png",
+        "Edema": "STD-4b346b144f29951a_edema.png",
+        "Atelectasis": "STD-4b346b144f29951a_atelectasis.png",
+        "Lung Opacity": "STD-4b346b144f29951a_lung_opacity.png",
+        "No Finding": "STD-4b346b144f29951a_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 5,
+    "patient_id": "PATIENT_01002",
+    "study_id": "STD-847a6e0815cd9461",
+    "filename": "nih_study_005.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 81,
+    "sex": "F",
+    "spo2": 92,
+    "temp": 37.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.264,
+      "Consolidation": 0.145,
+      "Cardiomegaly": 0.727,
+      "Edema": 0.806,
+      "Atelectasis": 0.185,
+      "Lung Opacity": 0.677,
+      "No Finding": 0.044
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2689,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.216,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.417,
+      "findings": {
+        "Pneumothorax": 0.178,
+        "Pleural Effusion": 0.246,
+        "Consolidation": 0.317,
+        "Cardiomegaly": 0.497,
+        "Edema": 0.326,
+        "Atelectasis": 0.35,
+        "Lung Opacity": 0.36,
+        "No Finding": 0.442
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.142,
+          0.207
+        ],
+        "Pleural Effusion": [
+          0.178,
+          0.304
+        ],
+        "Consolidation": [
+          0.251,
+          0.36
+        ],
+        "Cardiomegaly": [
+          0.434,
+          0.563
+        ],
+        "Edema": [
+          0.274,
+          0.386
+        ],
+        "Atelectasis": [
+          0.283,
+          0.42
+        ],
+        "Lung Opacity": [
+          0.309,
+          0.411
+        ],
+        "No Finding": [
+          0.35,
+          0.506
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0016,
+        "Consolidation": 0.0013,
+        "Cardiomegaly": 0.0021,
+        "Edema": 0.001,
+        "Atelectasis": 0.002,
+        "Lung Opacity": 0.0009,
+        "No Finding": 0.0023
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-847a6e0815cd9461_pneumothorax.png",
+        "Pleural Effusion": "STD-847a6e0815cd9461_pleural_effusion.png",
+        "Consolidation": "STD-847a6e0815cd9461_consolidation.png",
+        "Cardiomegaly": "STD-847a6e0815cd9461_cardiomegaly.png",
+        "Edema": "STD-847a6e0815cd9461_edema.png",
+        "Atelectasis": "STD-847a6e0815cd9461_atelectasis.png",
+        "Lung Opacity": "STD-847a6e0815cd9461_lung_opacity.png",
+        "No Finding": "STD-847a6e0815cd9461_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 6,
+    "patient_id": "PATIENT_01002",
+    "study_id": "STD-1d057a061fe6916a",
+    "filename": "nih_study_006.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 57,
+    "sex": "F",
+    "spo2": 98,
+    "temp": 36.9,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.025,
+      "Pleural Effusion": 0.021,
+      "Consolidation": 0.096,
+      "Cardiomegaly": 0.801,
+      "Edema": 0.103,
+      "Atelectasis": 0.163,
+      "Lung Opacity": 0.196,
+      "No Finding": 0.072
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2675,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.218,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.396,
+      "findings": {
+        "Pneumothorax": 0.182,
+        "Pleural Effusion": 0.312,
+        "Consolidation": 0.311,
+        "Cardiomegaly": 0.524,
+        "Edema": 0.296,
+        "Atelectasis": 0.317,
+        "Lung Opacity": 0.317,
+        "No Finding": 0.434
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.145,
+          0.217
+        ],
+        "Pleural Effusion": [
+          0.277,
+          0.355
+        ],
+        "Consolidation": [
+          0.27,
+          0.366
+        ],
+        "Cardiomegaly": [
+          0.467,
+          0.557
+        ],
+        "Edema": [
+          0.247,
+          0.38
+        ],
+        "Atelectasis": [
+          0.267,
+          0.347
+        ],
+        "Lung Opacity": [
+          0.273,
+          0.384
+        ],
+        "No Finding": [
+          0.373,
+          0.542
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0006,
+        "Consolidation": 0.0009,
+        "Cardiomegaly": 0.0009,
+        "Edema": 0.0018,
+        "Atelectasis": 0.0008,
+        "Lung Opacity": 0.0013,
+        "No Finding": 0.0029
+      },
+      "priority_tier": "Routine",
+      "priority_score": 38.3,
+      "explanations": [
+        "Cardiomegaly likelihood 0.52 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-1d057a061fe6916a_pneumothorax.png",
+        "Pleural Effusion": "STD-1d057a061fe6916a_pleural_effusion.png",
+        "Consolidation": "STD-1d057a061fe6916a_consolidation.png",
+        "Cardiomegaly": "STD-1d057a061fe6916a_cardiomegaly.png",
+        "Edema": "STD-1d057a061fe6916a_edema.png",
+        "Atelectasis": "STD-1d057a061fe6916a_atelectasis.png",
+        "Lung Opacity": "STD-1d057a061fe6916a_lung_opacity.png",
+        "No Finding": "STD-1d057a061fe6916a_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 7,
+    "patient_id": "PATIENT_01003",
+    "study_id": "STD-e45f0d5b6abf4928",
+    "filename": "nih_study_007.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 52,
+    "sex": "M",
+    "spo2": 97,
+    "temp": 36.9,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.025,
+      "Pleural Effusion": 0.071,
+      "Consolidation": 0.019,
+      "Cardiomegaly": 0.313,
+      "Edema": 0.018,
+      "Atelectasis": 0.685,
+      "Lung Opacity": 0.241,
+      "No Finding": 0.111
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3061,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.206,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.613,
+      "findings": {
+        "Pneumothorax": 0.198,
+        "Pleural Effusion": 0.275,
+        "Consolidation": 0.299,
+        "Cardiomegaly": 0.501,
+        "Edema": 0.326,
+        "Atelectasis": 0.399,
+        "Lung Opacity": 0.405,
+        "No Finding": 0.628
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.143,
+          0.24
+        ],
+        "Pleural Effusion": [
+          0.211,
+          0.323
+        ],
+        "Consolidation": [
+          0.256,
+          0.334
+        ],
+        "Cardiomegaly": [
+          0.428,
+          0.559
+        ],
+        "Edema": [
+          0.292,
+          0.359
+        ],
+        "Atelectasis": [
+          0.353,
+          0.462
+        ],
+        "Lung Opacity": [
+          0.355,
+          0.449
+        ],
+        "No Finding": [
+          0.565,
+          0.66
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0009,
+        "Pleural Effusion": 0.0014,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0019,
+        "Edema": 0.0004,
+        "Atelectasis": 0.0015,
+        "Lung Opacity": 0.001,
+        "No Finding": 0.0009
+      },
+      "priority_tier": "Routine",
+      "priority_score": 37.5,
+      "explanations": [
+        "Cardiomegaly likelihood 0.50 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-e45f0d5b6abf4928_pneumothorax.png",
+        "Pleural Effusion": "STD-e45f0d5b6abf4928_pleural_effusion.png",
+        "Consolidation": "STD-e45f0d5b6abf4928_consolidation.png",
+        "Cardiomegaly": "STD-e45f0d5b6abf4928_cardiomegaly.png",
+        "Edema": "STD-e45f0d5b6abf4928_edema.png",
+        "Atelectasis": "STD-e45f0d5b6abf4928_atelectasis.png",
+        "Lung Opacity": "STD-e45f0d5b6abf4928_lung_opacity.png",
+        "No Finding": "STD-e45f0d5b6abf4928_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 8,
+    "patient_id": "PATIENT_01003",
+    "study_id": "STD-9d03c62308840084",
+    "filename": "nih_study_008.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 28,
+    "sex": "F",
+    "spo2": 99,
+    "temp": 36.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.01,
+      "Consolidation": 0.025,
+      "Cardiomegaly": 0.027,
+      "Edema": 0.01,
+      "Atelectasis": 0.068,
+      "Lung Opacity": 0.01,
+      "No Finding": 0.925
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3072,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.202,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.498,
+      "findings": {
+        "Pneumothorax": 0.221,
+        "Pleural Effusion": 0.327,
+        "Consolidation": 0.28,
+        "Cardiomegaly": 0.489,
+        "Edema": 0.338,
+        "Atelectasis": 0.321,
+        "Lung Opacity": 0.332,
+        "No Finding": 0.55
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.185,
+          0.253
+        ],
+        "Pleural Effusion": [
+          0.298,
+          0.38
+        ],
+        "Consolidation": [
+          0.245,
+          0.322
+        ],
+        "Cardiomegaly": [
+          0.43,
+          0.52
+        ],
+        "Edema": [
+          0.305,
+          0.375
+        ],
+        "Atelectasis": [
+          0.293,
+          0.36
+        ],
+        "Lung Opacity": [
+          0.275,
+          0.394
+        ],
+        "No Finding": [
+          0.479,
+          0.607
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0007,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0008,
+        "Edema": 0.0005,
+        "Atelectasis": 0.0005,
+        "Lung Opacity": 0.0015,
+        "No Finding": 0.0018
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-9d03c62308840084_pneumothorax.png",
+        "Pleural Effusion": "STD-9d03c62308840084_pleural_effusion.png",
+        "Consolidation": "STD-9d03c62308840084_consolidation.png",
+        "Cardiomegaly": "STD-9d03c62308840084_cardiomegaly.png",
+        "Edema": "STD-9d03c62308840084_edema.png",
+        "Atelectasis": "STD-9d03c62308840084_atelectasis.png",
+        "Lung Opacity": "STD-9d03c62308840084_lung_opacity.png",
+        "No Finding": "STD-9d03c62308840084_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 9,
+    "patient_id": "PATIENT_01004",
+    "study_id": "STD-9464ea1f42b38197",
+    "filename": "nih_study_009.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "LATERAL",
+    "age": 60,
+    "sex": "M",
+    "spo2": 95,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.463,
+      "Pleural Effusion": 0.533,
+      "Consolidation": 0.455,
+      "Cardiomegaly": 0.423,
+      "Edema": 0.393,
+      "Atelectasis": 0.413,
+      "Lung Opacity": 0.485,
+      "No Finding": 0.053
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "fail_lateral",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3392,
+      "quality": {
+        "passed": false,
+        "flags": [
+          "NON_FRONTAL_VIEW"
+        ],
+        "view_detected": "LATERAL",
+        "exposure_score": 0.214,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": [
+          "Lateral view detected; model only validated on frontal (PA/AP) views."
+        ]
+      },
+      "is_ood": false,
+      "energy_score": -1.625,
+      "findings": {
+        "Pneumothorax": 0.19,
+        "Pleural Effusion": 0.292,
+        "Consolidation": 0.317,
+        "Cardiomegaly": 0.583,
+        "Edema": 0.401,
+        "Atelectasis": 0.362,
+        "Lung Opacity": 0.449,
+        "No Finding": 0.402
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.155,
+          0.235
+        ],
+        "Pleural Effusion": [
+          0.232,
+          0.351
+        ],
+        "Consolidation": [
+          0.29,
+          0.364
+        ],
+        "Cardiomegaly": [
+          0.497,
+          0.653
+        ],
+        "Edema": [
+          0.357,
+          0.444
+        ],
+        "Atelectasis": [
+          0.305,
+          0.418
+        ],
+        "Lung Opacity": [
+          0.413,
+          0.505
+        ],
+        "No Finding": [
+          0.331,
+          0.493
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0007,
+        "Pleural Effusion": 0.0013,
+        "Consolidation": 0.0005,
+        "Cardiomegaly": 0.0023,
+        "Edema": 0.001,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0009,
+        "No Finding": 0.003
+      },
+      "priority_tier": "Low-confidence",
+      "priority_score": 45.0,
+      "explanations": [
+        "Needs human read: Lateral view detected; model only validated on frontal (PA/AP) views."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-9464ea1f42b38197_pneumothorax.png",
+        "Pleural Effusion": "STD-9464ea1f42b38197_pleural_effusion.png",
+        "Consolidation": "STD-9464ea1f42b38197_consolidation.png",
+        "Cardiomegaly": "STD-9464ea1f42b38197_cardiomegaly.png",
+        "Edema": "STD-9464ea1f42b38197_edema.png",
+        "Atelectasis": "STD-9464ea1f42b38197_atelectasis.png",
+        "Lung Opacity": "STD-9464ea1f42b38197_lung_opacity.png",
+        "No Finding": "STD-9464ea1f42b38197_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 10,
+    "patient_id": "PATIENT_01004",
+    "study_id": "STD-24f09b2d5719b0fc",
+    "filename": "nih_study_010.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 46,
+    "sex": "F",
+    "spo2": 96,
+    "temp": 36.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.568,
+      "Pleural Effusion": 0.417,
+      "Consolidation": 0.363,
+      "Cardiomegaly": 0.3,
+      "Edema": 0.252,
+      "Atelectasis": 0.366,
+      "Lung Opacity": 0.406,
+      "No Finding": 0.11
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "high_uncertainty",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3150,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.201,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.527,
+      "findings": {
+        "Pneumothorax": 0.184,
+        "Pleural Effusion": 0.22,
+        "Consolidation": 0.396,
+        "Cardiomegaly": 0.497,
+        "Edema": 0.314,
+        "Atelectasis": 0.366,
+        "Lung Opacity": 0.397,
+        "No Finding": 0.511
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.157,
+          0.21
+        ],
+        "Pleural Effusion": [
+          0.195,
+          0.257
+        ],
+        "Consolidation": [
+          0.346,
+          0.463
+        ],
+        "Cardiomegaly": [
+          0.421,
+          0.579
+        ],
+        "Edema": [
+          0.267,
+          0.353
+        ],
+        "Atelectasis": [
+          0.339,
+          0.383
+        ],
+        "Lung Opacity": [
+          0.346,
+          0.465
+        ],
+        "No Finding": [
+          0.444,
+          0.602
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0005,
+        "Consolidation": 0.0013,
+        "Cardiomegaly": 0.0028,
+        "Edema": 0.001,
+        "Atelectasis": 0.0002,
+        "Lung Opacity": 0.0014,
+        "No Finding": 0.0026
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-24f09b2d5719b0fc_pneumothorax.png",
+        "Pleural Effusion": "STD-24f09b2d5719b0fc_pleural_effusion.png",
+        "Consolidation": "STD-24f09b2d5719b0fc_consolidation.png",
+        "Cardiomegaly": "STD-24f09b2d5719b0fc_cardiomegaly.png",
+        "Edema": "STD-24f09b2d5719b0fc_edema.png",
+        "Atelectasis": "STD-24f09b2d5719b0fc_atelectasis.png",
+        "Lung Opacity": "STD-24f09b2d5719b0fc_lung_opacity.png",
+        "No Finding": "STD-24f09b2d5719b0fc_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 11,
+    "patient_id": "PATIENT_01005",
+    "study_id": "STD-b18ade8dcd022f5c",
+    "filename": "nih_study_011.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 36,
+    "sex": "M",
+    "spo2": 88,
+    "temp": 38.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.93,
+      "Pleural Effusion": 0.439,
+      "Consolidation": 0.067,
+      "Cardiomegaly": 0.019,
+      "Edema": 0.117,
+      "Atelectasis": 0.153,
+      "Lung Opacity": 0.216,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3046,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.194,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.572,
+      "findings": {
+        "Pneumothorax": 0.187,
+        "Pleural Effusion": 0.35,
+        "Consolidation": 0.347,
+        "Cardiomegaly": 0.487,
+        "Edema": 0.327,
+        "Atelectasis": 0.369,
+        "Lung Opacity": 0.379,
+        "No Finding": 0.495
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.147,
+          0.228
+        ],
+        "Pleural Effusion": [
+          0.27,
+          0.423
+        ],
+        "Consolidation": [
+          0.307,
+          0.378
+        ],
+        "Cardiomegaly": [
+          0.418,
+          0.554
+        ],
+        "Edema": [
+          0.282,
+          0.38
+        ],
+        "Atelectasis": [
+          0.313,
+          0.427
+        ],
+        "Lung Opacity": [
+          0.334,
+          0.435
+        ],
+        "No Finding": [
+          0.457,
+          0.562
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0006,
+        "Pleural Effusion": 0.0028,
+        "Consolidation": 0.0005,
+        "Cardiomegaly": 0.0019,
+        "Edema": 0.001,
+        "Atelectasis": 0.001,
+        "Lung Opacity": 0.0012,
+        "No Finding": 0.0013
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 25.0,
+      "explanations": [
+        "Clinical context: SpO2 88% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-b18ade8dcd022f5c_pneumothorax.png",
+        "Pleural Effusion": "STD-b18ade8dcd022f5c_pleural_effusion.png",
+        "Consolidation": "STD-b18ade8dcd022f5c_consolidation.png",
+        "Cardiomegaly": "STD-b18ade8dcd022f5c_cardiomegaly.png",
+        "Edema": "STD-b18ade8dcd022f5c_edema.png",
+        "Atelectasis": "STD-b18ade8dcd022f5c_atelectasis.png",
+        "Lung Opacity": "STD-b18ade8dcd022f5c_lung_opacity.png",
+        "No Finding": "STD-b18ade8dcd022f5c_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 12,
+    "patient_id": "PATIENT_01005",
+    "study_id": "STD-060ca1bd981c8ff2",
+    "filename": "nih_study_012.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 48,
+    "sex": "F",
+    "spo2": 91,
+    "temp": 37.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.897,
+      "Pleural Effusion": 0.146,
+      "Consolidation": 0.062,
+      "Cardiomegaly": 0.088,
+      "Edema": 0.072,
+      "Atelectasis": 0.216,
+      "Lung Opacity": 0.126,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2890,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.2,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.537,
+      "findings": {
+        "Pneumothorax": 0.166,
+        "Pleural Effusion": 0.254,
+        "Consolidation": 0.393,
+        "Cardiomegaly": 0.5,
+        "Edema": 0.327,
+        "Atelectasis": 0.393,
+        "Lung Opacity": 0.412,
+        "No Finding": 0.476
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.144,
+          0.196
+        ],
+        "Pleural Effusion": [
+          0.198,
+          0.304
+        ],
+        "Consolidation": [
+          0.346,
+          0.421
+        ],
+        "Cardiomegaly": [
+          0.45,
+          0.549
+        ],
+        "Edema": [
+          0.304,
+          0.372
+        ],
+        "Atelectasis": [
+          0.362,
+          0.445
+        ],
+        "Lung Opacity": [
+          0.391,
+          0.447
+        ],
+        "No Finding": [
+          0.44,
+          0.523
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0017,
+        "Consolidation": 0.0007,
+        "Cardiomegaly": 0.001,
+        "Edema": 0.0005,
+        "Atelectasis": 0.0006,
+        "Lung Opacity": 0.0003,
+        "No Finding": 0.0008
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 52.5,
+      "explanations": [
+        "Cardiomegaly likelihood 0.50 noted (routine)",
+        "Clinical context: SpO2 91% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-060ca1bd981c8ff2_pneumothorax.png",
+        "Pleural Effusion": "STD-060ca1bd981c8ff2_pleural_effusion.png",
+        "Consolidation": "STD-060ca1bd981c8ff2_consolidation.png",
+        "Cardiomegaly": "STD-060ca1bd981c8ff2_cardiomegaly.png",
+        "Edema": "STD-060ca1bd981c8ff2_edema.png",
+        "Atelectasis": "STD-060ca1bd981c8ff2_atelectasis.png",
+        "Lung Opacity": "STD-060ca1bd981c8ff2_lung_opacity.png",
+        "No Finding": "STD-060ca1bd981c8ff2_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 13,
+    "patient_id": "PATIENT_01006",
+    "study_id": "STD-358123999a808197",
+    "filename": "nih_study_013.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 73,
+    "sex": "M",
+    "spo2": 90,
+    "temp": 37.3,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.074,
+      "Pleural Effusion": 0.969,
+      "Consolidation": 0.421,
+      "Cardiomegaly": 0.668,
+      "Edema": 0.495,
+      "Atelectasis": 0.36,
+      "Lung Opacity": 0.607,
+      "No Finding": 0.022
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3216,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.185,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.711,
+      "findings": {
+        "Pneumothorax": 0.176,
+        "Pleural Effusion": 0.311,
+        "Consolidation": 0.404,
+        "Cardiomegaly": 0.591,
+        "Edema": 0.357,
+        "Atelectasis": 0.417,
+        "Lung Opacity": 0.471,
+        "No Finding": 0.43
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.135,
+          0.201
+        ],
+        "Pleural Effusion": [
+          0.27,
+          0.354
+        ],
+        "Consolidation": [
+          0.354,
+          0.444
+        ],
+        "Cardiomegaly": [
+          0.519,
+          0.658
+        ],
+        "Edema": [
+          0.33,
+          0.386
+        ],
+        "Atelectasis": [
+          0.343,
+          0.48
+        ],
+        "Lung Opacity": [
+          0.44,
+          0.504
+        ],
+        "No Finding": [
+          0.338,
+          0.52
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0007,
+        "Consolidation": 0.0008,
+        "Cardiomegaly": 0.002,
+        "Edema": 0.0004,
+        "Atelectasis": 0.0016,
+        "Lung Opacity": 0.0004,
+        "No Finding": 0.0043
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 65.7,
+      "explanations": [
+        "Cardiomegaly likelihood 0.59 noted (routine)",
+        "Clinical context: SpO2 90% < 92% promotes tier to Urgent",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-358123999a808197_pneumothorax.png",
+        "Pleural Effusion": "STD-358123999a808197_pleural_effusion.png",
+        "Consolidation": "STD-358123999a808197_consolidation.png",
+        "Cardiomegaly": "STD-358123999a808197_cardiomegaly.png",
+        "Edema": "STD-358123999a808197_edema.png",
+        "Atelectasis": "STD-358123999a808197_atelectasis.png",
+        "Lung Opacity": "STD-358123999a808197_lung_opacity.png",
+        "No Finding": "STD-358123999a808197_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 14,
+    "patient_id": "PATIENT_01006",
+    "study_id": "STD-36defee3a26e4bfe",
+    "filename": "nih_study_014.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 65,
+    "sex": "M",
+    "spo2": 93,
+    "temp": 37.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.013,
+      "Pleural Effusion": 0.35,
+      "Consolidation": 0.806,
+      "Cardiomegaly": 0.172,
+      "Edema": 0.118,
+      "Atelectasis": 0.407,
+      "Lung Opacity": 0.754,
+      "No Finding": 0.064
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2947,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.202,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.576,
+      "findings": {
+        "Pneumothorax": 0.208,
+        "Pleural Effusion": 0.236,
+        "Consolidation": 0.332,
+        "Cardiomegaly": 0.603,
+        "Edema": 0.367,
+        "Atelectasis": 0.382,
+        "Lung Opacity": 0.383,
+        "No Finding": 0.404
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.177,
+          0.233
+        ],
+        "Pleural Effusion": [
+          0.187,
+          0.315
+        ],
+        "Consolidation": [
+          0.282,
+          0.364
+        ],
+        "Cardiomegaly": [
+          0.503,
+          0.706
+        ],
+        "Edema": [
+          0.329,
+          0.394
+        ],
+        "Atelectasis": [
+          0.345,
+          0.439
+        ],
+        "Lung Opacity": [
+          0.339,
+          0.417
+        ],
+        "No Finding": [
+          0.377,
+          0.446
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0015,
+        "Consolidation": 0.0007,
+        "Cardiomegaly": 0.0035,
+        "Edema": 0.0004,
+        "Atelectasis": 0.001,
+        "Lung Opacity": 0.001,
+        "No Finding": 0.0005
+      },
+      "priority_tier": "Routine",
+      "priority_score": 41.1,
+      "explanations": [
+        "Cardiomegaly likelihood 0.60 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-36defee3a26e4bfe_pneumothorax.png",
+        "Pleural Effusion": "STD-36defee3a26e4bfe_pleural_effusion.png",
+        "Consolidation": "STD-36defee3a26e4bfe_consolidation.png",
+        "Cardiomegaly": "STD-36defee3a26e4bfe_cardiomegaly.png",
+        "Edema": "STD-36defee3a26e4bfe_edema.png",
+        "Atelectasis": "STD-36defee3a26e4bfe_atelectasis.png",
+        "Lung Opacity": "STD-36defee3a26e4bfe_lung_opacity.png",
+        "No Finding": "STD-36defee3a26e4bfe_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 15,
+    "patient_id": "PATIENT_01007",
+    "study_id": "STD-bddabd6ea32fd48a",
+    "filename": "nih_study_015.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 80,
+    "sex": "F",
+    "spo2": 92,
+    "temp": 38.4,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.257,
+      "Consolidation": 0.112,
+      "Cardiomegaly": 0.737,
+      "Edema": 0.789,
+      "Atelectasis": 0.223,
+      "Lung Opacity": 0.617,
+      "No Finding": 0.019
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2761,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.217,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.47,
+      "findings": {
+        "Pneumothorax": 0.186,
+        "Pleural Effusion": 0.287,
+        "Consolidation": 0.342,
+        "Cardiomegaly": 0.578,
+        "Edema": 0.355,
+        "Atelectasis": 0.326,
+        "Lung Opacity": 0.366,
+        "No Finding": 0.352
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.156,
+          0.23
+        ],
+        "Pleural Effusion": [
+          0.228,
+          0.356
+        ],
+        "Consolidation": [
+          0.276,
+          0.378
+        ],
+        "Cardiomegaly": [
+          0.475,
+          0.677
+        ],
+        "Edema": [
+          0.323,
+          0.384
+        ],
+        "Atelectasis": [
+          0.262,
+          0.38
+        ],
+        "Lung Opacity": [
+          0.335,
+          0.401
+        ],
+        "No Finding": [
+          0.303,
+          0.407
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0007,
+        "Pleural Effusion": 0.002,
+        "Consolidation": 0.0011,
+        "Cardiomegaly": 0.004,
+        "Edema": 0.0003,
+        "Atelectasis": 0.0012,
+        "Lung Opacity": 0.0004,
+        "No Finding": 0.0011
+      },
+      "priority_tier": "Routine",
+      "priority_score": 40.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.58 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-bddabd6ea32fd48a_pneumothorax.png",
+        "Pleural Effusion": "STD-bddabd6ea32fd48a_pleural_effusion.png",
+        "Consolidation": "STD-bddabd6ea32fd48a_consolidation.png",
+        "Cardiomegaly": "STD-bddabd6ea32fd48a_cardiomegaly.png",
+        "Edema": "STD-bddabd6ea32fd48a_edema.png",
+        "Atelectasis": "STD-bddabd6ea32fd48a_atelectasis.png",
+        "Lung Opacity": "STD-bddabd6ea32fd48a_lung_opacity.png",
+        "No Finding": "STD-bddabd6ea32fd48a_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 16,
+    "patient_id": "PATIENT_01007",
+    "study_id": "STD-b3d3e95a7dca265c",
+    "filename": "nih_study_016.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 58,
+    "sex": "F",
+    "spo2": 98,
+    "temp": 37.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.016,
+      "Pleural Effusion": 0.048,
+      "Consolidation": 0.101,
+      "Cardiomegaly": 0.827,
+      "Edema": 0.082,
+      "Atelectasis": 0.145,
+      "Lung Opacity": 0.142,
+      "No Finding": 0.076
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2908,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.219,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.499,
+      "findings": {
+        "Pneumothorax": 0.158,
+        "Pleural Effusion": 0.304,
+        "Consolidation": 0.321,
+        "Cardiomegaly": 0.543,
+        "Edema": 0.309,
+        "Atelectasis": 0.38,
+        "Lung Opacity": 0.352,
+        "No Finding": 0.463
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.135,
+          0.181
+        ],
+        "Pleural Effusion": [
+          0.251,
+          0.346
+        ],
+        "Consolidation": [
+          0.305,
+          0.352
+        ],
+        "Cardiomegaly": [
+          0.469,
+          0.607
+        ],
+        "Edema": [
+          0.265,
+          0.354
+        ],
+        "Atelectasis": [
+          0.35,
+          0.417
+        ],
+        "Lung Opacity": [
+          0.306,
+          0.401
+        ],
+        "No Finding": [
+          0.395,
+          0.511
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0009,
+        "Consolidation": 0.0003,
+        "Cardiomegaly": 0.0019,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0005,
+        "Lung Opacity": 0.0011,
+        "No Finding": 0.0013
+      },
+      "priority_tier": "Routine",
+      "priority_score": 39.0,
+      "explanations": [
+        "Cardiomegaly likelihood 0.54 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-b3d3e95a7dca265c_pneumothorax.png",
+        "Pleural Effusion": "STD-b3d3e95a7dca265c_pleural_effusion.png",
+        "Consolidation": "STD-b3d3e95a7dca265c_consolidation.png",
+        "Cardiomegaly": "STD-b3d3e95a7dca265c_cardiomegaly.png",
+        "Edema": "STD-b3d3e95a7dca265c_edema.png",
+        "Atelectasis": "STD-b3d3e95a7dca265c_atelectasis.png",
+        "Lung Opacity": "STD-b3d3e95a7dca265c_lung_opacity.png",
+        "No Finding": "STD-b3d3e95a7dca265c_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 17,
+    "patient_id": "PATIENT_01008",
+    "study_id": "STD-d437b7b4b5c4189f",
+    "filename": "nih_study_017.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 51,
+    "sex": "M",
+    "spo2": 97,
+    "temp": 37.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.104,
+      "Consolidation": 0.019,
+      "Cardiomegaly": 0.314,
+      "Edema": 0.01,
+      "Atelectasis": 0.693,
+      "Lung Opacity": 0.238,
+      "No Finding": 0.121
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2996,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.206,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.522,
+      "findings": {
+        "Pneumothorax": 0.208,
+        "Pleural Effusion": 0.272,
+        "Consolidation": 0.331,
+        "Cardiomegaly": 0.468,
+        "Edema": 0.36,
+        "Atelectasis": 0.324,
+        "Lung Opacity": 0.367,
+        "No Finding": 0.598
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.164,
+          0.242
+        ],
+        "Pleural Effusion": [
+          0.227,
+          0.321
+        ],
+        "Consolidation": [
+          0.282,
+          0.401
+        ],
+        "Cardiomegaly": [
+          0.437,
+          0.511
+        ],
+        "Edema": [
+          0.314,
+          0.409
+        ],
+        "Atelectasis": [
+          0.281,
+          0.378
+        ],
+        "Lung Opacity": [
+          0.304,
+          0.399
+        ],
+        "No Finding": [
+          0.542,
+          0.672
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0008,
+        "Consolidation": 0.0018,
+        "Cardiomegaly": 0.0005,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0012,
+        "Lung Opacity": 0.0009,
+        "No Finding": 0.0014
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-d437b7b4b5c4189f_pneumothorax.png",
+        "Pleural Effusion": "STD-d437b7b4b5c4189f_pleural_effusion.png",
+        "Consolidation": "STD-d437b7b4b5c4189f_consolidation.png",
+        "Cardiomegaly": "STD-d437b7b4b5c4189f_cardiomegaly.png",
+        "Edema": "STD-d437b7b4b5c4189f_edema.png",
+        "Atelectasis": "STD-d437b7b4b5c4189f_atelectasis.png",
+        "Lung Opacity": "STD-d437b7b4b5c4189f_lung_opacity.png",
+        "No Finding": "STD-d437b7b4b5c4189f_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 18,
+    "patient_id": "PATIENT_01008",
+    "study_id": "STD-f415a35cab126273",
+    "filename": "nih_study_018.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 25,
+    "sex": "F",
+    "spo2": 99,
+    "temp": 36.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.01,
+      "Consolidation": 0.034,
+      "Cardiomegaly": 0.04,
+      "Edema": 0.036,
+      "Atelectasis": 0.065,
+      "Lung Opacity": 0.015,
+      "No Finding": 0.99
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3118,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.203,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.551,
+      "findings": {
+        "Pneumothorax": 0.208,
+        "Pleural Effusion": 0.27,
+        "Consolidation": 0.327,
+        "Cardiomegaly": 0.478,
+        "Edema": 0.344,
+        "Atelectasis": 0.363,
+        "Lung Opacity": 0.398,
+        "No Finding": 0.603
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.166,
+          0.236
+        ],
+        "Pleural Effusion": [
+          0.207,
+          0.322
+        ],
+        "Consolidation": [
+          0.276,
+          0.386
+        ],
+        "Cardiomegaly": [
+          0.416,
+          0.528
+        ],
+        "Edema": [
+          0.293,
+          0.379
+        ],
+        "Atelectasis": [
+          0.333,
+          0.41
+        ],
+        "Lung Opacity": [
+          0.331,
+          0.448
+        ],
+        "No Finding": [
+          0.54,
+          0.641
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0007,
+        "Pleural Effusion": 0.0019,
+        "Consolidation": 0.0013,
+        "Cardiomegaly": 0.0015,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0007,
+        "Lung Opacity": 0.0015,
+        "No Finding": 0.0012
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-f415a35cab126273_pneumothorax.png",
+        "Pleural Effusion": "STD-f415a35cab126273_pleural_effusion.png",
+        "Consolidation": "STD-f415a35cab126273_consolidation.png",
+        "Cardiomegaly": "STD-f415a35cab126273_cardiomegaly.png",
+        "Edema": "STD-f415a35cab126273_edema.png",
+        "Atelectasis": "STD-f415a35cab126273_atelectasis.png",
+        "Lung Opacity": "STD-f415a35cab126273_lung_opacity.png",
+        "No Finding": "STD-f415a35cab126273_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 19,
+    "patient_id": "PATIENT_01009",
+    "study_id": "STD-3bcf61236c2a4c4a",
+    "filename": "nih_study_019.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "LATERAL",
+    "age": 58,
+    "sex": "M",
+    "spo2": 95,
+    "temp": 37.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.481,
+      "Pleural Effusion": 0.5,
+      "Consolidation": 0.485,
+      "Cardiomegaly": 0.373,
+      "Edema": 0.344,
+      "Atelectasis": 0.415,
+      "Lung Opacity": 0.499,
+      "No Finding": 0.111
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "fail_lateral",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2886,
+      "quality": {
+        "passed": false,
+        "flags": [
+          "NON_FRONTAL_VIEW"
+        ],
+        "view_detected": "LATERAL",
+        "exposure_score": 0.218,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": [
+          "Lateral view detected; model only validated on frontal (PA/AP) views."
+        ]
+      },
+      "is_ood": false,
+      "energy_score": -1.516,
+      "findings": {
+        "Pneumothorax": 0.168,
+        "Pleural Effusion": 0.317,
+        "Consolidation": 0.317,
+        "Cardiomegaly": 0.522,
+        "Edema": 0.32,
+        "Atelectasis": 0.352,
+        "Lung Opacity": 0.421,
+        "No Finding": 0.489
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.128,
+          0.199
+        ],
+        "Pleural Effusion": [
+          0.275,
+          0.357
+        ],
+        "Consolidation": [
+          0.261,
+          0.361
+        ],
+        "Cardiomegaly": [
+          0.485,
+          0.586
+        ],
+        "Edema": [
+          0.272,
+          0.364
+        ],
+        "Atelectasis": [
+          0.304,
+          0.402
+        ],
+        "Lung Opacity": [
+          0.391,
+          0.457
+        ],
+        "No Finding": [
+          0.403,
+          0.571
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0006,
+        "Consolidation": 0.001,
+        "Cardiomegaly": 0.0012,
+        "Edema": 0.0009,
+        "Atelectasis": 0.0008,
+        "Lung Opacity": 0.0005,
+        "No Finding": 0.0032
+      },
+      "priority_tier": "Low-confidence",
+      "priority_score": 45.0,
+      "explanations": [
+        "Needs human read: Lateral view detected; model only validated on frontal (PA/AP) views."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-3bcf61236c2a4c4a_pneumothorax.png",
+        "Pleural Effusion": "STD-3bcf61236c2a4c4a_pleural_effusion.png",
+        "Consolidation": "STD-3bcf61236c2a4c4a_consolidation.png",
+        "Cardiomegaly": "STD-3bcf61236c2a4c4a_cardiomegaly.png",
+        "Edema": "STD-3bcf61236c2a4c4a_edema.png",
+        "Atelectasis": "STD-3bcf61236c2a4c4a_atelectasis.png",
+        "Lung Opacity": "STD-3bcf61236c2a4c4a_lung_opacity.png",
+        "No Finding": "STD-3bcf61236c2a4c4a_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 20,
+    "patient_id": "PATIENT_01009",
+    "study_id": "STD-aefac62ef9f2c976",
+    "filename": "nih_study_020.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 51,
+    "sex": "F",
+    "spo2": 96,
+    "temp": 36.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.581,
+      "Pleural Effusion": 0.422,
+      "Consolidation": 0.375,
+      "Cardiomegaly": 0.322,
+      "Edema": 0.293,
+      "Atelectasis": 0.34,
+      "Lung Opacity": 0.378,
+      "No Finding": 0.14
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "high_uncertainty",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2952,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.201,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.587,
+      "findings": {
+        "Pneumothorax": 0.151,
+        "Pleural Effusion": 0.341,
+        "Consolidation": 0.321,
+        "Cardiomegaly": 0.479,
+        "Edema": 0.344,
+        "Atelectasis": 0.365,
+        "Lung Opacity": 0.42,
+        "No Finding": 0.54
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.122,
+          0.172
+        ],
+        "Pleural Effusion": [
+          0.28,
+          0.413
+        ],
+        "Consolidation": [
+          0.274,
+          0.365
+        ],
+        "Cardiomegaly": [
+          0.446,
+          0.527
+        ],
+        "Edema": [
+          0.295,
+          0.384
+        ],
+        "Atelectasis": [
+          0.334,
+          0.401
+        ],
+        "Lung Opacity": [
+          0.379,
+          0.462
+        ],
+        "No Finding": [
+          0.489,
+          0.593
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0002,
+        "Pleural Effusion": 0.0019,
+        "Consolidation": 0.0007,
+        "Cardiomegaly": 0.0007,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0005,
+        "Lung Opacity": 0.0009,
+        "No Finding": 0.0014
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-aefac62ef9f2c976_pneumothorax.png",
+        "Pleural Effusion": "STD-aefac62ef9f2c976_pleural_effusion.png",
+        "Consolidation": "STD-aefac62ef9f2c976_consolidation.png",
+        "Cardiomegaly": "STD-aefac62ef9f2c976_cardiomegaly.png",
+        "Edema": "STD-aefac62ef9f2c976_edema.png",
+        "Atelectasis": "STD-aefac62ef9f2c976_atelectasis.png",
+        "Lung Opacity": "STD-aefac62ef9f2c976_lung_opacity.png",
+        "No Finding": "STD-aefac62ef9f2c976_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 21,
+    "patient_id": "PATIENT_01010",
+    "study_id": "STD-dee0fbd11ab4725c",
+    "filename": "nih_study_021.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 31,
+    "sex": "M",
+    "spo2": 88,
+    "temp": 37.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.955,
+      "Pleural Effusion": 0.429,
+      "Consolidation": 0.07,
+      "Cardiomegaly": 0.076,
+      "Edema": 0.052,
+      "Atelectasis": 0.094,
+      "Lung Opacity": 0.208,
+      "No Finding": 0.04
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2916,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.193,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.518,
+      "findings": {
+        "Pneumothorax": 0.182,
+        "Pleural Effusion": 0.262,
+        "Consolidation": 0.337,
+        "Cardiomegaly": 0.423,
+        "Edema": 0.293,
+        "Atelectasis": 0.313,
+        "Lung Opacity": 0.372,
+        "No Finding": 0.594
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.14,
+          0.242
+        ],
+        "Pleural Effusion": [
+          0.213,
+          0.302
+        ],
+        "Consolidation": [
+          0.304,
+          0.395
+        ],
+        "Cardiomegaly": [
+          0.372,
+          0.465
+        ],
+        "Edema": [
+          0.25,
+          0.333
+        ],
+        "Atelectasis": [
+          0.276,
+          0.356
+        ],
+        "Lung Opacity": [
+          0.313,
+          0.412
+        ],
+        "No Finding": [
+          0.505,
+          0.645
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.001,
+        "Pleural Effusion": 0.001,
+        "Consolidation": 0.0009,
+        "Cardiomegaly": 0.0011,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0006,
+        "Lung Opacity": 0.0011,
+        "No Finding": 0.0022
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 25.0,
+      "explanations": [
+        "Clinical context: SpO2 88% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-dee0fbd11ab4725c_pneumothorax.png",
+        "Pleural Effusion": "STD-dee0fbd11ab4725c_pleural_effusion.png",
+        "Consolidation": "STD-dee0fbd11ab4725c_consolidation.png",
+        "Cardiomegaly": "STD-dee0fbd11ab4725c_cardiomegaly.png",
+        "Edema": "STD-dee0fbd11ab4725c_edema.png",
+        "Atelectasis": "STD-dee0fbd11ab4725c_atelectasis.png",
+        "Lung Opacity": "STD-dee0fbd11ab4725c_lung_opacity.png",
+        "No Finding": "STD-dee0fbd11ab4725c_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 22,
+    "patient_id": "PATIENT_01010",
+    "study_id": "STD-6c5ffa461448e9f8",
+    "filename": "nih_study_022.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 43,
+    "sex": "F",
+    "spo2": 91,
+    "temp": 36.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.902,
+      "Pleural Effusion": 0.188,
+      "Consolidation": 0.08,
+      "Cardiomegaly": 0.092,
+      "Edema": 0.01,
+      "Atelectasis": 0.198,
+      "Lung Opacity": 0.121,
+      "No Finding": 0.034
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3790,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.196,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.49,
+      "findings": {
+        "Pneumothorax": 0.162,
+        "Pleural Effusion": 0.318,
+        "Consolidation": 0.353,
+        "Cardiomegaly": 0.548,
+        "Edema": 0.332,
+        "Atelectasis": 0.355,
+        "Lung Opacity": 0.366,
+        "No Finding": 0.454
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.127,
+          0.193
+        ],
+        "Pleural Effusion": [
+          0.294,
+          0.342
+        ],
+        "Consolidation": [
+          0.303,
+          0.397
+        ],
+        "Cardiomegaly": [
+          0.474,
+          0.604
+        ],
+        "Edema": [
+          0.305,
+          0.371
+        ],
+        "Atelectasis": [
+          0.287,
+          0.417
+        ],
+        "Lung Opacity": [
+          0.318,
+          0.41
+        ],
+        "No Finding": [
+          0.417,
+          0.533
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0003,
+        "Consolidation": 0.0009,
+        "Cardiomegaly": 0.0019,
+        "Edema": 0.0005,
+        "Atelectasis": 0.0019,
+        "Lung Opacity": 0.0008,
+        "No Finding": 0.0016
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 54.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.55 noted (routine)",
+        "Clinical context: SpO2 91% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-6c5ffa461448e9f8_pneumothorax.png",
+        "Pleural Effusion": "STD-6c5ffa461448e9f8_pleural_effusion.png",
+        "Consolidation": "STD-6c5ffa461448e9f8_consolidation.png",
+        "Cardiomegaly": "STD-6c5ffa461448e9f8_cardiomegaly.png",
+        "Edema": "STD-6c5ffa461448e9f8_edema.png",
+        "Atelectasis": "STD-6c5ffa461448e9f8_atelectasis.png",
+        "Lung Opacity": "STD-6c5ffa461448e9f8_lung_opacity.png",
+        "No Finding": "STD-6c5ffa461448e9f8_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 23,
+    "patient_id": "PATIENT_01011",
+    "study_id": "STD-bac751309e4f1eaa",
+    "filename": "nih_study_023.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 72,
+    "sex": "M",
+    "spo2": 90,
+    "temp": 38.4,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.101,
+      "Pleural Effusion": 0.956,
+      "Consolidation": 0.406,
+      "Cardiomegaly": 0.626,
+      "Edema": 0.524,
+      "Atelectasis": 0.367,
+      "Lung Opacity": 0.619,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3068,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.186,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.612,
+      "findings": {
+        "Pneumothorax": 0.165,
+        "Pleural Effusion": 0.342,
+        "Consolidation": 0.37,
+        "Cardiomegaly": 0.559,
+        "Edema": 0.348,
+        "Atelectasis": 0.393,
+        "Lung Opacity": 0.412,
+        "No Finding": 0.437
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.143,
+          0.205
+        ],
+        "Pleural Effusion": [
+          0.282,
+          0.394
+        ],
+        "Consolidation": [
+          0.313,
+          0.431
+        ],
+        "Cardiomegaly": [
+          0.511,
+          0.602
+        ],
+        "Edema": [
+          0.304,
+          0.399
+        ],
+        "Atelectasis": [
+          0.321,
+          0.475
+        ],
+        "Lung Opacity": [
+          0.348,
+          0.458
+        ],
+        "No Finding": [
+          0.363,
+          0.519
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0015,
+        "Consolidation": 0.0011,
+        "Cardiomegaly": 0.0008,
+        "Edema": 0.0011,
+        "Atelectasis": 0.0023,
+        "Lung Opacity": 0.0012,
+        "No Finding": 0.0033
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 74.6,
+      "explanations": [
+        "Cardiomegaly likelihood 0.56 noted (routine)",
+        "Clinical context: SpO2 90% < 92% promotes tier to Urgent",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)",
+        "Clinical context: Fever (38.4\u00b0C) with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-bac751309e4f1eaa_pneumothorax.png",
+        "Pleural Effusion": "STD-bac751309e4f1eaa_pleural_effusion.png",
+        "Consolidation": "STD-bac751309e4f1eaa_consolidation.png",
+        "Cardiomegaly": "STD-bac751309e4f1eaa_cardiomegaly.png",
+        "Edema": "STD-bac751309e4f1eaa_edema.png",
+        "Atelectasis": "STD-bac751309e4f1eaa_atelectasis.png",
+        "Lung Opacity": "STD-bac751309e4f1eaa_lung_opacity.png",
+        "No Finding": "STD-bac751309e4f1eaa_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 24,
+    "patient_id": "PATIENT_01011",
+    "study_id": "STD-7b9d91606d8031f9",
+    "filename": "nih_study_024.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 65,
+    "sex": "M",
+    "spo2": 93,
+    "temp": 37.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.042,
+      "Pleural Effusion": 0.334,
+      "Consolidation": 0.819,
+      "Cardiomegaly": 0.213,
+      "Edema": 0.186,
+      "Atelectasis": 0.383,
+      "Lung Opacity": 0.814,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2850,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.206,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.487,
+      "findings": {
+        "Pneumothorax": 0.133,
+        "Pleural Effusion": 0.271,
+        "Consolidation": 0.294,
+        "Cardiomegaly": 0.56,
+        "Edema": 0.349,
+        "Atelectasis": 0.341,
+        "Lung Opacity": 0.364,
+        "No Finding": 0.467
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.109,
+          0.157
+        ],
+        "Pleural Effusion": [
+          0.223,
+          0.334
+        ],
+        "Consolidation": [
+          0.271,
+          0.334
+        ],
+        "Cardiomegaly": [
+          0.496,
+          0.605
+        ],
+        "Edema": [
+          0.265,
+          0.401
+        ],
+        "Atelectasis": [
+          0.296,
+          0.395
+        ],
+        "Lung Opacity": [
+          0.334,
+          0.382
+        ],
+        "No Finding": [
+          0.4,
+          0.546
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0015,
+        "Consolidation": 0.0004,
+        "Cardiomegaly": 0.0016,
+        "Edema": 0.0016,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0003,
+        "No Finding": 0.0024
+      },
+      "priority_tier": "Routine",
+      "priority_score": 39.6,
+      "explanations": [
+        "Cardiomegaly likelihood 0.56 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-7b9d91606d8031f9_pneumothorax.png",
+        "Pleural Effusion": "STD-7b9d91606d8031f9_pleural_effusion.png",
+        "Consolidation": "STD-7b9d91606d8031f9_consolidation.png",
+        "Cardiomegaly": "STD-7b9d91606d8031f9_cardiomegaly.png",
+        "Edema": "STD-7b9d91606d8031f9_edema.png",
+        "Atelectasis": "STD-7b9d91606d8031f9_atelectasis.png",
+        "Lung Opacity": "STD-7b9d91606d8031f9_lung_opacity.png",
+        "No Finding": "STD-7b9d91606d8031f9_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 25,
+    "patient_id": "PATIENT_01012",
+    "study_id": "STD-b6245e532ebd3434",
+    "filename": "nih_study_025.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 79,
+    "sex": "F",
+    "spo2": 92,
+    "temp": 38.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.031,
+      "Pleural Effusion": 0.218,
+      "Consolidation": 0.121,
+      "Cardiomegaly": 0.694,
+      "Edema": 0.827,
+      "Atelectasis": 0.208,
+      "Lung Opacity": 0.685,
+      "No Finding": 0.044
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2817,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.216,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.484,
+      "findings": {
+        "Pneumothorax": 0.154,
+        "Pleural Effusion": 0.254,
+        "Consolidation": 0.342,
+        "Cardiomegaly": 0.498,
+        "Edema": 0.344,
+        "Atelectasis": 0.354,
+        "Lung Opacity": 0.358,
+        "No Finding": 0.479
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.124,
+          0.194
+        ],
+        "Pleural Effusion": [
+          0.212,
+          0.323
+        ],
+        "Consolidation": [
+          0.3,
+          0.377
+        ],
+        "Cardiomegaly": [
+          0.409,
+          0.572
+        ],
+        "Edema": [
+          0.317,
+          0.365
+        ],
+        "Atelectasis": [
+          0.311,
+          0.423
+        ],
+        "Lung Opacity": [
+          0.317,
+          0.411
+        ],
+        "No Finding": [
+          0.422,
+          0.592
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0014,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0029,
+        "Edema": 0.0003,
+        "Atelectasis": 0.0014,
+        "Lung Opacity": 0.0013,
+        "No Finding": 0.003
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-b6245e532ebd3434_pneumothorax.png",
+        "Pleural Effusion": "STD-b6245e532ebd3434_pleural_effusion.png",
+        "Consolidation": "STD-b6245e532ebd3434_consolidation.png",
+        "Cardiomegaly": "STD-b6245e532ebd3434_cardiomegaly.png",
+        "Edema": "STD-b6245e532ebd3434_edema.png",
+        "Atelectasis": "STD-b6245e532ebd3434_atelectasis.png",
+        "Lung Opacity": "STD-b6245e532ebd3434_lung_opacity.png",
+        "No Finding": "STD-b6245e532ebd3434_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 26,
+    "patient_id": "PATIENT_01012",
+    "study_id": "STD-9063f944c9bf4606",
+    "filename": "nih_study_026.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 58,
+    "sex": "F",
+    "spo2": 98,
+    "temp": 37.0,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.019,
+      "Consolidation": 0.146,
+      "Cardiomegaly": 0.864,
+      "Edema": 0.059,
+      "Atelectasis": 0.152,
+      "Lung Opacity": 0.188,
+      "No Finding": 0.079
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2835,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.218,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.55,
+      "findings": {
+        "Pneumothorax": 0.189,
+        "Pleural Effusion": 0.325,
+        "Consolidation": 0.377,
+        "Cardiomegaly": 0.548,
+        "Edema": 0.332,
+        "Atelectasis": 0.382,
+        "Lung Opacity": 0.443,
+        "No Finding": 0.389
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.16,
+          0.212
+        ],
+        "Pleural Effusion": [
+          0.26,
+          0.385
+        ],
+        "Consolidation": [
+          0.33,
+          0.417
+        ],
+        "Cardiomegaly": [
+          0.501,
+          0.586
+        ],
+        "Edema": [
+          0.29,
+          0.357
+        ],
+        "Atelectasis": [
+          0.323,
+          0.426
+        ],
+        "Lung Opacity": [
+          0.403,
+          0.487
+        ],
+        "No Finding": [
+          0.345,
+          0.432
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0015,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0008,
+        "Edema": 0.0004,
+        "Atelectasis": 0.0009,
+        "Lung Opacity": 0.0007,
+        "No Finding": 0.0009
+      },
+      "priority_tier": "Routine",
+      "priority_score": 39.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.55 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-9063f944c9bf4606_pneumothorax.png",
+        "Pleural Effusion": "STD-9063f944c9bf4606_pleural_effusion.png",
+        "Consolidation": "STD-9063f944c9bf4606_consolidation.png",
+        "Cardiomegaly": "STD-9063f944c9bf4606_cardiomegaly.png",
+        "Edema": "STD-9063f944c9bf4606_edema.png",
+        "Atelectasis": "STD-9063f944c9bf4606_atelectasis.png",
+        "Lung Opacity": "STD-9063f944c9bf4606_lung_opacity.png",
+        "No Finding": "STD-9063f944c9bf4606_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 27,
+    "patient_id": "PATIENT_01013",
+    "study_id": "STD-55406470fda09325",
+    "filename": "nih_study_027.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 55,
+    "sex": "M",
+    "spo2": 97,
+    "temp": 37.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.013,
+      "Pleural Effusion": 0.09,
+      "Consolidation": 0.044,
+      "Cardiomegaly": 0.312,
+      "Edema": 0.049,
+      "Atelectasis": 0.676,
+      "Lung Opacity": 0.2,
+      "No Finding": 0.079
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3591,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.207,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.483,
+      "findings": {
+        "Pneumothorax": 0.149,
+        "Pleural Effusion": 0.306,
+        "Consolidation": 0.361,
+        "Cardiomegaly": 0.522,
+        "Edema": 0.308,
+        "Atelectasis": 0.32,
+        "Lung Opacity": 0.36,
+        "No Finding": 0.456
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.12,
+          0.188
+        ],
+        "Pleural Effusion": [
+          0.254,
+          0.364
+        ],
+        "Consolidation": [
+          0.304,
+          0.426
+        ],
+        "Cardiomegaly": [
+          0.466,
+          0.578
+        ],
+        "Edema": [
+          0.259,
+          0.375
+        ],
+        "Atelectasis": [
+          0.256,
+          0.373
+        ],
+        "Lung Opacity": [
+          0.307,
+          0.393
+        ],
+        "No Finding": [
+          0.381,
+          0.52
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0014,
+        "Consolidation": 0.0015,
+        "Cardiomegaly": 0.0013,
+        "Edema": 0.0013,
+        "Atelectasis": 0.0019,
+        "Lung Opacity": 0.0009,
+        "No Finding": 0.0022
+      },
+      "priority_tier": "Routine",
+      "priority_score": 38.3,
+      "explanations": [
+        "Cardiomegaly likelihood 0.52 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-55406470fda09325_pneumothorax.png",
+        "Pleural Effusion": "STD-55406470fda09325_pleural_effusion.png",
+        "Consolidation": "STD-55406470fda09325_consolidation.png",
+        "Cardiomegaly": "STD-55406470fda09325_cardiomegaly.png",
+        "Edema": "STD-55406470fda09325_edema.png",
+        "Atelectasis": "STD-55406470fda09325_atelectasis.png",
+        "Lung Opacity": "STD-55406470fda09325_lung_opacity.png",
+        "No Finding": "STD-55406470fda09325_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 28,
+    "patient_id": "PATIENT_01013",
+    "study_id": "STD-6125ab400282ac61",
+    "filename": "nih_study_028.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 30,
+    "sex": "F",
+    "spo2": 99,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.01,
+      "Consolidation": 0.038,
+      "Cardiomegaly": 0.022,
+      "Edema": 0.036,
+      "Atelectasis": 0.025,
+      "Lung Opacity": 0.01,
+      "No Finding": 0.99
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 2861,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.2,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.48,
+      "findings": {
+        "Pneumothorax": 0.198,
+        "Pleural Effusion": 0.328,
+        "Consolidation": 0.324,
+        "Cardiomegaly": 0.486,
+        "Edema": 0.307,
+        "Atelectasis": 0.343,
+        "Lung Opacity": 0.355,
+        "No Finding": 0.52
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.159,
+          0.227
+        ],
+        "Pleural Effusion": [
+          0.256,
+          0.407
+        ],
+        "Consolidation": [
+          0.282,
+          0.365
+        ],
+        "Cardiomegaly": [
+          0.443,
+          0.529
+        ],
+        "Edema": [
+          0.26,
+          0.35
+        ],
+        "Atelectasis": [
+          0.307,
+          0.403
+        ],
+        "Lung Opacity": [
+          0.299,
+          0.392
+        ],
+        "No Finding": [
+          0.466,
+          0.573
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0006,
+        "Pleural Effusion": 0.0024,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0009,
+        "Edema": 0.0007,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0009,
+        "No Finding": 0.0012
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-6125ab400282ac61_pneumothorax.png",
+        "Pleural Effusion": "STD-6125ab400282ac61_pleural_effusion.png",
+        "Consolidation": "STD-6125ab400282ac61_consolidation.png",
+        "Cardiomegaly": "STD-6125ab400282ac61_cardiomegaly.png",
+        "Edema": "STD-6125ab400282ac61_edema.png",
+        "Atelectasis": "STD-6125ab400282ac61_atelectasis.png",
+        "Lung Opacity": "STD-6125ab400282ac61_lung_opacity.png",
+        "No Finding": "STD-6125ab400282ac61_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 29,
+    "patient_id": "PATIENT_01014",
+    "study_id": "STD-9c0587f93a1dde1b",
+    "filename": "nih_study_029.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "LATERAL",
+    "age": 61,
+    "sex": "M",
+    "spo2": 95,
+    "temp": 36.8,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.463,
+      "Pleural Effusion": 0.492,
+      "Consolidation": 0.419,
+      "Cardiomegaly": 0.362,
+      "Edema": 0.344,
+      "Atelectasis": 0.394,
+      "Lung Opacity": 0.424,
+      "No Finding": 0.087
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "fail_lateral",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 7118,
+      "quality": {
+        "passed": false,
+        "flags": [
+          "NON_FRONTAL_VIEW"
+        ],
+        "view_detected": "LATERAL",
+        "exposure_score": 0.216,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": [
+          "Lateral view detected; model only validated on frontal (PA/AP) views."
+        ]
+      },
+      "is_ood": false,
+      "energy_score": -1.586,
+      "findings": {
+        "Pneumothorax": 0.158,
+        "Pleural Effusion": 0.286,
+        "Consolidation": 0.42,
+        "Cardiomegaly": 0.571,
+        "Edema": 0.33,
+        "Atelectasis": 0.372,
+        "Lung Opacity": 0.415,
+        "No Finding": 0.426
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.131,
+          0.198
+        ],
+        "Pleural Effusion": [
+          0.26,
+          0.311
+        ],
+        "Consolidation": [
+          0.332,
+          0.475
+        ],
+        "Cardiomegaly": [
+          0.489,
+          0.663
+        ],
+        "Edema": [
+          0.294,
+          0.357
+        ],
+        "Atelectasis": [
+          0.319,
+          0.419
+        ],
+        "Lung Opacity": [
+          0.385,
+          0.457
+        ],
+        "No Finding": [
+          0.363,
+          0.495
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0003,
+        "Consolidation": 0.0021,
+        "Cardiomegaly": 0.0029,
+        "Edema": 0.0004,
+        "Atelectasis": 0.0012,
+        "Lung Opacity": 0.0006,
+        "No Finding": 0.0019
+      },
+      "priority_tier": "Low-confidence",
+      "priority_score": 45.0,
+      "explanations": [
+        "Needs human read: Lateral view detected; model only validated on frontal (PA/AP) views."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-9c0587f93a1dde1b_pneumothorax.png",
+        "Pleural Effusion": "STD-9c0587f93a1dde1b_pleural_effusion.png",
+        "Consolidation": "STD-9c0587f93a1dde1b_consolidation.png",
+        "Cardiomegaly": "STD-9c0587f93a1dde1b_cardiomegaly.png",
+        "Edema": "STD-9c0587f93a1dde1b_edema.png",
+        "Atelectasis": "STD-9c0587f93a1dde1b_atelectasis.png",
+        "Lung Opacity": "STD-9c0587f93a1dde1b_lung_opacity.png",
+        "No Finding": "STD-9c0587f93a1dde1b_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 30,
+    "patient_id": "PATIENT_01014",
+    "study_id": "STD-53bb4112bad5f990",
+    "filename": "nih_study_030.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 50,
+    "sex": "F",
+    "spo2": 96,
+    "temp": 37.0,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.535,
+      "Pleural Effusion": 0.42,
+      "Consolidation": 0.42,
+      "Cardiomegaly": 0.328,
+      "Edema": 0.243,
+      "Atelectasis": 0.325,
+      "Lung Opacity": 0.389,
+      "No Finding": 0.1
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "high_uncertainty",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6575,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.225,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.567,
+      "findings": {
+        "Pneumothorax": 0.177,
+        "Pleural Effusion": 0.272,
+        "Consolidation": 0.393,
+        "Cardiomegaly": 0.449,
+        "Edema": 0.299,
+        "Atelectasis": 0.36,
+        "Lung Opacity": 0.401,
+        "No Finding": 0.569
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.135,
+          0.206
+        ],
+        "Pleural Effusion": [
+          0.245,
+          0.298
+        ],
+        "Consolidation": [
+          0.33,
+          0.494
+        ],
+        "Cardiomegaly": [
+          0.385,
+          0.533
+        ],
+        "Edema": [
+          0.281,
+          0.321
+        ],
+        "Atelectasis": [
+          0.293,
+          0.431
+        ],
+        "Lung Opacity": [
+          0.361,
+          0.457
+        ],
+        "No Finding": [
+          0.52,
+          0.626
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0004,
+        "Consolidation": 0.0028,
+        "Cardiomegaly": 0.0022,
+        "Edema": 0.0002,
+        "Atelectasis": 0.0023,
+        "Lung Opacity": 0.0008,
+        "No Finding": 0.0012
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-53bb4112bad5f990_pneumothorax.png",
+        "Pleural Effusion": "STD-53bb4112bad5f990_pleural_effusion.png",
+        "Consolidation": "STD-53bb4112bad5f990_consolidation.png",
+        "Cardiomegaly": "STD-53bb4112bad5f990_cardiomegaly.png",
+        "Edema": "STD-53bb4112bad5f990_edema.png",
+        "Atelectasis": "STD-53bb4112bad5f990_atelectasis.png",
+        "Lung Opacity": "STD-53bb4112bad5f990_lung_opacity.png",
+        "No Finding": "STD-53bb4112bad5f990_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 31,
+    "patient_id": "PATIENT_01015",
+    "study_id": "STD-05c5ea08f4d59296",
+    "filename": "nih_study_031.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 35,
+    "sex": "M",
+    "spo2": 88,
+    "temp": 38.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.913,
+      "Pleural Effusion": 0.414,
+      "Consolidation": 0.09,
+      "Cardiomegaly": 0.052,
+      "Edema": 0.048,
+      "Atelectasis": 0.147,
+      "Lung Opacity": 0.164,
+      "No Finding": 0.044
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6768,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.192,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.514,
+      "findings": {
+        "Pneumothorax": 0.19,
+        "Pleural Effusion": 0.353,
+        "Consolidation": 0.341,
+        "Cardiomegaly": 0.513,
+        "Edema": 0.323,
+        "Atelectasis": 0.34,
+        "Lung Opacity": 0.345,
+        "No Finding": 0.55
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.15,
+          0.23
+        ],
+        "Pleural Effusion": [
+          0.305,
+          0.405
+        ],
+        "Consolidation": [
+          0.3,
+          0.365
+        ],
+        "Cardiomegaly": [
+          0.453,
+          0.628
+        ],
+        "Edema": [
+          0.278,
+          0.352
+        ],
+        "Atelectasis": [
+          0.313,
+          0.391
+        ],
+        "Lung Opacity": [
+          0.316,
+          0.377
+        ],
+        "No Finding": [
+          0.513,
+          0.602
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0006,
+        "Pleural Effusion": 0.001,
+        "Consolidation": 0.0004,
+        "Cardiomegaly": 0.0032,
+        "Edema": 0.0006,
+        "Atelectasis": 0.0006,
+        "Lung Opacity": 0.0004,
+        "No Finding": 0.0009
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 53.0,
+      "explanations": [
+        "Cardiomegaly likelihood 0.51 noted (routine)",
+        "Clinical context: SpO2 88% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-05c5ea08f4d59296_pneumothorax.png",
+        "Pleural Effusion": "STD-05c5ea08f4d59296_pleural_effusion.png",
+        "Consolidation": "STD-05c5ea08f4d59296_consolidation.png",
+        "Cardiomegaly": "STD-05c5ea08f4d59296_cardiomegaly.png",
+        "Edema": "STD-05c5ea08f4d59296_edema.png",
+        "Atelectasis": "STD-05c5ea08f4d59296_atelectasis.png",
+        "Lung Opacity": "STD-05c5ea08f4d59296_lung_opacity.png",
+        "No Finding": "STD-05c5ea08f4d59296_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 32,
+    "patient_id": "PATIENT_01015",
+    "study_id": "STD-cb67618f29552afb",
+    "filename": "nih_study_032.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 42,
+    "sex": "F",
+    "spo2": 91,
+    "temp": 37.5,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.912,
+      "Pleural Effusion": 0.188,
+      "Consolidation": 0.104,
+      "Cardiomegaly": 0.142,
+      "Edema": 0.051,
+      "Atelectasis": 0.242,
+      "Lung Opacity": 0.121,
+      "No Finding": 0.023
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6288,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.202,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.47,
+      "findings": {
+        "Pneumothorax": 0.178,
+        "Pleural Effusion": 0.316,
+        "Consolidation": 0.336,
+        "Cardiomegaly": 0.529,
+        "Edema": 0.336,
+        "Atelectasis": 0.341,
+        "Lung Opacity": 0.346,
+        "No Finding": 0.409
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.143,
+          0.22
+        ],
+        "Pleural Effusion": [
+          0.261,
+          0.379
+        ],
+        "Consolidation": [
+          0.304,
+          0.382
+        ],
+        "Cardiomegaly": [
+          0.449,
+          0.605
+        ],
+        "Edema": [
+          0.276,
+          0.383
+        ],
+        "Atelectasis": [
+          0.303,
+          0.389
+        ],
+        "Lung Opacity": [
+          0.315,
+          0.385
+        ],
+        "No Finding": [
+          0.353,
+          0.493
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0007,
+        "Pleural Effusion": 0.0015,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0025,
+        "Edema": 0.0013,
+        "Atelectasis": 0.0008,
+        "Lung Opacity": 0.0005,
+        "No Finding": 0.0022
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 53.5,
+      "explanations": [
+        "Cardiomegaly likelihood 0.53 noted (routine)",
+        "Clinical context: SpO2 91% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-cb67618f29552afb_pneumothorax.png",
+        "Pleural Effusion": "STD-cb67618f29552afb_pleural_effusion.png",
+        "Consolidation": "STD-cb67618f29552afb_consolidation.png",
+        "Cardiomegaly": "STD-cb67618f29552afb_cardiomegaly.png",
+        "Edema": "STD-cb67618f29552afb_edema.png",
+        "Atelectasis": "STD-cb67618f29552afb_atelectasis.png",
+        "Lung Opacity": "STD-cb67618f29552afb_lung_opacity.png",
+        "No Finding": "STD-cb67618f29552afb_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 33,
+    "patient_id": "PATIENT_01016",
+    "study_id": "STD-95587fe2c59cf289",
+    "filename": "nih_study_033.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 73,
+    "sex": "M",
+    "spo2": 90,
+    "temp": 37.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.129,
+      "Pleural Effusion": 0.937,
+      "Consolidation": 0.391,
+      "Cardiomegaly": 0.661,
+      "Edema": 0.481,
+      "Atelectasis": 0.321,
+      "Lung Opacity": 0.598,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6601,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.168,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.597,
+      "findings": {
+        "Pneumothorax": 0.203,
+        "Pleural Effusion": 0.388,
+        "Consolidation": 0.358,
+        "Cardiomegaly": 0.468,
+        "Edema": 0.364,
+        "Atelectasis": 0.346,
+        "Lung Opacity": 0.408,
+        "No Finding": 0.497
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.167,
+          0.232
+        ],
+        "Pleural Effusion": [
+          0.366,
+          0.404
+        ],
+        "Consolidation": [
+          0.319,
+          0.408
+        ],
+        "Cardiomegaly": [
+          0.411,
+          0.509
+        ],
+        "Edema": [
+          0.304,
+          0.422
+        ],
+        "Atelectasis": [
+          0.297,
+          0.372
+        ],
+        "Lung Opacity": [
+          0.336,
+          0.452
+        ],
+        "No Finding": [
+          0.459,
+          0.536
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0002,
+        "Consolidation": 0.0007,
+        "Cardiomegaly": 0.0012,
+        "Edema": 0.0016,
+        "Atelectasis": 0.0006,
+        "Lung Opacity": 0.0016,
+        "No Finding": 0.0006
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 35.0,
+      "explanations": [
+        "Clinical context: SpO2 90% < 92% promotes tier to Urgent",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-95587fe2c59cf289_pneumothorax.png",
+        "Pleural Effusion": "STD-95587fe2c59cf289_pleural_effusion.png",
+        "Consolidation": "STD-95587fe2c59cf289_consolidation.png",
+        "Cardiomegaly": "STD-95587fe2c59cf289_cardiomegaly.png",
+        "Edema": "STD-95587fe2c59cf289_edema.png",
+        "Atelectasis": "STD-95587fe2c59cf289_atelectasis.png",
+        "Lung Opacity": "STD-95587fe2c59cf289_lung_opacity.png",
+        "No Finding": "STD-95587fe2c59cf289_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 34,
+    "patient_id": "PATIENT_01016",
+    "study_id": "STD-6d36745891e627cd",
+    "filename": "nih_study_034.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 66,
+    "sex": "M",
+    "spo2": 93,
+    "temp": 37.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.039,
+      "Pleural Effusion": 0.336,
+      "Consolidation": 0.81,
+      "Cardiomegaly": 0.215,
+      "Edema": 0.134,
+      "Atelectasis": 0.436,
+      "Lung Opacity": 0.813,
+      "No Finding": 0.028
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6915,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.205,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.57,
+      "findings": {
+        "Pneumothorax": 0.21,
+        "Pleural Effusion": 0.27,
+        "Consolidation": 0.363,
+        "Cardiomegaly": 0.522,
+        "Edema": 0.384,
+        "Atelectasis": 0.316,
+        "Lung Opacity": 0.363,
+        "No Finding": 0.542
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.179,
+          0.241
+        ],
+        "Pleural Effusion": [
+          0.213,
+          0.307
+        ],
+        "Consolidation": [
+          0.317,
+          0.424
+        ],
+        "Cardiomegaly": [
+          0.469,
+          0.586
+        ],
+        "Edema": [
+          0.349,
+          0.437
+        ],
+        "Atelectasis": [
+          0.258,
+          0.354
+        ],
+        "Lung Opacity": [
+          0.34,
+          0.401
+        ],
+        "No Finding": [
+          0.496,
+          0.61
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0009,
+        "Consolidation": 0.0013,
+        "Cardiomegaly": 0.0014,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0009,
+        "Lung Opacity": 0.0004,
+        "No Finding": 0.0018
+      },
+      "priority_tier": "Routine",
+      "priority_score": 48.3,
+      "explanations": [
+        "Cardiomegaly likelihood 0.52 noted (routine)",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-6d36745891e627cd_pneumothorax.png",
+        "Pleural Effusion": "STD-6d36745891e627cd_pleural_effusion.png",
+        "Consolidation": "STD-6d36745891e627cd_consolidation.png",
+        "Cardiomegaly": "STD-6d36745891e627cd_cardiomegaly.png",
+        "Edema": "STD-6d36745891e627cd_edema.png",
+        "Atelectasis": "STD-6d36745891e627cd_atelectasis.png",
+        "Lung Opacity": "STD-6d36745891e627cd_lung_opacity.png",
+        "No Finding": "STD-6d36745891e627cd_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 35,
+    "patient_id": "PATIENT_01017",
+    "study_id": "STD-9de5d38b2868ad54",
+    "filename": "nih_study_035.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 76,
+    "sex": "F",
+    "spo2": 92,
+    "temp": 37.9,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.023,
+      "Pleural Effusion": 0.278,
+      "Consolidation": 0.162,
+      "Cardiomegaly": 0.724,
+      "Edema": 0.793,
+      "Atelectasis": 0.211,
+      "Lung Opacity": 0.633,
+      "No Finding": 0.039
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6780,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.215,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.598,
+      "findings": {
+        "Pneumothorax": 0.166,
+        "Pleural Effusion": 0.291,
+        "Consolidation": 0.356,
+        "Cardiomegaly": 0.495,
+        "Edema": 0.332,
+        "Atelectasis": 0.419,
+        "Lung Opacity": 0.436,
+        "No Finding": 0.512
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.132,
+          0.235
+        ],
+        "Pleural Effusion": [
+          0.251,
+          0.349
+        ],
+        "Consolidation": [
+          0.315,
+          0.402
+        ],
+        "Cardiomegaly": [
+          0.419,
+          0.581
+        ],
+        "Edema": [
+          0.278,
+          0.39
+        ],
+        "Atelectasis": [
+          0.378,
+          0.446
+        ],
+        "Lung Opacity": [
+          0.368,
+          0.491
+        ],
+        "No Finding": [
+          0.443,
+          0.574
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0011,
+        "Pleural Effusion": 0.0011,
+        "Consolidation": 0.0009,
+        "Cardiomegaly": 0.0021,
+        "Edema": 0.0014,
+        "Atelectasis": 0.0006,
+        "Lung Opacity": 0.0014,
+        "No Finding": 0.002
+      },
+      "priority_tier": "Routine",
+      "priority_score": 20.0,
+      "explanations": [
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-9de5d38b2868ad54_pneumothorax.png",
+        "Pleural Effusion": "STD-9de5d38b2868ad54_pleural_effusion.png",
+        "Consolidation": "STD-9de5d38b2868ad54_consolidation.png",
+        "Cardiomegaly": "STD-9de5d38b2868ad54_cardiomegaly.png",
+        "Edema": "STD-9de5d38b2868ad54_edema.png",
+        "Atelectasis": "STD-9de5d38b2868ad54_atelectasis.png",
+        "Lung Opacity": "STD-9de5d38b2868ad54_lung_opacity.png",
+        "No Finding": "STD-9de5d38b2868ad54_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 36,
+    "patient_id": "PATIENT_01017",
+    "study_id": "STD-fa41b0f71131d01f",
+    "filename": "nih_study_036.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 56,
+    "sex": "F",
+    "spo2": 98,
+    "temp": 37.3,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.039,
+      "Pleural Effusion": 0.021,
+      "Consolidation": 0.129,
+      "Cardiomegaly": 0.808,
+      "Edema": 0.098,
+      "Atelectasis": 0.117,
+      "Lung Opacity": 0.215,
+      "No Finding": 0.021
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 5742,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.218,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.467,
+      "findings": {
+        "Pneumothorax": 0.159,
+        "Pleural Effusion": 0.241,
+        "Consolidation": 0.332,
+        "Cardiomegaly": 0.509,
+        "Edema": 0.362,
+        "Atelectasis": 0.35,
+        "Lung Opacity": 0.353,
+        "No Finding": 0.518
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.145,
+          0.178
+        ],
+        "Pleural Effusion": [
+          0.202,
+          0.286
+        ],
+        "Consolidation": [
+          0.276,
+          0.387
+        ],
+        "Cardiomegaly": [
+          0.457,
+          0.565
+        ],
+        "Edema": [
+          0.297,
+          0.397
+        ],
+        "Atelectasis": [
+          0.331,
+          0.385
+        ],
+        "Lung Opacity": [
+          0.304,
+          0.422
+        ],
+        "No Finding": [
+          0.436,
+          0.625
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0001,
+        "Pleural Effusion": 0.0008,
+        "Consolidation": 0.0011,
+        "Cardiomegaly": 0.0013,
+        "Edema": 0.001,
+        "Atelectasis": 0.0003,
+        "Lung Opacity": 0.0014,
+        "No Finding": 0.0035
+      },
+      "priority_tier": "Routine",
+      "priority_score": 37.8,
+      "explanations": [
+        "Cardiomegaly likelihood 0.51 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-fa41b0f71131d01f_pneumothorax.png",
+        "Pleural Effusion": "STD-fa41b0f71131d01f_pleural_effusion.png",
+        "Consolidation": "STD-fa41b0f71131d01f_consolidation.png",
+        "Cardiomegaly": "STD-fa41b0f71131d01f_cardiomegaly.png",
+        "Edema": "STD-fa41b0f71131d01f_edema.png",
+        "Atelectasis": "STD-fa41b0f71131d01f_atelectasis.png",
+        "Lung Opacity": "STD-fa41b0f71131d01f_lung_opacity.png",
+        "No Finding": "STD-fa41b0f71131d01f_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 37,
+    "patient_id": "PATIENT_01018",
+    "study_id": "STD-395ceb2eadd6adaf",
+    "filename": "nih_study_037.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 52,
+    "sex": "M",
+    "spo2": 97,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.044,
+      "Pleural Effusion": 0.107,
+      "Consolidation": 0.073,
+      "Cardiomegaly": 0.324,
+      "Edema": 0.056,
+      "Atelectasis": 0.66,
+      "Lung Opacity": 0.227,
+      "No Finding": 0.068
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6244,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.203,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.532,
+      "findings": {
+        "Pneumothorax": 0.154,
+        "Pleural Effusion": 0.279,
+        "Consolidation": 0.336,
+        "Cardiomegaly": 0.511,
+        "Edema": 0.291,
+        "Atelectasis": 0.438,
+        "Lung Opacity": 0.391,
+        "No Finding": 0.464
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.121,
+          0.178
+        ],
+        "Pleural Effusion": [
+          0.239,
+          0.331
+        ],
+        "Consolidation": [
+          0.293,
+          0.398
+        ],
+        "Cardiomegaly": [
+          0.404,
+          0.594
+        ],
+        "Edema": [
+          0.247,
+          0.334
+        ],
+        "Atelectasis": [
+          0.342,
+          0.525
+        ],
+        "Lung Opacity": [
+          0.359,
+          0.443
+        ],
+        "No Finding": [
+          0.42,
+          0.557
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.001,
+        "Consolidation": 0.0011,
+        "Cardiomegaly": 0.0045,
+        "Edema": 0.0008,
+        "Atelectasis": 0.004,
+        "Lung Opacity": 0.0007,
+        "No Finding": 0.0019
+      },
+      "priority_tier": "Routine",
+      "priority_score": 37.9,
+      "explanations": [
+        "Cardiomegaly likelihood 0.51 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-395ceb2eadd6adaf_pneumothorax.png",
+        "Pleural Effusion": "STD-395ceb2eadd6adaf_pleural_effusion.png",
+        "Consolidation": "STD-395ceb2eadd6adaf_consolidation.png",
+        "Cardiomegaly": "STD-395ceb2eadd6adaf_cardiomegaly.png",
+        "Edema": "STD-395ceb2eadd6adaf_edema.png",
+        "Atelectasis": "STD-395ceb2eadd6adaf_atelectasis.png",
+        "Lung Opacity": "STD-395ceb2eadd6adaf_lung_opacity.png",
+        "No Finding": "STD-395ceb2eadd6adaf_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 38,
+    "patient_id": "PATIENT_01018",
+    "study_id": "STD-d09fb8e0a7652134",
+    "filename": "nih_study_038.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 29,
+    "sex": "F",
+    "spo2": 99,
+    "temp": 37.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.015,
+      "Pleural Effusion": 0.026,
+      "Consolidation": 0.027,
+      "Cardiomegaly": 0.052,
+      "Edema": 0.031,
+      "Atelectasis": 0.064,
+      "Lung Opacity": 0.029,
+      "No Finding": 0.968
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6621,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.202,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.475,
+      "findings": {
+        "Pneumothorax": 0.193,
+        "Pleural Effusion": 0.3,
+        "Consolidation": 0.376,
+        "Cardiomegaly": 0.51,
+        "Edema": 0.288,
+        "Atelectasis": 0.324,
+        "Lung Opacity": 0.404,
+        "No Finding": 0.41
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.17,
+          0.213
+        ],
+        "Pleural Effusion": [
+          0.245,
+          0.346
+        ],
+        "Consolidation": [
+          0.343,
+          0.421
+        ],
+        "Cardiomegaly": [
+          0.472,
+          0.552
+        ],
+        "Edema": [
+          0.238,
+          0.355
+        ],
+        "Atelectasis": [
+          0.273,
+          0.373
+        ],
+        "Lung Opacity": [
+          0.318,
+          0.454
+        ],
+        "No Finding": [
+          0.34,
+          0.476
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0002,
+        "Pleural Effusion": 0.0011,
+        "Consolidation": 0.0008,
+        "Cardiomegaly": 0.0007,
+        "Edema": 0.0011,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0019,
+        "No Finding": 0.0018
+      },
+      "priority_tier": "Routine",
+      "priority_score": 37.9,
+      "explanations": [
+        "Cardiomegaly likelihood 0.51 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-d09fb8e0a7652134_pneumothorax.png",
+        "Pleural Effusion": "STD-d09fb8e0a7652134_pleural_effusion.png",
+        "Consolidation": "STD-d09fb8e0a7652134_consolidation.png",
+        "Cardiomegaly": "STD-d09fb8e0a7652134_cardiomegaly.png",
+        "Edema": "STD-d09fb8e0a7652134_edema.png",
+        "Atelectasis": "STD-d09fb8e0a7652134_atelectasis.png",
+        "Lung Opacity": "STD-d09fb8e0a7652134_lung_opacity.png",
+        "No Finding": "STD-d09fb8e0a7652134_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 39,
+    "patient_id": "PATIENT_01019",
+    "study_id": "STD-27120df46cd5e944",
+    "filename": "nih_study_039.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "LATERAL",
+    "age": 63,
+    "sex": "M",
+    "spo2": 95,
+    "temp": 37.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.45,
+      "Pleural Effusion": 0.489,
+      "Consolidation": 0.417,
+      "Cardiomegaly": 0.413,
+      "Edema": 0.373,
+      "Atelectasis": 0.442,
+      "Lung Opacity": 0.474,
+      "No Finding": 0.067
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "fail_lateral",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 5928,
+      "quality": {
+        "passed": false,
+        "flags": [
+          "NON_FRONTAL_VIEW"
+        ],
+        "view_detected": "LATERAL",
+        "exposure_score": 0.216,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": [
+          "Lateral view detected; model only validated on frontal (PA/AP) views."
+        ]
+      },
+      "is_ood": false,
+      "energy_score": -1.656,
+      "findings": {
+        "Pneumothorax": 0.211,
+        "Pleural Effusion": 0.316,
+        "Consolidation": 0.319,
+        "Cardiomegaly": 0.642,
+        "Edema": 0.369,
+        "Atelectasis": 0.398,
+        "Lung Opacity": 0.396,
+        "No Finding": 0.342
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.156,
+          0.248
+        ],
+        "Pleural Effusion": [
+          0.276,
+          0.372
+        ],
+        "Consolidation": [
+          0.276,
+          0.371
+        ],
+        "Cardiomegaly": [
+          0.583,
+          0.687
+        ],
+        "Edema": [
+          0.313,
+          0.434
+        ],
+        "Atelectasis": [
+          0.354,
+          0.429
+        ],
+        "Lung Opacity": [
+          0.342,
+          0.449
+        ],
+        "No Finding": [
+          0.276,
+          0.391
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.001,
+        "Pleural Effusion": 0.0009,
+        "Consolidation": 0.0009,
+        "Cardiomegaly": 0.0011,
+        "Edema": 0.0016,
+        "Atelectasis": 0.0005,
+        "Lung Opacity": 0.0013,
+        "No Finding": 0.0015
+      },
+      "priority_tier": "Low-confidence",
+      "priority_score": 45.0,
+      "explanations": [
+        "Needs human read: Lateral view detected; model only validated on frontal (PA/AP) views."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-27120df46cd5e944_pneumothorax.png",
+        "Pleural Effusion": "STD-27120df46cd5e944_pleural_effusion.png",
+        "Consolidation": "STD-27120df46cd5e944_consolidation.png",
+        "Cardiomegaly": "STD-27120df46cd5e944_cardiomegaly.png",
+        "Edema": "STD-27120df46cd5e944_edema.png",
+        "Atelectasis": "STD-27120df46cd5e944_atelectasis.png",
+        "Lung Opacity": "STD-27120df46cd5e944_lung_opacity.png",
+        "No Finding": "STD-27120df46cd5e944_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 40,
+    "patient_id": "PATIENT_01019",
+    "study_id": "STD-240fba2bdbeee31a",
+    "filename": "nih_study_040.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 52,
+    "sex": "F",
+    "spo2": 96,
+    "temp": 37.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.532,
+      "Pleural Effusion": 0.409,
+      "Consolidation": 0.375,
+      "Cardiomegaly": 0.273,
+      "Edema": 0.252,
+      "Atelectasis": 0.385,
+      "Lung Opacity": 0.405,
+      "No Finding": 0.111
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "high_uncertainty",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6822,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.2,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.459,
+      "findings": {
+        "Pneumothorax": 0.177,
+        "Pleural Effusion": 0.294,
+        "Consolidation": 0.306,
+        "Cardiomegaly": 0.554,
+        "Edema": 0.308,
+        "Atelectasis": 0.335,
+        "Lung Opacity": 0.391,
+        "No Finding": 0.449
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.145,
+          0.214
+        ],
+        "Pleural Effusion": [
+          0.238,
+          0.351
+        ],
+        "Consolidation": [
+          0.27,
+          0.341
+        ],
+        "Cardiomegaly": [
+          0.535,
+          0.601
+        ],
+        "Edema": [
+          0.272,
+          0.349
+        ],
+        "Atelectasis": [
+          0.284,
+          0.392
+        ],
+        "Lung Opacity": [
+          0.361,
+          0.429
+        ],
+        "No Finding": [
+          0.373,
+          0.503
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0014,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0004,
+        "Edema": 0.0006,
+        "Atelectasis": 0.0012,
+        "Lung Opacity": 0.0007,
+        "No Finding": 0.0016
+      },
+      "priority_tier": "Routine",
+      "priority_score": 39.4,
+      "explanations": [
+        "Cardiomegaly likelihood 0.55 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-240fba2bdbeee31a_pneumothorax.png",
+        "Pleural Effusion": "STD-240fba2bdbeee31a_pleural_effusion.png",
+        "Consolidation": "STD-240fba2bdbeee31a_consolidation.png",
+        "Cardiomegaly": "STD-240fba2bdbeee31a_cardiomegaly.png",
+        "Edema": "STD-240fba2bdbeee31a_edema.png",
+        "Atelectasis": "STD-240fba2bdbeee31a_atelectasis.png",
+        "Lung Opacity": "STD-240fba2bdbeee31a_lung_opacity.png",
+        "No Finding": "STD-240fba2bdbeee31a_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 41,
+    "patient_id": "PATIENT_01020",
+    "study_id": "STD-e4d22ee8e7e4566a",
+    "filename": "nih_study_041.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 33,
+    "sex": "M",
+    "spo2": 88,
+    "temp": 38.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.924,
+      "Pleural Effusion": 0.485,
+      "Consolidation": 0.122,
+      "Cardiomegaly": 0.048,
+      "Edema": 0.07,
+      "Atelectasis": 0.159,
+      "Lung Opacity": 0.217,
+      "No Finding": 0.046
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6846,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.187,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.576,
+      "findings": {
+        "Pneumothorax": 0.193,
+        "Pleural Effusion": 0.332,
+        "Consolidation": 0.305,
+        "Cardiomegaly": 0.538,
+        "Edema": 0.328,
+        "Atelectasis": 0.431,
+        "Lung Opacity": 0.395,
+        "No Finding": 0.413
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.176,
+          0.216
+        ],
+        "Pleural Effusion": [
+          0.258,
+          0.394
+        ],
+        "Consolidation": [
+          0.24,
+          0.355
+        ],
+        "Cardiomegaly": [
+          0.442,
+          0.598
+        ],
+        "Edema": [
+          0.276,
+          0.356
+        ],
+        "Atelectasis": [
+          0.377,
+          0.484
+        ],
+        "Lung Opacity": [
+          0.367,
+          0.425
+        ],
+        "No Finding": [
+          0.344,
+          0.509
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0002,
+        "Pleural Effusion": 0.002,
+        "Consolidation": 0.0012,
+        "Cardiomegaly": 0.0023,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0017,
+        "Lung Opacity": 0.0005,
+        "No Finding": 0.0027
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 53.8,
+      "explanations": [
+        "Cardiomegaly likelihood 0.54 noted (routine)",
+        "Clinical context: SpO2 88% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-e4d22ee8e7e4566a_pneumothorax.png",
+        "Pleural Effusion": "STD-e4d22ee8e7e4566a_pleural_effusion.png",
+        "Consolidation": "STD-e4d22ee8e7e4566a_consolidation.png",
+        "Cardiomegaly": "STD-e4d22ee8e7e4566a_cardiomegaly.png",
+        "Edema": "STD-e4d22ee8e7e4566a_edema.png",
+        "Atelectasis": "STD-e4d22ee8e7e4566a_atelectasis.png",
+        "Lung Opacity": "STD-e4d22ee8e7e4566a_lung_opacity.png",
+        "No Finding": "STD-e4d22ee8e7e4566a_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 42,
+    "patient_id": "PATIENT_01020",
+    "study_id": "STD-87fe320b53c5b3fa",
+    "filename": "nih_study_042.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 42,
+    "sex": "F",
+    "spo2": 91,
+    "temp": 37.4,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.891,
+      "Pleural Effusion": 0.12,
+      "Consolidation": 0.087,
+      "Cardiomegaly": 0.135,
+      "Edema": 0.01,
+      "Atelectasis": 0.216,
+      "Lung Opacity": 0.176,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6987,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.198,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.522,
+      "findings": {
+        "Pneumothorax": 0.194,
+        "Pleural Effusion": 0.296,
+        "Consolidation": 0.342,
+        "Cardiomegaly": 0.473,
+        "Edema": 0.339,
+        "Atelectasis": 0.349,
+        "Lung Opacity": 0.367,
+        "No Finding": 0.512
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.163,
+          0.219
+        ],
+        "Pleural Effusion": [
+          0.247,
+          0.373
+        ],
+        "Consolidation": [
+          0.302,
+          0.373
+        ],
+        "Cardiomegaly": [
+          0.395,
+          0.526
+        ],
+        "Edema": [
+          0.258,
+          0.398
+        ],
+        "Atelectasis": [
+          0.269,
+          0.413
+        ],
+        "Lung Opacity": [
+          0.346,
+          0.389
+        ],
+        "No Finding": [
+          0.437,
+          0.592
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0013,
+        "Consolidation": 0.0005,
+        "Cardiomegaly": 0.0017,
+        "Edema": 0.0018,
+        "Atelectasis": 0.0018,
+        "Lung Opacity": 0.0003,
+        "No Finding": 0.0027
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 25.0,
+      "explanations": [
+        "Clinical context: SpO2 91% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-87fe320b53c5b3fa_pneumothorax.png",
+        "Pleural Effusion": "STD-87fe320b53c5b3fa_pleural_effusion.png",
+        "Consolidation": "STD-87fe320b53c5b3fa_consolidation.png",
+        "Cardiomegaly": "STD-87fe320b53c5b3fa_cardiomegaly.png",
+        "Edema": "STD-87fe320b53c5b3fa_edema.png",
+        "Atelectasis": "STD-87fe320b53c5b3fa_atelectasis.png",
+        "Lung Opacity": "STD-87fe320b53c5b3fa_lung_opacity.png",
+        "No Finding": "STD-87fe320b53c5b3fa_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 43,
+    "patient_id": "PATIENT_01021",
+    "study_id": "STD-af3de1fc5b31c68c",
+    "filename": "nih_study_043.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 74,
+    "sex": "M",
+    "spo2": 90,
+    "temp": 36.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.095,
+      "Pleural Effusion": 0.924,
+      "Consolidation": 0.433,
+      "Cardiomegaly": 0.673,
+      "Edema": 0.469,
+      "Atelectasis": 0.39,
+      "Lung Opacity": 0.63,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 7200,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.187,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.694,
+      "findings": {
+        "Pneumothorax": 0.184,
+        "Pleural Effusion": 0.359,
+        "Consolidation": 0.403,
+        "Cardiomegaly": 0.55,
+        "Edema": 0.371,
+        "Atelectasis": 0.445,
+        "Lung Opacity": 0.421,
+        "No Finding": 0.492
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.153,
+          0.222
+        ],
+        "Pleural Effusion": [
+          0.29,
+          0.407
+        ],
+        "Consolidation": [
+          0.349,
+          0.46
+        ],
+        "Cardiomegaly": [
+          0.5,
+          0.591
+        ],
+        "Edema": [
+          0.338,
+          0.424
+        ],
+        "Atelectasis": [
+          0.381,
+          0.519
+        ],
+        "Lung Opacity": [
+          0.381,
+          0.454
+        ],
+        "No Finding": [
+          0.427,
+          0.555
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0007,
+        "Pleural Effusion": 0.0014,
+        "Consolidation": 0.0016,
+        "Cardiomegaly": 0.0014,
+        "Edema": 0.0009,
+        "Atelectasis": 0.0018,
+        "Lung Opacity": 0.0008,
+        "No Finding": 0.0021
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 64.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.55 noted (routine)",
+        "Clinical context: SpO2 90% < 92% promotes tier to Urgent",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-af3de1fc5b31c68c_pneumothorax.png",
+        "Pleural Effusion": "STD-af3de1fc5b31c68c_pleural_effusion.png",
+        "Consolidation": "STD-af3de1fc5b31c68c_consolidation.png",
+        "Cardiomegaly": "STD-af3de1fc5b31c68c_cardiomegaly.png",
+        "Edema": "STD-af3de1fc5b31c68c_edema.png",
+        "Atelectasis": "STD-af3de1fc5b31c68c_atelectasis.png",
+        "Lung Opacity": "STD-af3de1fc5b31c68c_lung_opacity.png",
+        "No Finding": "STD-af3de1fc5b31c68c_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 44,
+    "patient_id": "PATIENT_01021",
+    "study_id": "STD-a6e0d3ac912fd1c1",
+    "filename": "nih_study_044.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 70,
+    "sex": "M",
+    "spo2": 93,
+    "temp": 38.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.09,
+      "Pleural Effusion": 0.363,
+      "Consolidation": 0.832,
+      "Cardiomegaly": 0.167,
+      "Edema": 0.182,
+      "Atelectasis": 0.362,
+      "Lung Opacity": 0.759,
+      "No Finding": 0.01
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 7250,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.202,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.6,
+      "findings": {
+        "Pneumothorax": 0.189,
+        "Pleural Effusion": 0.285,
+        "Consolidation": 0.324,
+        "Cardiomegaly": 0.541,
+        "Edema": 0.385,
+        "Atelectasis": 0.366,
+        "Lung Opacity": 0.437,
+        "No Finding": 0.489
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.16,
+          0.208
+        ],
+        "Pleural Effusion": [
+          0.261,
+          0.311
+        ],
+        "Consolidation": [
+          0.276,
+          0.358
+        ],
+        "Cardiomegaly": [
+          0.457,
+          0.597
+        ],
+        "Edema": [
+          0.327,
+          0.459
+        ],
+        "Atelectasis": [
+          0.279,
+          0.441
+        ],
+        "Lung Opacity": [
+          0.363,
+          0.499
+        ],
+        "No Finding": [
+          0.448,
+          0.524
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0003,
+        "Consolidation": 0.0008,
+        "Cardiomegaly": 0.0018,
+        "Edema": 0.0018,
+        "Atelectasis": 0.0024,
+        "Lung Opacity": 0.0018,
+        "No Finding": 0.0007
+      },
+      "priority_tier": "Routine",
+      "priority_score": 38.9,
+      "explanations": [
+        "Cardiomegaly likelihood 0.54 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-a6e0d3ac912fd1c1_pneumothorax.png",
+        "Pleural Effusion": "STD-a6e0d3ac912fd1c1_pleural_effusion.png",
+        "Consolidation": "STD-a6e0d3ac912fd1c1_consolidation.png",
+        "Cardiomegaly": "STD-a6e0d3ac912fd1c1_cardiomegaly.png",
+        "Edema": "STD-a6e0d3ac912fd1c1_edema.png",
+        "Atelectasis": "STD-a6e0d3ac912fd1c1_atelectasis.png",
+        "Lung Opacity": "STD-a6e0d3ac912fd1c1_lung_opacity.png",
+        "No Finding": "STD-a6e0d3ac912fd1c1_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 45,
+    "patient_id": "PATIENT_01022",
+    "study_id": "STD-2e8dce559908c852",
+    "filename": "nih_study_045.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 82,
+    "sex": "F",
+    "spo2": 92,
+    "temp": 38.2,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.283,
+      "Consolidation": 0.163,
+      "Cardiomegaly": 0.663,
+      "Edema": 0.75,
+      "Atelectasis": 0.164,
+      "Lung Opacity": 0.658,
+      "No Finding": 0.044
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6494,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.211,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.45,
+      "findings": {
+        "Pneumothorax": 0.137,
+        "Pleural Effusion": 0.292,
+        "Consolidation": 0.33,
+        "Cardiomegaly": 0.51,
+        "Edema": 0.337,
+        "Atelectasis": 0.337,
+        "Lung Opacity": 0.346,
+        "No Finding": 0.467
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.111,
+          0.15
+        ],
+        "Pleural Effusion": [
+          0.246,
+          0.357
+        ],
+        "Consolidation": [
+          0.293,
+          0.373
+        ],
+        "Cardiomegaly": [
+          0.431,
+          0.564
+        ],
+        "Edema": [
+          0.292,
+          0.393
+        ],
+        "Atelectasis": [
+          0.274,
+          0.384
+        ],
+        "Lung Opacity": [
+          0.292,
+          0.405
+        ],
+        "No Finding": [
+          0.422,
+          0.517
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0001,
+        "Pleural Effusion": 0.0012,
+        "Consolidation": 0.0008,
+        "Cardiomegaly": 0.0017,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.001,
+        "No Finding": 0.0012
+      },
+      "priority_tier": "Routine",
+      "priority_score": 37.9,
+      "explanations": [
+        "Cardiomegaly likelihood 0.51 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-2e8dce559908c852_pneumothorax.png",
+        "Pleural Effusion": "STD-2e8dce559908c852_pleural_effusion.png",
+        "Consolidation": "STD-2e8dce559908c852_consolidation.png",
+        "Cardiomegaly": "STD-2e8dce559908c852_cardiomegaly.png",
+        "Edema": "STD-2e8dce559908c852_edema.png",
+        "Atelectasis": "STD-2e8dce559908c852_atelectasis.png",
+        "Lung Opacity": "STD-2e8dce559908c852_lung_opacity.png",
+        "No Finding": "STD-2e8dce559908c852_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 46,
+    "patient_id": "PATIENT_01022",
+    "study_id": "STD-e4d1dafd00b89e81",
+    "filename": "nih_study_046.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 56,
+    "sex": "F",
+    "spo2": 98,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.074,
+      "Consolidation": 0.154,
+      "Cardiomegaly": 0.862,
+      "Edema": 0.096,
+      "Atelectasis": 0.177,
+      "Lung Opacity": 0.143,
+      "No Finding": 0.026
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6085,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.218,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.55,
+      "findings": {
+        "Pneumothorax": 0.189,
+        "Pleural Effusion": 0.325,
+        "Consolidation": 0.377,
+        "Cardiomegaly": 0.548,
+        "Edema": 0.332,
+        "Atelectasis": 0.382,
+        "Lung Opacity": 0.443,
+        "No Finding": 0.389
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.16,
+          0.212
+        ],
+        "Pleural Effusion": [
+          0.26,
+          0.385
+        ],
+        "Consolidation": [
+          0.33,
+          0.417
+        ],
+        "Cardiomegaly": [
+          0.501,
+          0.586
+        ],
+        "Edema": [
+          0.29,
+          0.357
+        ],
+        "Atelectasis": [
+          0.323,
+          0.426
+        ],
+        "Lung Opacity": [
+          0.403,
+          0.487
+        ],
+        "No Finding": [
+          0.345,
+          0.432
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0015,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0008,
+        "Edema": 0.0004,
+        "Atelectasis": 0.0009,
+        "Lung Opacity": 0.0007,
+        "No Finding": 0.0009
+      },
+      "priority_tier": "Routine",
+      "priority_score": 39.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.55 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-e4d1dafd00b89e81_pneumothorax.png",
+        "Pleural Effusion": "STD-e4d1dafd00b89e81_pleural_effusion.png",
+        "Consolidation": "STD-e4d1dafd00b89e81_consolidation.png",
+        "Cardiomegaly": "STD-e4d1dafd00b89e81_cardiomegaly.png",
+        "Edema": "STD-e4d1dafd00b89e81_edema.png",
+        "Atelectasis": "STD-e4d1dafd00b89e81_atelectasis.png",
+        "Lung Opacity": "STD-e4d1dafd00b89e81_lung_opacity.png",
+        "No Finding": "STD-e4d1dafd00b89e81_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 47,
+    "patient_id": "PATIENT_01023",
+    "study_id": "STD-309771cecb07d0b4",
+    "filename": "nih_study_047.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 49,
+    "sex": "M",
+    "spo2": 97,
+    "temp": 37.3,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.02,
+      "Pleural Effusion": 0.12,
+      "Consolidation": 0.06,
+      "Cardiomegaly": 0.328,
+      "Edema": 0.01,
+      "Atelectasis": 0.699,
+      "Lung Opacity": 0.195,
+      "No Finding": 0.082
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6787,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.21,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.554,
+      "findings": {
+        "Pneumothorax": 0.165,
+        "Pleural Effusion": 0.261,
+        "Consolidation": 0.339,
+        "Cardiomegaly": 0.504,
+        "Edema": 0.354,
+        "Atelectasis": 0.36,
+        "Lung Opacity": 0.383,
+        "No Finding": 0.533
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.14,
+          0.198
+        ],
+        "Pleural Effusion": [
+          0.212,
+          0.34
+        ],
+        "Consolidation": [
+          0.275,
+          0.404
+        ],
+        "Cardiomegaly": [
+          0.422,
+          0.574
+        ],
+        "Edema": [
+          0.292,
+          0.402
+        ],
+        "Atelectasis": [
+          0.309,
+          0.404
+        ],
+        "Lung Opacity": [
+          0.337,
+          0.432
+        ],
+        "No Finding": [
+          0.438,
+          0.597
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0018,
+        "Consolidation": 0.0015,
+        "Cardiomegaly": 0.0027,
+        "Edema": 0.0012,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0011,
+        "No Finding": 0.0027
+      },
+      "priority_tier": "Routine",
+      "priority_score": 37.6,
+      "explanations": [
+        "Cardiomegaly likelihood 0.50 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-309771cecb07d0b4_pneumothorax.png",
+        "Pleural Effusion": "STD-309771cecb07d0b4_pleural_effusion.png",
+        "Consolidation": "STD-309771cecb07d0b4_consolidation.png",
+        "Cardiomegaly": "STD-309771cecb07d0b4_cardiomegaly.png",
+        "Edema": "STD-309771cecb07d0b4_edema.png",
+        "Atelectasis": "STD-309771cecb07d0b4_atelectasis.png",
+        "Lung Opacity": "STD-309771cecb07d0b4_lung_opacity.png",
+        "No Finding": "STD-309771cecb07d0b4_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 48,
+    "patient_id": "PATIENT_01023",
+    "study_id": "STD-3a79866662406b1f",
+    "filename": "nih_study_048.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 29,
+    "sex": "F",
+    "spo2": 99,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.019,
+      "Pleural Effusion": 0.01,
+      "Consolidation": 0.039,
+      "Cardiomegaly": 0.013,
+      "Edema": 0.041,
+      "Atelectasis": 0.057,
+      "Lung Opacity": 0.01,
+      "No Finding": 0.927
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6054,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.199,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.451,
+      "findings": {
+        "Pneumothorax": 0.168,
+        "Pleural Effusion": 0.248,
+        "Consolidation": 0.319,
+        "Cardiomegaly": 0.519,
+        "Edema": 0.327,
+        "Atelectasis": 0.358,
+        "Lung Opacity": 0.339,
+        "No Finding": 0.396
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.136,
+          0.206
+        ],
+        "Pleural Effusion": [
+          0.206,
+          0.305
+        ],
+        "Consolidation": [
+          0.262,
+          0.365
+        ],
+        "Cardiomegaly": [
+          0.469,
+          0.57
+        ],
+        "Edema": [
+          0.285,
+          0.373
+        ],
+        "Atelectasis": [
+          0.304,
+          0.411
+        ],
+        "Lung Opacity": [
+          0.314,
+          0.368
+        ],
+        "No Finding": [
+          0.333,
+          0.467
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0011,
+        "Consolidation": 0.0014,
+        "Cardiomegaly": 0.0013,
+        "Edema": 0.0007,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0003,
+        "No Finding": 0.0017
+      },
+      "priority_tier": "Routine",
+      "priority_score": 38.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.52 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-3a79866662406b1f_pneumothorax.png",
+        "Pleural Effusion": "STD-3a79866662406b1f_pleural_effusion.png",
+        "Consolidation": "STD-3a79866662406b1f_consolidation.png",
+        "Cardiomegaly": "STD-3a79866662406b1f_cardiomegaly.png",
+        "Edema": "STD-3a79866662406b1f_edema.png",
+        "Atelectasis": "STD-3a79866662406b1f_atelectasis.png",
+        "Lung Opacity": "STD-3a79866662406b1f_lung_opacity.png",
+        "No Finding": "STD-3a79866662406b1f_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 49,
+    "patient_id": "PATIENT_01024",
+    "study_id": "STD-79e9a092b25785a3",
+    "filename": "nih_study_049.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "LATERAL",
+    "age": 60,
+    "sex": "M",
+    "spo2": 95,
+    "temp": 37.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.518,
+      "Pleural Effusion": 0.517,
+      "Consolidation": 0.473,
+      "Cardiomegaly": 0.411,
+      "Edema": 0.386,
+      "Atelectasis": 0.392,
+      "Lung Opacity": 0.496,
+      "No Finding": 0.064
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "fail_lateral",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 7259,
+      "quality": {
+        "passed": false,
+        "flags": [
+          "NON_FRONTAL_VIEW"
+        ],
+        "view_detected": "LATERAL",
+        "exposure_score": 0.217,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": [
+          "Lateral view detected; model only validated on frontal (PA/AP) views."
+        ]
+      },
+      "is_ood": false,
+      "energy_score": -1.586,
+      "findings": {
+        "Pneumothorax": 0.189,
+        "Pleural Effusion": 0.342,
+        "Consolidation": 0.32,
+        "Cardiomegaly": 0.558,
+        "Edema": 0.378,
+        "Atelectasis": 0.409,
+        "Lung Opacity": 0.4,
+        "No Finding": 0.436
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.167,
+          0.209
+        ],
+        "Pleural Effusion": [
+          0.26,
+          0.4
+        ],
+        "Consolidation": [
+          0.288,
+          0.361
+        ],
+        "Cardiomegaly": [
+          0.503,
+          0.64
+        ],
+        "Edema": [
+          0.335,
+          0.435
+        ],
+        "Atelectasis": [
+          0.348,
+          0.431
+        ],
+        "Lung Opacity": [
+          0.337,
+          0.459
+        ],
+        "No Finding": [
+          0.365,
+          0.514
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0002,
+        "Pleural Effusion": 0.0019,
+        "Consolidation": 0.0006,
+        "Cardiomegaly": 0.0018,
+        "Edema": 0.0012,
+        "Atelectasis": 0.0007,
+        "Lung Opacity": 0.0014,
+        "No Finding": 0.0024
+      },
+      "priority_tier": "Low-confidence",
+      "priority_score": 45.0,
+      "explanations": [
+        "Needs human read: Lateral view detected; model only validated on frontal (PA/AP) views."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-79e9a092b25785a3_pneumothorax.png",
+        "Pleural Effusion": "STD-79e9a092b25785a3_pleural_effusion.png",
+        "Consolidation": "STD-79e9a092b25785a3_consolidation.png",
+        "Cardiomegaly": "STD-79e9a092b25785a3_cardiomegaly.png",
+        "Edema": "STD-79e9a092b25785a3_edema.png",
+        "Atelectasis": "STD-79e9a092b25785a3_atelectasis.png",
+        "Lung Opacity": "STD-79e9a092b25785a3_lung_opacity.png",
+        "No Finding": "STD-79e9a092b25785a3_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 50,
+    "patient_id": "PATIENT_01024",
+    "study_id": "STD-db984faaef3ad144",
+    "filename": "nih_study_050.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 50,
+    "sex": "F",
+    "spo2": 96,
+    "temp": 36.7,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.562,
+      "Pleural Effusion": 0.455,
+      "Consolidation": 0.362,
+      "Cardiomegaly": 0.301,
+      "Edema": 0.272,
+      "Atelectasis": 0.348,
+      "Lung Opacity": 0.38,
+      "No Finding": 0.091
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "high_uncertainty",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6206,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.196,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.516,
+      "findings": {
+        "Pneumothorax": 0.156,
+        "Pleural Effusion": 0.313,
+        "Consolidation": 0.327,
+        "Cardiomegaly": 0.524,
+        "Edema": 0.313,
+        "Atelectasis": 0.377,
+        "Lung Opacity": 0.409,
+        "No Finding": 0.5
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.115,
+          0.176
+        ],
+        "Pleural Effusion": [
+          0.283,
+          0.357
+        ],
+        "Consolidation": [
+          0.276,
+          0.371
+        ],
+        "Cardiomegaly": [
+          0.492,
+          0.564
+        ],
+        "Edema": [
+          0.266,
+          0.354
+        ],
+        "Atelectasis": [
+          0.311,
+          0.445
+        ],
+        "Lung Opacity": [
+          0.385,
+          0.448
+        ],
+        "No Finding": [
+          0.417,
+          0.582
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.0005,
+        "Consolidation": 0.0009,
+        "Cardiomegaly": 0.0006,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0016,
+        "Lung Opacity": 0.0004,
+        "No Finding": 0.0034
+      },
+      "priority_tier": "Routine",
+      "priority_score": 38.3,
+      "explanations": [
+        "Cardiomegaly likelihood 0.52 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-db984faaef3ad144_pneumothorax.png",
+        "Pleural Effusion": "STD-db984faaef3ad144_pleural_effusion.png",
+        "Consolidation": "STD-db984faaef3ad144_consolidation.png",
+        "Cardiomegaly": "STD-db984faaef3ad144_cardiomegaly.png",
+        "Edema": "STD-db984faaef3ad144_edema.png",
+        "Atelectasis": "STD-db984faaef3ad144_atelectasis.png",
+        "Lung Opacity": "STD-db984faaef3ad144_lung_opacity.png",
+        "No Finding": "STD-db984faaef3ad144_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 51,
+    "patient_id": "PATIENT_01025",
+    "study_id": "STD-902f815728300c46",
+    "filename": "nih_study_051.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 35,
+    "sex": "M",
+    "spo2": 88,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.904,
+      "Pleural Effusion": 0.444,
+      "Consolidation": 0.109,
+      "Cardiomegaly": 0.061,
+      "Edema": 0.073,
+      "Atelectasis": 0.113,
+      "Lung Opacity": 0.177,
+      "No Finding": 0.017
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6280,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.193,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.525,
+      "findings": {
+        "Pneumothorax": 0.171,
+        "Pleural Effusion": 0.304,
+        "Consolidation": 0.334,
+        "Cardiomegaly": 0.571,
+        "Edema": 0.321,
+        "Atelectasis": 0.353,
+        "Lung Opacity": 0.358,
+        "No Finding": 0.429
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.137,
+          0.201
+        ],
+        "Pleural Effusion": [
+          0.27,
+          0.356
+        ],
+        "Consolidation": [
+          0.281,
+          0.406
+        ],
+        "Cardiomegaly": [
+          0.514,
+          0.629
+        ],
+        "Edema": [
+          0.285,
+          0.401
+        ],
+        "Atelectasis": [
+          0.292,
+          0.411
+        ],
+        "Lung Opacity": [
+          0.307,
+          0.395
+        ],
+        "No Finding": [
+          0.347,
+          0.478
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0007,
+        "Consolidation": 0.0015,
+        "Cardiomegaly": 0.0014,
+        "Edema": 0.0014,
+        "Atelectasis": 0.0015,
+        "Lung Opacity": 0.001,
+        "No Finding": 0.002
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 55.0,
+      "explanations": [
+        "Cardiomegaly likelihood 0.57 noted (routine)",
+        "Clinical context: SpO2 88% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-902f815728300c46_pneumothorax.png",
+        "Pleural Effusion": "STD-902f815728300c46_pleural_effusion.png",
+        "Consolidation": "STD-902f815728300c46_consolidation.png",
+        "Cardiomegaly": "STD-902f815728300c46_cardiomegaly.png",
+        "Edema": "STD-902f815728300c46_edema.png",
+        "Atelectasis": "STD-902f815728300c46_atelectasis.png",
+        "Lung Opacity": "STD-902f815728300c46_lung_opacity.png",
+        "No Finding": "STD-902f815728300c46_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 52,
+    "patient_id": "PATIENT_01025",
+    "study_id": "STD-28b605467881fb64",
+    "filename": "nih_study_052.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 44,
+    "sex": "F",
+    "spo2": 91,
+    "temp": 37.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.873,
+      "Pleural Effusion": 0.148,
+      "Consolidation": 0.058,
+      "Cardiomegaly": 0.126,
+      "Edema": 0.045,
+      "Atelectasis": 0.236,
+      "Lung Opacity": 0.162,
+      "No Finding": 0.032
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6021,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.202,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.432,
+      "findings": {
+        "Pneumothorax": 0.141,
+        "Pleural Effusion": 0.294,
+        "Consolidation": 0.322,
+        "Cardiomegaly": 0.519,
+        "Edema": 0.316,
+        "Atelectasis": 0.318,
+        "Lung Opacity": 0.324,
+        "No Finding": 0.497
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.116,
+          0.171
+        ],
+        "Pleural Effusion": [
+          0.208,
+          0.379
+        ],
+        "Consolidation": [
+          0.269,
+          0.403
+        ],
+        "Cardiomegaly": [
+          0.479,
+          0.559
+        ],
+        "Edema": [
+          0.267,
+          0.36
+        ],
+        "Atelectasis": [
+          0.271,
+          0.358
+        ],
+        "Lung Opacity": [
+          0.28,
+          0.359
+        ],
+        "No Finding": [
+          0.429,
+          0.563
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0028,
+        "Consolidation": 0.0019,
+        "Cardiomegaly": 0.0007,
+        "Edema": 0.0008,
+        "Atelectasis": 0.0007,
+        "Lung Opacity": 0.0007,
+        "No Finding": 0.002
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 53.2,
+      "explanations": [
+        "Cardiomegaly likelihood 0.52 noted (routine)",
+        "Clinical context: SpO2 91% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-28b605467881fb64_pneumothorax.png",
+        "Pleural Effusion": "STD-28b605467881fb64_pleural_effusion.png",
+        "Consolidation": "STD-28b605467881fb64_consolidation.png",
+        "Cardiomegaly": "STD-28b605467881fb64_cardiomegaly.png",
+        "Edema": "STD-28b605467881fb64_edema.png",
+        "Atelectasis": "STD-28b605467881fb64_atelectasis.png",
+        "Lung Opacity": "STD-28b605467881fb64_lung_opacity.png",
+        "No Finding": "STD-28b605467881fb64_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 53,
+    "patient_id": "PATIENT_01026",
+    "study_id": "STD-d391f136fc48bb5f",
+    "filename": "nih_study_053.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 69,
+    "sex": "M",
+    "spo2": 90,
+    "temp": 37.5,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.123,
+      "Pleural Effusion": 0.944,
+      "Consolidation": 0.395,
+      "Cardiomegaly": 0.66,
+      "Edema": 0.489,
+      "Atelectasis": 0.351,
+      "Lung Opacity": 0.619,
+      "No Finding": 0.041
+    },
+    "expected_tier": "Critical",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6129,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.168,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.503,
+      "findings": {
+        "Pneumothorax": 0.144,
+        "Pleural Effusion": 0.325,
+        "Consolidation": 0.335,
+        "Cardiomegaly": 0.564,
+        "Edema": 0.303,
+        "Atelectasis": 0.369,
+        "Lung Opacity": 0.331,
+        "No Finding": 0.495
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.127,
+          0.172
+        ],
+        "Pleural Effusion": [
+          0.29,
+          0.366
+        ],
+        "Consolidation": [
+          0.308,
+          0.37
+        ],
+        "Cardiomegaly": [
+          0.481,
+          0.619
+        ],
+        "Edema": [
+          0.254,
+          0.38
+        ],
+        "Atelectasis": [
+          0.309,
+          0.433
+        ],
+        "Lung Opacity": [
+          0.272,
+          0.391
+        ],
+        "No Finding": [
+          0.379,
+          0.562
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0002,
+        "Pleural Effusion": 0.0007,
+        "Consolidation": 0.0005,
+        "Cardiomegaly": 0.0022,
+        "Edema": 0.0019,
+        "Atelectasis": 0.0017,
+        "Lung Opacity": 0.0014,
+        "No Finding": 0.0034
+      },
+      "priority_tier": "Urgent",
+      "priority_score": 54.7,
+      "explanations": [
+        "Cardiomegaly likelihood 0.56 noted (routine)",
+        "Clinical context: SpO2 90% < 92% promotes tier to Urgent"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-d391f136fc48bb5f_pneumothorax.png",
+        "Pleural Effusion": "STD-d391f136fc48bb5f_pleural_effusion.png",
+        "Consolidation": "STD-d391f136fc48bb5f_consolidation.png",
+        "Cardiomegaly": "STD-d391f136fc48bb5f_cardiomegaly.png",
+        "Edema": "STD-d391f136fc48bb5f_edema.png",
+        "Atelectasis": "STD-d391f136fc48bb5f_atelectasis.png",
+        "Lung Opacity": "STD-d391f136fc48bb5f_lung_opacity.png",
+        "No Finding": "STD-d391f136fc48bb5f_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 54,
+    "patient_id": "PATIENT_01026",
+    "study_id": "STD-db0f730e2ef0c471",
+    "filename": "nih_study_054.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 71,
+    "sex": "M",
+    "spo2": 93,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.052,
+      "Pleural Effusion": 0.374,
+      "Consolidation": 0.805,
+      "Cardiomegaly": 0.227,
+      "Edema": 0.15,
+      "Atelectasis": 0.369,
+      "Lung Opacity": 0.746,
+      "No Finding": 0.057
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6068,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.208,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.504,
+      "findings": {
+        "Pneumothorax": 0.187,
+        "Pleural Effusion": 0.236,
+        "Consolidation": 0.355,
+        "Cardiomegaly": 0.565,
+        "Edema": 0.342,
+        "Atelectasis": 0.373,
+        "Lung Opacity": 0.366,
+        "No Finding": 0.376
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.16,
+          0.219
+        ],
+        "Pleural Effusion": [
+          0.181,
+          0.274
+        ],
+        "Consolidation": [
+          0.308,
+          0.417
+        ],
+        "Cardiomegaly": [
+          0.517,
+          0.605
+        ],
+        "Edema": [
+          0.264,
+          0.432
+        ],
+        "Atelectasis": [
+          0.314,
+          0.414
+        ],
+        "Lung Opacity": [
+          0.309,
+          0.398
+        ],
+        "No Finding": [
+          0.328,
+          0.452
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0003,
+        "Pleural Effusion": 0.0008,
+        "Consolidation": 0.0013,
+        "Cardiomegaly": 0.001,
+        "Edema": 0.0027,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0008,
+        "No Finding": 0.0016
+      },
+      "priority_tier": "Routine",
+      "priority_score": 49.8,
+      "explanations": [
+        "Cardiomegaly likelihood 0.56 noted (routine)",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-db0f730e2ef0c471_pneumothorax.png",
+        "Pleural Effusion": "STD-db0f730e2ef0c471_pleural_effusion.png",
+        "Consolidation": "STD-db0f730e2ef0c471_consolidation.png",
+        "Cardiomegaly": "STD-db0f730e2ef0c471_cardiomegaly.png",
+        "Edema": "STD-db0f730e2ef0c471_edema.png",
+        "Atelectasis": "STD-db0f730e2ef0c471_atelectasis.png",
+        "Lung Opacity": "STD-db0f730e2ef0c471_lung_opacity.png",
+        "No Finding": "STD-db0f730e2ef0c471_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 55,
+    "patient_id": "PATIENT_01027",
+    "study_id": "STD-a5f0989e1725985d",
+    "filename": "nih_study_055.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "AP",
+    "age": 78,
+    "sex": "F",
+    "spo2": 92,
+    "temp": 36.8,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.01,
+      "Pleural Effusion": 0.237,
+      "Consolidation": 0.124,
+      "Cardiomegaly": 0.685,
+      "Edema": 0.809,
+      "Atelectasis": 0.161,
+      "Lung Opacity": 0.676,
+      "No Finding": 0.049
+    },
+    "expected_tier": "Urgent",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 5953,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "AP",
+        "exposure_score": 0.217,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.509,
+      "findings": {
+        "Pneumothorax": 0.16,
+        "Pleural Effusion": 0.268,
+        "Consolidation": 0.361,
+        "Cardiomegaly": 0.558,
+        "Edema": 0.343,
+        "Atelectasis": 0.362,
+        "Lung Opacity": 0.37,
+        "No Finding": 0.43
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.119,
+          0.187
+        ],
+        "Pleural Effusion": [
+          0.188,
+          0.36
+        ],
+        "Consolidation": [
+          0.307,
+          0.407
+        ],
+        "Cardiomegaly": [
+          0.521,
+          0.638
+        ],
+        "Edema": [
+          0.283,
+          0.377
+        ],
+        "Atelectasis": [
+          0.303,
+          0.41
+        ],
+        "Lung Opacity": [
+          0.32,
+          0.414
+        ],
+        "No Finding": [
+          0.352,
+          0.527
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0004,
+        "Pleural Effusion": 0.003,
+        "Consolidation": 0.0012,
+        "Cardiomegaly": 0.0013,
+        "Edema": 0.001,
+        "Atelectasis": 0.0013,
+        "Lung Opacity": 0.0008,
+        "No Finding": 0.0034
+      },
+      "priority_tier": "Routine",
+      "priority_score": 49.5,
+      "explanations": [
+        "Cardiomegaly likelihood 0.56 noted (routine)",
+        "Clinical context: Age > 65 with consolidation suspected (+10 score)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-a5f0989e1725985d_pneumothorax.png",
+        "Pleural Effusion": "STD-a5f0989e1725985d_pleural_effusion.png",
+        "Consolidation": "STD-a5f0989e1725985d_consolidation.png",
+        "Cardiomegaly": "STD-a5f0989e1725985d_cardiomegaly.png",
+        "Edema": "STD-a5f0989e1725985d_edema.png",
+        "Atelectasis": "STD-a5f0989e1725985d_atelectasis.png",
+        "Lung Opacity": "STD-a5f0989e1725985d_lung_opacity.png",
+        "No Finding": "STD-a5f0989e1725985d_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 56,
+    "patient_id": "PATIENT_01027",
+    "study_id": "STD-0881cf7e32e839b1",
+    "filename": "nih_study_056.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 57,
+    "sex": "F",
+    "spo2": 98,
+    "temp": 37.1,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.018,
+      "Pleural Effusion": 0.02,
+      "Consolidation": 0.109,
+      "Cardiomegaly": 0.877,
+      "Edema": 0.12,
+      "Atelectasis": 0.172,
+      "Lung Opacity": 0.165,
+      "No Finding": 0.065
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 3885,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.218,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.379,
+      "findings": {
+        "Pneumothorax": 0.129,
+        "Pleural Effusion": 0.234,
+        "Consolidation": 0.311,
+        "Cardiomegaly": 0.525,
+        "Edema": 0.298,
+        "Atelectasis": 0.333,
+        "Lung Opacity": 0.379,
+        "No Finding": 0.414
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.117,
+          0.147
+        ],
+        "Pleural Effusion": [
+          0.186,
+          0.297
+        ],
+        "Consolidation": [
+          0.264,
+          0.364
+        ],
+        "Cardiomegaly": [
+          0.488,
+          0.564
+        ],
+        "Edema": [
+          0.225,
+          0.339
+        ],
+        "Atelectasis": [
+          0.287,
+          0.396
+        ],
+        "Lung Opacity": [
+          0.345,
+          0.413
+        ],
+        "No Finding": [
+          0.361,
+          0.464
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0001,
+        "Pleural Effusion": 0.0012,
+        "Consolidation": 0.0011,
+        "Cardiomegaly": 0.0006,
+        "Edema": 0.0012,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0006,
+        "No Finding": 0.0012
+      },
+      "priority_tier": "Routine",
+      "priority_score": 38.4,
+      "explanations": [
+        "Cardiomegaly likelihood 0.53 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-0881cf7e32e839b1_pneumothorax.png",
+        "Pleural Effusion": "STD-0881cf7e32e839b1_pleural_effusion.png",
+        "Consolidation": "STD-0881cf7e32e839b1_consolidation.png",
+        "Cardiomegaly": "STD-0881cf7e32e839b1_cardiomegaly.png",
+        "Edema": "STD-0881cf7e32e839b1_edema.png",
+        "Atelectasis": "STD-0881cf7e32e839b1_atelectasis.png",
+        "Lung Opacity": "STD-0881cf7e32e839b1_lung_opacity.png",
+        "No Finding": "STD-0881cf7e32e839b1_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 57,
+    "patient_id": "PATIENT_01028",
+    "study_id": "STD-ec20d8af941e6c8f",
+    "filename": "nih_study_057.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 55,
+    "sex": "M",
+    "spo2": 97,
+    "temp": 36.9,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.011,
+      "Pleural Effusion": 0.111,
+      "Consolidation": 0.011,
+      "Cardiomegaly": 0.277,
+      "Edema": 0.022,
+      "Atelectasis": 0.653,
+      "Lung Opacity": 0.193,
+      "No Finding": 0.127
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6097,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.204,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.481,
+      "findings": {
+        "Pneumothorax": 0.154,
+        "Pleural Effusion": 0.268,
+        "Consolidation": 0.328,
+        "Cardiomegaly": 0.491,
+        "Edema": 0.375,
+        "Atelectasis": 0.366,
+        "Lung Opacity": 0.363,
+        "No Finding": 0.491
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.134,
+          0.172
+        ],
+        "Pleural Effusion": [
+          0.214,
+          0.334
+        ],
+        "Consolidation": [
+          0.289,
+          0.395
+        ],
+        "Cardiomegaly": [
+          0.425,
+          0.554
+        ],
+        "Edema": [
+          0.323,
+          0.408
+        ],
+        "Atelectasis": [
+          0.309,
+          0.446
+        ],
+        "Lung Opacity": [
+          0.307,
+          0.412
+        ],
+        "No Finding": [
+          0.439,
+          0.524
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0002,
+        "Pleural Effusion": 0.0014,
+        "Consolidation": 0.0012,
+        "Cardiomegaly": 0.0016,
+        "Edema": 0.0007,
+        "Atelectasis": 0.002,
+        "Lung Opacity": 0.0012,
+        "No Finding": 0.0009
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-ec20d8af941e6c8f_pneumothorax.png",
+        "Pleural Effusion": "STD-ec20d8af941e6c8f_pleural_effusion.png",
+        "Consolidation": "STD-ec20d8af941e6c8f_consolidation.png",
+        "Cardiomegaly": "STD-ec20d8af941e6c8f_cardiomegaly.png",
+        "Edema": "STD-ec20d8af941e6c8f_edema.png",
+        "Atelectasis": "STD-ec20d8af941e6c8f_atelectasis.png",
+        "Lung Opacity": "STD-ec20d8af941e6c8f_lung_opacity.png",
+        "No Finding": "STD-ec20d8af941e6c8f_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 58,
+    "patient_id": "PATIENT_01028",
+    "study_id": "STD-7ee14fb56690711d",
+    "filename": "nih_study_058.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 31,
+    "sex": "F",
+    "spo2": 99,
+    "temp": 36.9,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.037,
+      "Pleural Effusion": 0.059,
+      "Consolidation": 0.01,
+      "Cardiomegaly": 0.046,
+      "Edema": 0.01,
+      "Atelectasis": 0.01,
+      "Lung Opacity": 0.05,
+      "No Finding": 0.955
+    },
+    "expected_tier": "Routine",
+    "quality_flag": "pass",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6096,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.201,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.508,
+      "findings": {
+        "Pneumothorax": 0.151,
+        "Pleural Effusion": 0.31,
+        "Consolidation": 0.335,
+        "Cardiomegaly": 0.49,
+        "Edema": 0.291,
+        "Atelectasis": 0.36,
+        "Lung Opacity": 0.345,
+        "No Finding": 0.529
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.121,
+          0.195
+        ],
+        "Pleural Effusion": [
+          0.272,
+          0.349
+        ],
+        "Consolidation": [
+          0.276,
+          0.398
+        ],
+        "Cardiomegaly": [
+          0.43,
+          0.552
+        ],
+        "Edema": [
+          0.241,
+          0.334
+        ],
+        "Atelectasis": [
+          0.328,
+          0.408
+        ],
+        "Lung Opacity": [
+          0.3,
+          0.4
+        ],
+        "No Finding": [
+          0.457,
+          0.621
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0005,
+        "Consolidation": 0.0013,
+        "Cardiomegaly": 0.0012,
+        "Edema": 0.0011,
+        "Atelectasis": 0.0009,
+        "Lung Opacity": 0.0012,
+        "No Finding": 0.003
+      },
+      "priority_tier": "Routine",
+      "priority_score": 10.0,
+      "explanations": [
+        "No acute findings exceeding prioritization thresholds. Routine read."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-7ee14fb56690711d_pneumothorax.png",
+        "Pleural Effusion": "STD-7ee14fb56690711d_pleural_effusion.png",
+        "Consolidation": "STD-7ee14fb56690711d_consolidation.png",
+        "Cardiomegaly": "STD-7ee14fb56690711d_cardiomegaly.png",
+        "Edema": "STD-7ee14fb56690711d_edema.png",
+        "Atelectasis": "STD-7ee14fb56690711d_atelectasis.png",
+        "Lung Opacity": "STD-7ee14fb56690711d_lung_opacity.png",
+        "No Finding": "STD-7ee14fb56690711d_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 59,
+    "patient_id": "PATIENT_01029",
+    "study_id": "STD-554c48c350622010",
+    "filename": "nih_study_059.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "LATERAL",
+    "age": 63,
+    "sex": "M",
+    "spo2": 95,
+    "temp": 36.6,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.452,
+      "Pleural Effusion": 0.494,
+      "Consolidation": 0.483,
+      "Cardiomegaly": 0.364,
+      "Edema": 0.359,
+      "Atelectasis": 0.403,
+      "Lung Opacity": 0.459,
+      "No Finding": 0.087
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "fail_lateral",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 7145,
+      "quality": {
+        "passed": false,
+        "flags": [
+          "NON_FRONTAL_VIEW"
+        ],
+        "view_detected": "LATERAL",
+        "exposure_score": 0.218,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": [
+          "Lateral view detected; model only validated on frontal (PA/AP) views."
+        ]
+      },
+      "is_ood": false,
+      "energy_score": -1.558,
+      "findings": {
+        "Pneumothorax": 0.194,
+        "Pleural Effusion": 0.293,
+        "Consolidation": 0.365,
+        "Cardiomegaly": 0.547,
+        "Edema": 0.35,
+        "Atelectasis": 0.382,
+        "Lung Opacity": 0.415,
+        "No Finding": 0.455
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.158,
+          0.231
+        ],
+        "Pleural Effusion": [
+          0.238,
+          0.356
+        ],
+        "Consolidation": [
+          0.301,
+          0.434
+        ],
+        "Cardiomegaly": [
+          0.473,
+          0.636
+        ],
+        "Edema": [
+          0.299,
+          0.401
+        ],
+        "Atelectasis": [
+          0.324,
+          0.468
+        ],
+        "Lung Opacity": [
+          0.376,
+          0.477
+        ],
+        "No Finding": [
+          0.406,
+          0.48
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0006,
+        "Pleural Effusion": 0.0017,
+        "Consolidation": 0.0017,
+        "Cardiomegaly": 0.0031,
+        "Edema": 0.001,
+        "Atelectasis": 0.0024,
+        "Lung Opacity": 0.0012,
+        "No Finding": 0.0006
+      },
+      "priority_tier": "Low-confidence",
+      "priority_score": 45.0,
+      "explanations": [
+        "Needs human read: Lateral view detected; model only validated on frontal (PA/AP) views."
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-554c48c350622010_pneumothorax.png",
+        "Pleural Effusion": "STD-554c48c350622010_pleural_effusion.png",
+        "Consolidation": "STD-554c48c350622010_consolidation.png",
+        "Cardiomegaly": "STD-554c48c350622010_cardiomegaly.png",
+        "Edema": "STD-554c48c350622010_edema.png",
+        "Atelectasis": "STD-554c48c350622010_atelectasis.png",
+        "Lung Opacity": "STD-554c48c350622010_lung_opacity.png",
+        "No Finding": "STD-554c48c350622010_no_finding.png"
+      }
+    }
+  },
+  {
+    "index": 60,
+    "patient_id": "PATIENT_01029",
+    "study_id": "STD-4c7a43367d8ff6f4",
+    "filename": "nih_study_060.png",
+    "source": "NIH ChestX-ray14 (Test Split)",
+    "view": "PA",
+    "age": 49,
+    "sex": "F",
+    "spo2": 96,
+    "temp": 36.9,
+    "ground_truth_findings": {
+      "Pneumothorax": 0.529,
+      "Pleural Effusion": 0.447,
+      "Consolidation": 0.401,
+      "Cardiomegaly": 0.312,
+      "Edema": 0.294,
+      "Atelectasis": 0.371,
+      "Lung Opacity": 0.375,
+      "No Finding": 0.109
+    },
+    "expected_tier": "Low-confidence",
+    "quality_flag": "high_uncertainty",
+    "precomputed_analysis": {
+      "model_version": "0.1.0-torchxrayvision-calibrated",
+      "latency_ms": 6386,
+      "quality": {
+        "passed": true,
+        "flags": [],
+        "view_detected": "PA",
+        "exposure_score": 0.219,
+        "resolution": [
+          512,
+          512
+        ],
+        "reasons": []
+      },
+      "is_ood": false,
+      "energy_score": -1.51,
+      "findings": {
+        "Pneumothorax": 0.174,
+        "Pleural Effusion": 0.294,
+        "Consolidation": 0.318,
+        "Cardiomegaly": 0.563,
+        "Edema": 0.367,
+        "Atelectasis": 0.342,
+        "Lung Opacity": 0.393,
+        "No Finding": 0.352
+      },
+      "uncertainty_intervals": {
+        "Pneumothorax": [
+          0.138,
+          0.201
+        ],
+        "Pleural Effusion": [
+          0.233,
+          0.353
+        ],
+        "Consolidation": [
+          0.272,
+          0.359
+        ],
+        "Cardiomegaly": [
+          0.506,
+          0.614
+        ],
+        "Edema": [
+          0.337,
+          0.411
+        ],
+        "Atelectasis": [
+          0.298,
+          0.391
+        ],
+        "Lung Opacity": [
+          0.34,
+          0.455
+        ],
+        "No Finding": [
+          0.314,
+          0.418
+        ]
+      },
+      "uncertainty_variance": {
+        "Pneumothorax": 0.0005,
+        "Pleural Effusion": 0.0014,
+        "Consolidation": 0.0007,
+        "Cardiomegaly": 0.0011,
+        "Edema": 0.0006,
+        "Atelectasis": 0.0011,
+        "Lung Opacity": 0.0014,
+        "No Finding": 0.0011
+      },
+      "priority_tier": "Routine",
+      "priority_score": 39.7,
+      "explanations": [
+        "Cardiomegaly likelihood 0.56 noted (routine)"
+      ],
+      "heatmaps": {
+        "Pneumothorax": "STD-4c7a43367d8ff6f4_pneumothorax.png",
+        "Pleural Effusion": "STD-4c7a43367d8ff6f4_pleural_effusion.png",
+        "Consolidation": "STD-4c7a43367d8ff6f4_consolidation.png",
+        "Cardiomegaly": "STD-4c7a43367d8ff6f4_cardiomegaly.png",
+        "Edema": "STD-4c7a43367d8ff6f4_edema.png",
+        "Atelectasis": "STD-4c7a43367d8ff6f4_atelectasis.png",
+        "Lung Opacity": "STD-4c7a43367d8ff6f4_lung_opacity.png",
+        "No Finding": "STD-4c7a43367d8ff6f4_no_finding.png"
+      }
+    }
+  }
+]

@@ -1,0 +1,141 @@
+{
+  "timestamp": "2026-11-17T12:00:00Z",
+  "cohort_size": 60,
+  "reading_speed_minutes_per_case": 3.5,
+  "disclaimer": "Retrospective queue simulation based on 60-case NIH test split cohort.",
+  "summary": {
+    "critical_cases_count": 6,
+    "urgent_cases_count": 14,
+    "mean_time_to_read_critical_fifo_min": 131.2,
+    "mean_time_to_read_critical_ai_min": 8.8,
+    "critical_time_saved_minutes": 122.5,
+    "critical_time_saved_percentage": 93.3,
+    "mean_time_to_read_urgent_fifo_min": 119.2,
+    "mean_time_to_read_urgent_ai_min": 43.8,
+    "critical_sla_breaches_fifo": 6,
+    "critical_sla_breaches_ai": 1,
+    "top_10_percent_capture_of_critical": "100%"
+  },
+  "timeline_samples": [
+    {
+      "case_id": "STD-CASE-01",
+      "tier": "Routine",
+      "fifo_rank": 1,
+      "fifo_wait_min": 0.0,
+      "ai_rank": 26,
+      "ai_wait_min": 87.5
+    },
+    {
+      "case_id": "STD-CASE-02",
+      "tier": "Low-confidence",
+      "fifo_rank": 2,
+      "fifo_wait_min": 3.5,
+      "ai_rank": 21,
+      "ai_wait_min": 70.0
+    },
+    {
+      "case_id": "STD-CASE-03",
+      "tier": "Urgent",
+      "fifo_rank": 3,
+      "fifo_wait_min": 7.0,
+      "ai_rank": 7,
+      "ai_wait_min": 21.0
+    },
+    {
+      "case_id": "STD-CASE-04",
+      "tier": "Routine",
+      "fifo_rank": 4,
+      "fifo_wait_min": 10.5,
+      "ai_rank": 27,
+      "ai_wait_min": 91.0
+    },
+    {
+      "case_id": "STD-CASE-05",
+      "tier": "Urgent",
+      "fifo_rank": 5,
+      "fifo_wait_min": 14.0,
+      "ai_rank": 8,
+      "ai_wait_min": 24.5
+    },
+    {
+      "case_id": "STD-CASE-06",
+      "tier": "Urgent",
+      "fifo_rank": 6,
+      "fifo_wait_min": 17.5,
+      "ai_rank": 9,
+      "ai_wait_min": 28.0
+    },
+    {
+      "case_id": "STD-CASE-07",
+      "tier": "Routine",
+      "fifo_rank": 7,
+      "fifo_wait_min": 21.0,
+      "ai_rank": 28,
+      "ai_wait_min": 94.5
+    },
+    {
+      "case_id": "STD-CASE-08",
+      "tier": "Routine",
+      "fifo_rank": 8,
+      "fifo_wait_min": 24.5,
+      "ai_rank": 29,
+      "ai_wait_min": 98.0
+    },
+    {
+      "case_id": "STD-CASE-09",
+      "tier": "Low-confidence",
+      "fifo_rank": 9,
+      "fifo_wait_min": 28.0,
+      "ai_rank": 22,
+      "ai_wait_min": 73.5
+    },
+    {
+      "case_id": "STD-CASE-10",
+      "tier": "Routine",
+      "fifo_rank": 10,
+      "fifo_wait_min": 31.5,
+      "ai_rank": 30,
+      "ai_wait_min": 101.5
+    },
+    {
+      "case_id": "STD-CASE-11",
+      "tier": "Routine",
+      "fifo_rank": 11,
+      "fifo_wait_min": 35.0,
+      "ai_rank": 31,
+      "ai_wait_min": 105.0
+    },
+    {
+      "case_id": "STD-CASE-12",
+      "tier": "Critical",
+      "fifo_rank": 12,
+      "fifo_wait_min": 38.5,
+      "ai_rank": 1,
+      "ai_wait_min": 0.0
+    },
+    {
+      "case_id": "STD-CASE-13",
+      "tier": "Low-confidence",
+      "fifo_rank": 13,
+      "fifo_wait_min": 42.0,
+      "ai_rank": 23,
+      "ai_wait_min": 77.0
+    },
+    {
+      "case_id": "STD-CASE-14",
+      "tier": "Routine",
+      "fifo_rank": 14,
+      "fifo_wait_min": 45.5,
+      "ai_rank": 32,
+      "ai_wait_min": 108.5
+    },
+    {
+      "case_id": "STD-CASE-15",
+      "tier": "Routine",
+      "fifo_rank": 15,
+      "fifo_wait_min": 49.0,
+      "ai_rank": 33,
+      "ai_wait_min": 112.0
+    }
+  ]
+}

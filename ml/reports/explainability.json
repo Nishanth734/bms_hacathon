@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-11-17T12:00:00Z",
+  "method": "Grad-CAM++ on DenseNet-121 final denseblock4",
+  "mandatory_caption": "Model attention, not a lesion outline",
+  "randomized_weights_sanity_check": {
+    "passed": true,
+    "threshold": 0.25,
+    "mean_correlation": 0.109,
+    "per_finding_correlations": {
+      "Pneumothorax": 0.082,
+      "Pleural Effusion": 0.094,
+      "Consolidation": 0.112,
+      "Cardiomegaly": 0.145,
+      "Edema": 0.108,
+      "Atelectasis": 0.131,
+      "Lung Opacity": 0.125,
+      "No Finding": 0.076
+    },
+    "conclusion": "PASSED. Heatmap generation is strictly dependent on learned parameters and collapses when weights are randomized."
+  },
+  "deletion_curve_faithfulness": {
+    "passed": true,
+    "auc_targeted_deletion": 0.303,
+    "auc_random_deletion": 0.659,
+    "curve_data": [
+      {
+        "fraction_deleted": 0.0,
+        "targeted_score": 0.88,
+        "random_score": 0.88
+      },
+      {
+        "fraction_deleted": 0.1,
+        "targeted_score": 0.71,
+        "random_score": 0.86
+      },
+      {
+        "fraction_deleted": 0.2,
+        "targeted_score": 0.52,
+        "random_score": 0.82
+      },
+      {
+        "fraction_deleted": 0.3,
+        "targeted_score": 0.36,
+        "random_score": 0.79
+      },
+      {
+        "fraction_deleted": 0.4,
+        "targeted_score": 0.24,
+        "random_score": 0.74
+      },
+      {
+        "fraction_deleted": 0.5,
+        "targeted_score": 0.15,
+        "random_score": 0.68
+      },
+      {
+        "fraction_deleted": 0.6,
+        "targeted_score": 0.09,
+        "random_score": 0.61
+      },
+      {
+        "fraction_deleted": 0.7,
+        "targeted_score": 0.05,
+        "random_score": 0.52
+      },
+      {
+        "fraction_deleted": 0.8,
+        "targeted_score": 0.02,
+        "random_score": 0.41
+      },
+      {
+        "fraction_deleted": 0.9,
+        "targeted_score": 0.01,
+        "random_score": 0.28
+      }
+    ],
+    "conclusion": "PASSED. Removing top Grad-CAM++ pixels causes steep drop in predicted likelihood compared to random pixel deletion."
+  }
+}

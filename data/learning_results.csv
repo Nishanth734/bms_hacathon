@@ -1,2 +1,0 @@
-timestamp,initial_model_version,promoted_model_version,initial_score,promoted_score,score_delta,val_pr_auc_old,val_pr_auc_new,val_f1_old,val_f1_new,safety_gate_passed,adversarial_test_blocked
-2026-11-14T20:27:52.060177+00:00,ranker_v3,ranker_v4,0.881,0.8919,0.0109,1.0,1.0,0.0,0.0,True,True

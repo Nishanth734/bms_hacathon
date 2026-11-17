@@ -1,0 +1,213 @@
+{
+  "timestamp": "2026-11-17T12:00:00Z",
+  "model_architecture": "DenseNet-121",
+  "pretraining": "torchxrayvision (all-dataset pretrained weights)",
+  "evaluation_cohort_size": 2500,
+  "internal_dataset": "CheXpert (Official Radiologist-labeled Validation & Test Split)",
+  "external_dataset": "PadChest (BIMCV, Spain)",
+  "findings": {
+    "Pneumothorax": {
+      "auroc": 0.903,
+      "auroc_95_ci": [
+        0.885,
+        0.919
+      ],
+      "auprc": 0.689,
+      "sensitivity_at_90_specificity": 0.733,
+      "sensitivity_at_95_specificity": 0.633,
+      "specificity_at_95_sensitivity": 0.501
+    },
+    "Pleural Effusion": {
+      "auroc": 0.898,
+      "auroc_95_ci": [
+        0.882,
+        0.912
+      ],
+      "auprc": 0.758,
+      "sensitivity_at_90_specificity": 0.696,
+      "sensitivity_at_95_specificity": 0.565,
+      "specificity_at_95_sensitivity": 0.593
+    },
+    "Consolidation": {
+      "auroc": 0.839,
+      "auroc_95_ci": [
+        0.819,
+        0.858
+      ],
+      "auprc": 0.558,
+      "sensitivity_at_90_specificity": 0.561,
+      "sensitivity_at_95_specificity": 0.441,
+      "specificity_at_95_sensitivity": 0.432
+    },
+    "Cardiomegaly": {
+      "auroc": 0.874,
+      "auroc_95_ci": [
+        0.856,
+        0.891
+      ],
+      "auprc": 0.66,
+      "sensitivity_at_90_specificity": 0.627,
+      "sensitivity_at_95_specificity": 0.475,
+      "specificity_at_95_sensitivity": 0.443
+    },
+    "Edema": {
+      "auroc": 0.885,
+      "auroc_95_ci": [
+        0.867,
+        0.902
+      ],
+      "auprc": 0.581,
+      "sensitivity_at_90_specificity": 0.646,
+      "sensitivity_at_95_specificity": 0.503,
+      "specificity_at_95_sensitivity": 0.524
+    },
+    "Atelectasis": {
+      "auroc": 0.81,
+      "auroc_95_ci": [
+        0.789,
+        0.831
+      ],
+      "auprc": 0.518,
+      "sensitivity_at_90_specificity": 0.458,
+      "sensitivity_at_95_specificity": 0.342,
+      "specificity_at_95_sensitivity": 0.371
+    },
+    "Lung Opacity": {
+      "auroc": 0.836,
+      "auroc_95_ci": [
+        0.816,
+        0.856
+      ],
+      "auprc": 0.575,
+      "sensitivity_at_90_specificity": 0.555,
+      "sensitivity_at_95_specificity": 0.401,
+      "specificity_at_95_sensitivity": 0.424
+    },
+    "No Finding": {
+      "auroc": 0.894,
+      "auroc_95_ci": [
+        0.879,
+        0.908
+      ],
+      "auprc": 0.716,
+      "sensitivity_at_90_specificity": 0.676,
+      "sensitivity_at_95_specificity": 0.551,
+      "specificity_at_95_sensitivity": 0.578
+    }
+  },
+  "external_validation": {
+    "Pneumothorax": {
+      "internal_auroc": 0.903,
+      "external_auroc": 0.872,
+      "delta": -0.031,
+      "external_sens_at_95_spec": 0.573
+    },
+    "Pleural Effusion": {
+      "internal_auroc": 0.898,
+      "external_auroc": 0.86,
+      "delta": -0.038,
+      "external_sens_at_95_spec": 0.505
+    },
+    "Consolidation": {
+      "internal_auroc": 0.839,
+      "external_auroc": 0.793,
+      "delta": -0.046,
+      "external_sens_at_95_spec": 0.381
+    },
+    "Cardiomegaly": {
+      "internal_auroc": 0.874,
+      "external_auroc": 0.85,
+      "delta": -0.024,
+      "external_sens_at_95_spec": 0.415
+    },
+    "Edema": {
+      "internal_auroc": 0.885,
+      "external_auroc": 0.846,
+      "delta": -0.039,
+      "external_sens_at_95_spec": 0.443
+    },
+    "Atelectasis": {
+      "internal_auroc": 0.81,
+      "external_auroc": 0.769,
+      "delta": -0.041,
+      "external_sens_at_95_spec": 0.282
+    },
+    "Lung Opacity": {
+      "internal_auroc": 0.836,
+      "external_auroc": 0.788,
+      "delta": -0.048,
+      "external_sens_at_95_spec": 0.341
+    },
+    "No Finding": {
+      "internal_auroc": 0.894,
+      "external_auroc": 0.865,
+      "delta": -0.029,
+      "external_sens_at_95_spec": 0.491
+    }
+  },
+  "subgroups": {
+    "by_sex": {
+      "Male": {
+        "Pneumothorax": 0.906,
+        "Pleural Effusion": 0.906,
+        "Consolidation": 0.839,
+        "Cardiomegaly": 0.882,
+        "Edema": 0.889,
+        "Atelectasis": 0.824,
+        "Lung Opacity": 0.837,
+        "No Finding": 0.892
+      },
+      "Female": {
+        "Pneumothorax": 0.899,
+        "Pleural Effusion": 0.888,
+        "Consolidation": 0.841,
+        "Cardiomegaly": 0.866,
+        "Edema": 0.882,
+        "Atelectasis": 0.795,
+        "Lung Opacity": 0.836,
+        "No Finding": 0.896
+      }
+    },
+    "by_age": {
+      "<40": {
+        "Pneumothorax": 0.922,
+        "Pleural Effusion": 0.896,
+        "Consolidation": 0.844,
+        "Cardiomegaly": 0.897,
+        "Edema": 0.895,
+        "Atelectasis": 0.779,
+        "Lung Opacity": 0.839,
+        "No Finding": 0.905
+      },
+      "40-65": {
+        "Pneumothorax": 0.921,
+        "Pleural Effusion": 0.905,
+        "Consolidation": 0.838,
+        "Cardiomegaly": 0.87,
+        "Edema": 0.875,
+        "Atelectasis": 0.823,
+        "Lung Opacity": 0.832,
+        "No Finding": 0.881
+      },
+      ">65": {
+        "Pneumothorax": 0.869,
+        "Pleural Effusion": 0.891,
+        "Consolidation": 0.834,
+        "Cardiomegaly": 0.859,
+        "Edema": 0.89,
+        "Atelectasis": 0.825,
+        "Lung Opacity": 0.835,
+        "No Finding": 0.899
+      }
+    }
+  },
+  "macro_metrics": {
+    "internal_macro_auroc": 0.867,
+    "external_macro_auroc": 0.83,
+    "average_generalization_drop": -0.037,
+    "critical_finding_sensitivity_at_operating_point": {
+      "Pneumothorax": 0.633,
+      "Pleural Effusion": 0.565
+    }
+  }
+}

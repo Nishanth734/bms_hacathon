@@ -1,6 +1,0 @@
-##SENTENCE:{{ edges[0].edge_id if edges else '' }}## Suspicious activity alert generated for case {{ cluster_id }} with primary typology {{ primary_typology | replace('_', ' ') }}. ##END##
-##SENTENCE:{{ edges | map(attribute='edge_id') | join(',') }}## The cluster comprises {{ accounts | length }} linked accounts and {{ edges | length }} transactions over the window from {{ window_start }} to {{ window_end }}. ##END##
-{% for edge in edges[:10] %}
-##SENTENCE:{{ edge.edge_id }}## Account {{ edge.src }} transferred ${{ "{:,.2f}".format(edge.amount) }} {{ edge.currency }} to {{ edge.dst }} at timestamp {{ edge.ts }}. ##END##
-{% endfor %}
-##SENTENCE:{{ edges | map(attribute='edge_id') | join(',') }}## Assessed pattern risk score is {{ "{:.3f}".format(risk_score) }}. All identified behaviors are flagged as SUSPICIOUS and do not constitute confirmed legal proof of money laundering. ##END##

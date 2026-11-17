@@ -1,0 +1,46 @@
+# CXR Triage Priority Rules
+# Configurable clinical prioritization engine per PRD Section 5.5
+
+critical_findings:
+  pneumothorax:
+    critical: 0.60
+    urgent: 0.35
+    weight: 1.0
+  pleural_effusion:
+    critical: 0.85
+    urgent: 0.55
+    weight: 0.95
+
+urgent_findings:
+  consolidation:
+    urgent: 0.50
+    weight: 0.80
+  edema:
+    urgent: 0.55
+    weight: 0.85
+
+routine_findings:
+  cardiomegaly:
+    routine: 0.50
+    weight: 0.50
+  atelectasis:
+    routine: 0.50
+    weight: 0.45
+  lung_opacity:
+    routine: 0.50
+    weight: 0.40
+
+context_modifiers:
+  spo2_lt_92_tier_bump: 1          # Promotes tier by +1 (e.g. Urgent -> Critical)
+  age_gt_65_consolidation_score: 10 # +10 to score if age > 65 and consolidation present
+  fever_consolidation_score: 10    # +10 to score if temp >= 38.0 and consolidation present
+
+uncertainty_bounds:
+  lower: 0.35
+  upper: 0.65
+  max_variance_for_abstain: 0.08   # If prob is in [0.35, 0.65] and variance > 0.08, abstain to Low-confidence
+
+abstain_conditions:
+  - quality_fail
+  - ood
+  - high_uncertainty_near_threshold

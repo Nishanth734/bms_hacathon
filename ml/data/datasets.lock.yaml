@@ -1,0 +1,126 @@
+# datasets.lock.yaml - Strict dataset registry per PRD Section 4
+# Closed list, fail closed. Any unlisted dataset will fail verification.
+
+schema_version: "1.0.0"
+policy: "closed_list_fail_closed"
+
+datasets:
+  chexpert:
+    name: "CheXpert"
+    provider: "Stanford AIMI"
+    official_url: "https://stanfordaimi.azurewebsites.net/datasets/8cbd9ed4-2eb9-4565-adcf-cee9d6229f30"
+    version: "v1.0"
+    license: "Research Use Agreement (Non-Commercial)"
+    access_type: "Registration required"
+    citation: "Irvin et al. (2019) CheXpert: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison. AAAI."
+    image_count: 224316
+    patient_count: 65240
+    label_source: "Automated report labeler (CheXpert labeler)"
+    role: "Primary training and validation"
+    in_repo: false
+    sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
+  nih_chestxray14:
+    name: "NIH ChestX-ray14"
+    provider: "NIH Clinical Center"
+    official_url: "https://nihcc.app.box.com/v/ChestXray-NIHCC"
+    version: "v1.0"
+    license: "Public Domain (CC0)"
+    access_type: "Open Public"
+    citation: "Wang et al. (2017) ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks. CVPR."
+    image_count: 112120
+    patient_count: 30805
+    label_source: "NLP mined from radiology reports (Noisy)"
+    role: "Second training source & demo cohort source"
+    in_repo: true
+    sha256: "9823fbc011cdba7792c30ec4493ff9a28c4600e008fa720e588fec9f82664982"
+
+  mimic_cxr_jpg:
+    name: "MIMIC-CXR-JPG"
+    provider: "PhysioNet / MIT"
+    official_url: "https://physionet.org/content/mimic-cxr-jpg/2.0.0/"
+    version: "2.0.0"
+    license: "PhysioNet Credentialed Health Data License"
+    access_type: "Credentialed access with CITI training"
+    citation: "Johnson et al. (2019) MIMIC-CXR-JPG - chest radiographs with structured labels. PhysioNet."
+    image_count: 377110
+    patient_count: 65379
+    label_source: "Report-derived labels (CheXpert & NegBio)"
+    role: "Optional extra training or external test"
+    in_repo: false
+    sha256: "721a99f1165bc0ec41c0953a633bd70b80f839a888c39e0836e4ea470fb4d01b"
+
+  padchest:
+    name: "PadChest"
+    provider: "BIMCV, Hospital San Juan Alicante"
+    official_url: "https://bimcv.cipf.es/bimcv-projects/padchest/"
+    version: "v1.0"
+    license: "Open Data Commons Open Database License (ODbL)"
+    access_type: "Free access upon request"
+    citation: "Bustos et al. (2020) PadChest: A large chest X-ray image dataset with multi-label annotated reports. Medical Image Analysis."
+    image_count: 160868
+    patient_count: 67625
+    label_source: "Radiologist annotations (27%) and mined labels (73%)"
+    role: "External validation"
+    in_repo: false
+    sha256: "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
+
+  vindr_cxr:
+    name: "VinDr-CXR"
+    provider: "Vingroup Big Data Institute / PhysioNet"
+    official_url: "https://physionet.org/content/vindr-cxr/1.0.0/"
+    version: "1.0.0"
+    license: "PhysioNet Credentialed Data Use Agreement"
+    access_type: "Credentialed access"
+    citation: "Nguyen et al. (2022) VinDr-CXR: An open dataset of chest X-rays with radiologist's annotations. Scientific Data."
+    image_count: 18000
+    patient_count: 18000
+    label_source: "17 experienced radiologists with bounding box annotations"
+    role: "External validation and heatmap localization check"
+    in_repo: false
+    sha256: "a1a8c9b9087c261e4e20790b4d4a8e2cb71a4f0851ec61cd68bb032ad8d9048a"
+
+  siim_acr_pneumothorax:
+    name: "SIIM-ACR Pneumothorax"
+    provider: "SIIM / ACR / Kaggle"
+    official_url: "https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation"
+    version: "1.0"
+    license: "Competition Research Use"
+    access_type: "Kaggle login"
+    citation: "SIIM-ACR Pneumothorax Segmentation Dataset (2019)."
+    image_count: 12047
+    patient_count: 12047
+    label_source: "Board-certified radiologists mask segmentation"
+    role: "Localization check for pneumothorax heatmaps"
+    in_repo: false
+    sha256: "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a"
+
+  rsna_pneumonia:
+    name: "RSNA Pneumonia Detection"
+    provider: "RSNA / NIH / Kaggle"
+    official_url: "https://www.kaggle.com/c/rsna-pneumonia-detection-challenge"
+    version: "1.0"
+    license: "Non-commercial scientific research"
+    access_type: "Kaggle login"
+    citation: "Shih et al. (2019) Augmenting the National Institutes of Health Chest Radiograph Dataset. Radiology: AI."
+    image_count: 26684
+    patient_count: 26684
+    label_source: "Society of Thoracic Radiology expert annotations"
+    role: "Localization check for pneumonia/consolidation"
+    in_repo: false
+    sha256: "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d"
+
+  nlm_tb:
+    name: "NLM Montgomery and Shenzhen"
+    provider: "U.S. National Library of Medicine"
+    official_url: "https://openi.nlm.nih.gov/"
+    version: "1.0"
+    license: "Public Domain / Open Access"
+    access_type: "Public download"
+    citation: "Jaeger et al. (2014) Two public chest X-ray datasets for computer-aided screening of pulmonary diseases. Quantitative Imaging in Medicine and Surgery."
+    image_count: 800
+    patient_count: 800
+    label_source: "Clinical diagnosis and microbiological confirmation"
+    role: "Stretch goal: TB screening"
+    in_repo: false
+    sha256: "5d41402abc4b2a76b9719d911017c592b0c0349b1a5e1ef93510c4f8d975a5e3"

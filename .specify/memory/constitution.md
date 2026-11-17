@@ -1,50 +1,38 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# CXR Triage Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Decision Support Only
+Every AI output is advisory. No screen, string, API field, or log may use the word "diagnosis" for a model output. Use "finding likelihood", "suggested priority", "flagged for review". Clinician judgment always prevails.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Data Integrity — Closed List, Fail Closed
+Only the eight datasets listed in the PRD (CheXpert, NIH ChestX-ray14, MIMIC-CXR-JPG, PadChest, VinDr-CXR, SIIM-ACR Pneumothorax, RSNA Pneumonia Detection, NLM Montgomery/Shenzhen) may be used. If a dataset is unavailable, the pipeline stops and the UI says so. Never substitute synthetic, scraped, or unlisted data. Every dataset is recorded in `datasets.lock.yaml` with provenance.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Metric Honesty — No Invented Numbers
+Every number shown in the UI or README must come from a script in `/ml/eval` that produced it. Results are stored in `ml/reports/*.json` and read at runtime. Never invent, round, or fabricate metrics.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Privacy by Design
+No raw patient identifiers anywhere in DB, logs, or UI. DICOM de-identification on ingest. Hashed study IDs only. Runtime uploads are inference-only — never added to training/calibration/evaluation sets.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Calibration & Uncertainty First
+Probabilities must be calibrated (temperature scaling minimum). Uncertainty must be exposed (MC-dropout or ensemble). Low-confidence and quality-fail studies are surfaced visibly as "Needs human read", never buried.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Reproducibility
+Pinned dependencies, seeded training, deterministic splits. `make train`, `make eval`, `make demo` must work. Patient-level splits enforced — no patient in more than one split.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### VII. Reading Room Design
+Dark-first, medical-instrument aesthetic. Color is reserved for clinical meaning only. Follow the design system in PRD section 12 exactly. No generic SaaS templates.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Technical Standards
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Python 3.11+, FastAPI backend, React+TypeScript+Vite frontend
+- DenseNet-121 baseline with torchxrayvision pretrained weights
+- SQLite for dev (Postgres-ready), Alembic migrations
+- Docker Compose for single-command startup
+- All decisions documented in `DECISIONS.md`
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices. Every PR and code change must comply. Ambiguities are resolved by choosing the option stated in the PRD and noting the decision in `DECISIONS.md`.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-11-17 | **Last Amended**: 2026-11-17

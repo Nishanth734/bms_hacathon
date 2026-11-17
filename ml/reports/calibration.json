@@ -1,0 +1,649 @@
+{
+  "timestamp": "2026-11-17T12:00:00Z",
+  "method_comparison": {
+    "Uncalibrated": {
+      "macro_ece": 0.1388,
+      "target_met": false
+    },
+    "Temperature Scaling": {
+      "macro_ece": 0.0087,
+      "target_met": true
+    },
+    "Platt Scaling": {
+      "macro_ece": 0.0087,
+      "target_met": true
+    },
+    "Isotonic Regression": {
+      "macro_ece": 0.0,
+      "target_met": true
+    }
+  },
+  "per_finding": {
+    "Pneumothorax": {
+      "optimal_temperature": 0.419,
+      "ece_uncalibrated": 0.1393,
+      "ece_temperature_scaled": 0.0101,
+      "ece_platt": 0.0101,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 92.7,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.01,
+          "accuracy": 0.009,
+          "count": 1380
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.14,
+          "accuracy": 0.171,
+          "count": 70
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.248,
+          "accuracy": 0.263,
+          "count": 38
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.348,
+          "accuracy": 0.4,
+          "count": 30
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.455,
+          "accuracy": 0.278,
+          "count": 18
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.536,
+          "accuracy": 0.615,
+          "count": 26
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.664,
+          "accuracy": 0.722,
+          "count": 18
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.75,
+          "accuracy": 0.68,
+          "count": 25
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.852,
+          "accuracy": 0.906,
+          "count": 32
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.977,
+          "accuracy": 0.963,
+          "count": 163
+        }
+      ]
+    },
+    "Pleural Effusion": {
+      "optimal_temperature": 0.43,
+      "ece_uncalibrated": 0.1354,
+      "ece_temperature_scaled": 0.0103,
+      "ece_platt": 0.0103,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 92.4,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.012,
+          "accuracy": 0.009,
+          "count": 1268
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.137,
+          "accuracy": 0.097,
+          "count": 72
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.243,
+          "accuracy": 0.333,
+          "count": 42
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.346,
+          "accuracy": 0.344,
+          "count": 32
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.452,
+          "accuracy": 0.514,
+          "count": 35
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.55,
+          "accuracy": 0.4,
+          "count": 15
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.648,
+          "accuracy": 0.737,
+          "count": 19
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.758,
+          "accuracy": 0.771,
+          "count": 35
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.856,
+          "accuracy": 0.88,
+          "count": 50
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.974,
+          "accuracy": 0.97,
+          "count": 232
+        }
+      ]
+    },
+    "Consolidation": {
+      "optimal_temperature": 0.379,
+      "ece_uncalibrated": 0.1425,
+      "ece_temperature_scaled": 0.0094,
+      "ece_platt": 0.0094,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 93.4,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.009,
+          "accuracy": 0.01,
+          "count": 1289
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.147,
+          "accuracy": 0.114,
+          "count": 70
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.247,
+          "accuracy": 0.295,
+          "count": 44
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.349,
+          "accuracy": 0.333,
+          "count": 30
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.451,
+          "accuracy": 0.4,
+          "count": 25
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.527,
+          "accuracy": 0.25,
+          "count": 16
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.654,
+          "accuracy": 0.741,
+          "count": 27
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.753,
+          "accuracy": 0.8,
+          "count": 25
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.852,
+          "accuracy": 0.864,
+          "count": 44
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.977,
+          "accuracy": 0.983,
+          "count": 230
+        }
+      ]
+    },
+    "Cardiomegaly": {
+      "optimal_temperature": 0.403,
+      "ece_uncalibrated": 0.138,
+      "ece_temperature_scaled": 0.0082,
+      "ece_platt": 0.0082,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 94.1,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.012,
+          "accuracy": 0.012,
+          "count": 1217
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.15,
+          "accuracy": 0.171,
+          "count": 82
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.243,
+          "accuracy": 0.257,
+          "count": 35
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.351,
+          "accuracy": 0.281,
+          "count": 32
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.46,
+          "accuracy": 0.5,
+          "count": 22
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.55,
+          "accuracy": 0.485,
+          "count": 33
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.657,
+          "accuracy": 0.656,
+          "count": 32
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.753,
+          "accuracy": 0.853,
+          "count": 34
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.852,
+          "accuracy": 0.786,
+          "count": 42
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.978,
+          "accuracy": 0.982,
+          "count": 271
+        }
+      ]
+    },
+    "Edema": {
+      "optimal_temperature": 0.413,
+      "ece_uncalibrated": 0.1607,
+      "ece_temperature_scaled": 0.0057,
+      "ece_platt": 0.0057,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 96.5,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.009,
+          "accuracy": 0.01,
+          "count": 1451
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.142,
+          "accuracy": 0.14,
+          "count": 57
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.247,
+          "accuracy": 0.194,
+          "count": 36
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.338,
+          "accuracy": 0.353,
+          "count": 17
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.45,
+          "accuracy": 0.4,
+          "count": 20
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.564,
+          "accuracy": 0.714,
+          "count": 14
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.646,
+          "accuracy": 0.571,
+          "count": 14
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.758,
+          "accuracy": 0.75,
+          "count": 24
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.863,
+          "accuracy": 0.833,
+          "count": 30
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.977,
+          "accuracy": 0.985,
+          "count": 137
+        }
+      ]
+    },
+    "Atelectasis": {
+      "optimal_temperature": 0.458,
+      "ece_uncalibrated": 0.1287,
+      "ece_temperature_scaled": 0.008,
+      "ece_platt": 0.008,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 93.8,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.014,
+          "accuracy": 0.014,
+          "count": 1243
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.145,
+          "accuracy": 0.163,
+          "count": 98
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.246,
+          "accuracy": 0.224,
+          "count": 49
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.349,
+          "accuracy": 0.419,
+          "count": 31
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.454,
+          "accuracy": 0.391,
+          "count": 23
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.546,
+          "accuracy": 0.4,
+          "count": 20
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.669,
+          "accuracy": 0.7,
+          "count": 20
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.751,
+          "accuracy": 0.727,
+          "count": 44
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.855,
+          "accuracy": 0.878,
+          "count": 41
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.976,
+          "accuracy": 0.983,
+          "count": 231
+        }
+      ]
+    },
+    "Lung Opacity": {
+      "optimal_temperature": 0.379,
+      "ece_uncalibrated": 0.1409,
+      "ece_temperature_scaled": 0.0061,
+      "ece_platt": 0.0061,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 95.7,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.01,
+          "accuracy": 0.009,
+          "count": 1275
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.145,
+          "accuracy": 0.127,
+          "count": 71
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.242,
+          "accuracy": 0.206,
+          "count": 34
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.344,
+          "accuracy": 0.37,
+          "count": 27
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.457,
+          "accuracy": 0.448,
+          "count": 29
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.547,
+          "accuracy": 0.632,
+          "count": 19
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.649,
+          "accuracy": 0.576,
+          "count": 33
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.749,
+          "accuracy": 0.824,
+          "count": 34
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.858,
+          "accuracy": 0.86,
+          "count": 43
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.981,
+          "accuracy": 0.983,
+          "count": 235
+        }
+      ]
+    },
+    "No Finding": {
+      "optimal_temperature": 0.428,
+      "ece_uncalibrated": 0.1252,
+      "ece_temperature_scaled": 0.0118,
+      "ece_platt": 0.0118,
+      "ece_isotonic": 0.0,
+      "ece_reduction_pct": 90.6,
+      "bins": [
+        {
+          "bin_center": 0.05,
+          "confidence": 0.013,
+          "accuracy": 0.012,
+          "count": 1209
+        },
+        {
+          "bin_center": 0.15,
+          "confidence": 0.145,
+          "accuracy": 0.163,
+          "count": 80
+        },
+        {
+          "bin_center": 0.25,
+          "confidence": 0.246,
+          "accuracy": 0.184,
+          "count": 38
+        },
+        {
+          "bin_center": 0.35,
+          "confidence": 0.352,
+          "accuracy": 0.542,
+          "count": 24
+        },
+        {
+          "bin_center": 0.45,
+          "confidence": 0.456,
+          "accuracy": 0.4,
+          "count": 25
+        },
+        {
+          "bin_center": 0.55,
+          "confidence": 0.551,
+          "accuracy": 0.433,
+          "count": 30
+        },
+        {
+          "bin_center": 0.65,
+          "confidence": 0.645,
+          "accuracy": 0.56,
+          "count": 25
+        },
+        {
+          "bin_center": 0.75,
+          "confidence": 0.75,
+          "accuracy": 0.867,
+          "count": 30
+        },
+        {
+          "bin_center": 0.85,
+          "confidence": 0.854,
+          "accuracy": 0.875,
+          "count": 56
+        },
+        {
+          "bin_center": 0.95,
+          "confidence": 0.979,
+          "accuracy": 0.979,
+          "count": 283
+        }
+      ]
+    }
+  },
+  "macro_ece_before": 0.1388,
+  "macro_ece_after_temperature": 0.0087,
+  "macro_ece_after_platt": 0.0087,
+  "macro_ece_after_isotonic": 0.0,
+  "reliability_diagram_data": [
+    {
+      "bin_center": 0.05,
+      "confidence": 0.011,
+      "accuracy": 0.008,
+      "count": 1128
+    },
+    {
+      "bin_center": 0.15,
+      "confidence": 0.146,
+      "accuracy": 0.101,
+      "count": 69
+    },
+    {
+      "bin_center": 0.25,
+      "confidence": 0.24,
+      "accuracy": 0.263,
+      "count": 38
+    },
+    {
+      "bin_center": 0.35,
+      "confidence": 0.344,
+      "accuracy": 0.222,
+      "count": 27
+    },
+    {
+      "bin_center": 0.45,
+      "confidence": 0.46,
+      "accuracy": 0.522,
+      "count": 23
+    },
+    {
+      "bin_center": 0.55,
+      "confidence": 0.551,
+      "accuracy": 0.529,
+      "count": 17
+    },
+    {
+      "bin_center": 0.65,
+      "confidence": 0.659,
+      "accuracy": 0.667,
+      "count": 27
+    },
+    {
+      "bin_center": 0.75,
+      "confidence": 0.756,
+      "accuracy": 0.706,
+      "count": 34
+    },
+    {
+      "bin_center": 0.85,
+      "confidence": 0.855,
+      "accuracy": 0.896,
+      "count": 48
+    },
+    {
+      "bin_center": 0.95,
+      "confidence": 0.975,
+      "accuracy": 0.963,
+      "count": 189
+    }
+  ]
+}

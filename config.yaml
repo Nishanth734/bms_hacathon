@@ -1,8 +1,0 @@
-learning:
-  min_new_cases_to_retrain: 5
-  case_weight: 5.0            # weight of an approved case vs a normal row
-  max_case_weight_share: 0.2  # approved cases may be at most 20% of training weight
-  gate_max_metric_drop: 0.01  # new model may not lose more than this on frozen validation
-  incident_tx_id_offset: 10000000000
-
-use_llm: false

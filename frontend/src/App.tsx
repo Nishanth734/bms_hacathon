@@ -1,315 +1,179 @@
 import React, { useState, useEffect } from 'react';
-import type {
-  PageView,
-  DatasetItem,
-  AnalysisSummary,
-  CaseListItem,
-  CaseDetail,
-  AblationRow,
-} from './types';
-import {
-  getHealth,
-  getDatasets,
-  selectDataset,
-  getAnalysisSummary,
-  getCases,
-  getCaseDetail,
-  getMetrics,
-} from './services/api';
-import { Navbar } from './components/Navbar';
-import { Overview } from './pages/Overview';
-import { DatasetManagement } from './pages/DatasetManagement';
-import { AnalysisRunner } from './pages/AnalysisRunner';
-import { WalletNetwork } from './pages/WalletNetwork';
-import { FraudDetection } from './pages/FraudDetection';
-import { RiskAssessment } from './pages/RiskAssessment';
-import { InvestigationCases } from './pages/InvestigationCases';
-import { EvidenceReports } from './pages/EvidenceReports';
-import { LearningDashboard } from './pages/LearningDashboard';
-import { MetricsTable } from './components/MetricsTable';
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
+import { WorklistPage } from './pages/WorklistPage';
+import { ViewerPage } from './pages/ViewerPage';
+import { UploadPage } from './pages/UploadPage';
+import { PerformancePage } from './pages/PerformancePage';
+import { SimulationPage } from './pages/SimulationPage';
+import { AuditPage } from './pages/AuditPage';
+import { LoginPage } from './pages/LoginPage';
+import { PersistentFooter } from './components/PersistentFooter';
+import { ShortcutModal } from './components/ShortcutModal';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { getAuthToken, clearAuthToken, api } from './services/api';
 
-export const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<PageView>('dashboard');
-  const [datasets, setDatasets] = useState<DatasetItem[]>([]);
-  const [activeDatasetId, setActiveDatasetId] = useState<string>('nft-sample-001');
-  const [summary, setSummary] = useState<AnalysisSummary | null>(null);
-  const [cases, setCases] = useState<CaseListItem[]>([]);
-  const [selectedCaseId, setSelectedCaseId] = useState<string | null>(null);
-  const [selectedCaseDetail, setSelectedCaseDetail] = useState<CaseDetail | null>(null);
-  const [ablation, setAblation] = useState<AblationRow[]>([]);
-  const [showAblationModal, setShowAblationModal] = useState(false);
-  const [backendOnline, setBackendOnline] = useState(false);
-  const [loadingDataset, setLoadingDataset] = useState(false);
-
-  // 1. Initial Load: health, datasets, metrics
-  const loadInitialData = async () => {
-    try {
-      const h = await getHealth();
-      setBackendOnline(true);
-      if (h.active_dataset) {
-        setActiveDatasetId(h.active_dataset);
-      }
-    } catch {
-      setBackendOnline(false);
-    }
-
-    try {
-      const d = await getDatasets();
-      setDatasets(d.datasets);
-      if (d.active_dataset_id) {
-        setActiveDatasetId(d.active_dataset_id);
-      }
-    } catch (e) {
-      console.error('Failed to load datasets:', e);
-    }
-
-    try {
-      const m = await getMetrics();
-      setAblation(m.ablation);
-    } catch (e) {
-      console.error('Failed to load metrics:', e);
-    }
-  };
+const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState<{ name: string; role: string } | null>(null);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   useEffect(() => {
-    loadInitialData();
+    const token = getAuthToken();
+    if (token) {
+      api.getCurrentUser()
+        .then(u => setCurrentUser(u))
+        .catch(() => {
+          clearAuthToken();
+          navigate('/login');
+        });
+    } else if (location.pathname !== '/login') {
+      navigate('/login');
+    }
+  }, [location.pathname]);
+
+  // Global '?' key listener for shortcuts modal
+  useEffect(() => {
+    const handleGlobalKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === '?') {
+        setShowShortcuts(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKey);
+    return () => window.removeEventListener('keydown', handleGlobalKey);
   }, []);
 
-  // 2. Load dataset-specific summary and cases whenever activeDatasetId changes
-  const loadDatasetData = async (dsId: string) => {
-    setLoadingDataset(true);
-    try {
-      const [sum, c] = await Promise.all([
-        getAnalysisSummary(dsId),
-        getCases({ dataset_id: dsId, limit: 100 })
-      ]);
-      setSummary(sum);
-      setCases(c.cases);
-      if (c.cases.length > 0) {
-        const firstId = c.cases[0].case_id || c.cases[0].cluster_id;
-        setSelectedCaseId(firstId);
-      } else {
-        setSelectedCaseId(null);
-        setSelectedCaseDetail(null);
-      }
-    } catch (e) {
-      console.error('Failed to load dataset data:', e);
-    } finally {
-      setLoadingDataset(false);
-    }
+  if (location.pathname === '/login') {
+    return <>{children}</>;
+  }
+
+  const navItems = [
+    { path: '/', label: 'WORKLIST', badge: null },
+    { path: '/upload', label: 'UPLOAD', badge: 'DICOM' },
+    { path: '/performance', label: 'METRICS', badge: 'AUROC' },
+    { path: '/simulation', label: 'SIMULATION', badge: 'FIFO' },
+    { path: '/audit', label: 'AUDIT LOG', badge: null },
+  ];
+
+  const handleSignOut = () => {
+    clearAuthToken();
+    navigate('/login');
   };
-
-  useEffect(() => {
-    if (activeDatasetId) {
-      loadDatasetData(activeDatasetId);
-    }
-  }, [activeDatasetId]);
-
-  // 3. Load case detail whenever selectedCaseId changes
-  useEffect(() => {
-    if (!selectedCaseId) {
-      setSelectedCaseDetail(null);
-      return;
-    }
-
-    async function fetchCaseDetail() {
-      try {
-        const detail = await getCaseDetail(selectedCaseId!);
-        setSelectedCaseDetail(detail);
-      } catch (e) {
-        console.error('Failed to load case detail:', e);
-      }
-    }
-
-    fetchCaseDetail();
-  }, [selectedCaseId]);
-
-  const handleSelectDataset = async (newId: string) => {
-    setLoadingDataset(true);
-    try {
-      await selectDataset(newId);
-      setActiveDatasetId(newId);
-      const [d, sum, c] = await Promise.all([
-        getDatasets(),
-        getAnalysisSummary(newId),
-        getCases({ dataset_id: newId, limit: 100 }),
-      ]);
-      setDatasets(d.datasets);
-      setSummary(sum);
-      setCases(c.cases);
-      if (c.cases.length > 0) {
-        const firstId = c.cases[0].case_id || c.cases[0].cluster_id;
-        setSelectedCaseId(firstId);
-      } else {
-        setSelectedCaseId(null);
-        setSelectedCaseDetail(null);
-      }
-    } catch (e) {
-      console.error('Failed to select dataset:', e);
-    } finally {
-      setLoadingDataset(false);
-    }
-  };
-
-  const activeDataset = datasets.find((d) => d.id === activeDatasetId);
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--color-bg-cream)' }}>
-      {/* Top Horizontal Navigation */}
-      <Navbar
-        currentView={currentView}
-        onSelectView={setCurrentView}
-        datasets={datasets}
-        activeDatasetId={activeDatasetId}
-        onSelectDataset={handleSelectDataset}
-        onOpenAblation={() => setShowAblationModal(true)}
-        backendOnline={backendOnline}
-      />
-
-      {/* Main View Router */}
-      <main style={{ flex: 1, paddingBottom: '32px' }}>
-        {currentView === 'dashboard' && (
-          <Overview
-            summary={summary}
-            cases={cases}
-            onSelectCase={(id) => setSelectedCaseId(id)}
-            onNavigate={setCurrentView}
-            loading={loadingDataset}
-          />
-        )}
-
-        {currentView === 'cases' && (
-          <InvestigationCases
-            cases={cases}
-            selectedCaseId={selectedCaseId}
-            onSelectCaseId={setSelectedCaseId}
-            onCaseUpdated={() => loadDatasetData(activeDatasetId)}
-            onNavigate={setCurrentView}
-          />
-        )}
-
-        {currentView === 'graph' && (
-          <WalletNetwork
-            selectedCase={selectedCaseDetail}
-            cases={cases}
-            onSelectCaseId={setSelectedCaseId}
-            activeDatasetId={activeDatasetId}
-          />
-        )}
-
-        {currentView === 'typologies' && (
-          <FraudDetection
-            cases={cases}
-            onSelectCase={(id) => setSelectedCaseId(id)}
-            onNavigate={setCurrentView}
-          />
-        )}
-
-        {currentView === 'wallets' && (
-          <RiskAssessment onNavigate={setCurrentView} activeDatasetId={activeDatasetId} />
-        )}
-
-        {currentView === 'datasets' && (
-          <DatasetManagement
-            datasets={datasets}
-            activeDatasetId={activeDatasetId}
-            onRefresh={() => {
-              loadInitialData();
-            }}
-            onSelectDataset={handleSelectDataset}
-            onNavigate={setCurrentView}
-          />
-        )}
-
-        {currentView === 'analysis' && (
-          <AnalysisRunner
-            activeDataset={activeDataset}
-            onAnalysisCompleted={() => {
-              loadDatasetData(activeDatasetId);
-            }}
-            onNavigate={setCurrentView}
-          />
-        )}
-
-        {currentView === 'evidence' && (
-          <EvidenceReports
-            selectedCase={selectedCaseDetail}
-            cases={cases}
-            onSelectCaseId={setSelectedCaseId}
-          />
-        )}
-
-        {currentView === 'learning' && (
-          <LearningDashboard onNavigate={setCurrentView} />
-        )}
-      </main>
-
-      {/* Four-Way Ablation Benchmark Modal */}
-      {showAblationModal && (
-        <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(43, 43, 41, 0.6)',
-            backdropFilter: 'blur(3px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 100,
-            padding: '24px',
-          }}
-          onClick={() => setShowAblationModal(false)}
-        >
-          <div
-            style={{
-              backgroundColor: 'var(--color-bg-white)',
-              borderRadius: 'var(--radius-card)',
-              maxWidth: '920px',
-              width: '100%',
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '16px 20px',
-                borderBottom: '1px solid var(--color-bg-sand)',
-              }}
-            >
-              <div>
-                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 600, margin: 0 }}>
-                  Algorithmic Forensic Benchmark
-                </h2>
-                <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                  4-way comparative performance across baseline thresholding, SCC graph decomposition, and TraceFlow multi-hop pipeline.
-                </div>
+    <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#0B0E11] text-[#E6EBEF]">
+      {/* Top Main Work Area */}
+      <div className="flex-1 flex overflow-hidden">
+        {/* Left Navigation Sidebar (PRD Section 12.6 Slim Nav) */}
+        <aside className="w-48 bg-[#12171B] border-r border-[#26303A] flex flex-col justify-between p-3 select-none flex-shrink-0 z-40">
+          <div className="space-y-5">
+            {/* Wordmark (PRD Section 12.5 Signature Element 8) */}
+            <div className="px-2 pt-1">
+              <div className="flex items-center gap-1.5 font-mono-num font-bold tracking-tight text-[15px] text-[#E6EBEF]">
+                <span>CXR</span>
+                <span className="text-[#8E9AF0]">·</span>
+                <span>TRIAGE</span>
               </div>
+              <div className="text-[9px] font-mono-num text-[#66727D] tracking-wider uppercase mt-0.5">
+                READING ROOM WORKSTATION
+              </div>
+            </div>
+
+            {/* Navigation links */}
+            <nav className="space-y-1">
+              {navItems.map(item => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`flex items-center justify-between px-2.5 py-1.5 rounded-[2px] font-mono-num text-[11px] font-medium transition-colors ${
+                      isActive
+                        ? 'bg-[#1A2127] text-[#8E9AF0] border-l-2 border-[#8E9AF0]'
+                        : 'text-[#9AA7B2] hover:bg-[#1A2127] hover:text-[#E6EBEF]'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    {item.badge && (
+                      <span className="text-[8px] px-1 py-0.2 bg-[#0B0E11] text-[#66727D] rounded-[1px] border border-[#26303A]">
+                        {item.badge}
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Bottom Session Info & Actions */}
+          <div className="space-y-2 border-t border-[#26303A] pt-3 font-mono-num text-[10px]">
+            {/* Active User Pill */}
+            <div className="px-2 py-1.5 bg-[#1A2127] rounded-[2px] border border-[#26303A] space-y-0.5">
+              <div className="text-[#66727D] flex justify-between">
+                <span>ROLE:</span>
+                <span className="text-[#4FB3A5] font-semibold">{currentUser?.role || 'Radiologist'}</span>
+              </div>
+              <div className="text-[#E6EBEF] truncate">{currentUser?.name || 'Dr. Alex Rivera'}</div>
+            </div>
+
+            <div className="flex items-center justify-between px-1 text-[#66727D]">
               <button
-                onClick={() => setShowAblationModal(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '20px',
-                  color: 'var(--color-ink-muted)',
-                  cursor: 'pointer',
-                }}
+                onClick={() => setShowShortcuts(true)}
+                className="hover:text-[#E6EBEF] flex items-center gap-1"
+                title="Keyboard Shortcuts"
               >
-                ✕
+                <kbd className="px-1 bg-[#0B0E11] border border-[#26303A] rounded-[2px] text-[#9AA7B2]">?</kbd>
+                <span>KEYS</span>
+              </button>
+
+              <button
+                onClick={handleSignOut}
+                className="hover:text-[#FF4D4F] transition-colors"
+                title="Sign out of current role"
+              >
+                LOGOUT
               </button>
             </div>
-
-            <div style={{ padding: '20px' }}>
-              <MetricsTable ablation={ablation} loading={false} />
-            </div>
           </div>
-        </div>
-      )}
+        </aside>
+
+        {/* Content Outlet */}
+        <main className="flex-1 flex overflow-hidden min-w-0">
+          {children}
+        </main>
+      </div>
+
+      {/* Mandatory Persistent Clinical Footer (PRD Section 10) */}
+      <PersistentFooter />
+
+      {/* Keyboard Shortcut Modal Sheet */}
+      <ShortcutModal
+        isOpen={showShortcuts}
+        onClose={() => setShowShortcuts(false)}
+      />
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <ErrorBoundary>
+      <BrowserRouter>
+        <AppLayout>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<WorklistPage />} />
+            <Route path="/study/:id" element={<ViewerPage />} />
+            <Route path="/upload" element={<UploadPage />} />
+            <Route path="/performance" element={<PerformancePage />} />
+            <Route path="/simulation" element={<SimulationPage />} />
+            <Route path="/audit" element={<AuditPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AppLayout>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 };
 
